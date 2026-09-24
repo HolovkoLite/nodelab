@@ -1,0 +1,2469 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NodeLab: trasforma un testo in una mappa concettuale interattiva, in un unico file HTML">
+<title>NodeLab</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2224%22%20fill%3D%22%239a6400%22%2F%3E%3Cg%20fill%3D%22%23fbf3df%22%20transform%3D%22translate(.6%201.2)%22%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2220%22%20r%3D%229.5%22%2F%3E%3Cpath%20d%3D%22M20.8%2020%2020.8%2021.5%2020.8%2023%2020.8%2024.5%2020.9%2026%2020.9%2027.5%2021%2029%2021%2030.5%2021%2032%2021%2033.5%2020.9%2035%2020.9%2036.5%2020.8%2038%2020.6%2039.5%2020.5%2041%2020.4%2042.5%2020.2%2044.1%2020%2045.6%2019.9%2047.1%2019.7%2048.6%2019.6%2050.1%2019.4%2051.6%2019.3%2053.2%2019.2%2054.7%2019.1%2056.2%2019%2057.7%2019%2059.3%2019%2060.8%2018.9%2062.3%2018.9%2063.9%2018.8%2065.4%2018.7%2067%2018.5%2068.5%2018.4%2070.1%2018.3%2071.6%2018.1%2073.2%2018%2074.7%2017.9%2076.3%2017.8%2077.9%2017.8%2079.4%2017.8%2081%2030.2%2081%2030.2%2079.4%2030.2%2077.9%2030.1%2076.3%2030%2074.7%2029.9%2073.2%2029.7%2071.6%2029.6%2070.1%2029.5%2068.5%2029.3%2067%2029.2%2065.4%2029.1%2063.9%2029.1%2062.3%2029%2060.8%2029%2059.3%2029%2057.7%2028.9%2056.2%2028.8%2054.7%2028.7%2053.2%2028.6%2051.6%2028.4%2050.1%2028.3%2048.6%2028.1%2047.1%2028%2045.6%2027.8%2044.1%2027.6%2042.5%2027.5%2041%2027.4%2039.5%2027.2%2038%2027.1%2036.5%2027.1%2035%2027%2033.5%2027%2032%2027%2030.5%2027%2029%2027.1%2027.5%2027.1%2026%2027.2%2024.5%2027.2%2023%2027.2%2021.5%2027.2%2020Z%22%2F%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2281%22%20r%3D%226.2%22%2F%3E%3Cpath%20d%3D%22M24%2023.2%2025.9%2023.2%2027.8%2023.2%2029.6%2023.2%2031.4%2023.2%2033.2%2023.2%2034.9%2023.2%2036.7%2023.2%2038.4%2023.3%2040%2023.3%2041.7%2023.4%2043.3%2023.5%2044.9%2023.6%2046.4%2023.7%2047.9%2023.9%2049.4%2024.1%2050.8%2024.3%2052.2%2024.6%2053.6%2024.8%2054.9%2025.1%2056.2%2025.5%2057.4%2025.9%2058.6%2026.3%2059.7%2026.8%2060.8%2027.3%2061.9%2027.8%2062.9%2028.4%2063.8%2028.9%2064.7%2029.5%2065.6%2030.1%2066.4%2030.8%2067.1%2031.4%2067.8%2032.1%2068.5%2032.8%2069.2%2033.5%2069.8%2034.2%2070.3%2035%2070.9%2035.8%2071.4%2036.6%2071.8%2037.5%2072.3%2038.4%2072.6%2039.3%2072.9%2040.3%2073.1%2041.4%2073.3%2042.5%2073.4%2043.6%2073.4%2044.8%2073.4%2046%2073.3%2047.3%2073.2%2048.6%2073.1%2050%2072.9%2052.5%2072.8%2055.1%2072.7%2057.8%2072.7%2060.5%2072.5%2063.2%2072.4%2065.9%2072.2%2068.5%2072.1%2071.2%2072%2073.8%2071.8%2076.3%2071.8%2078.7%2071.8%2081%2084.2%2081%2084.2%2078.7%2084.2%2076.3%2084%2073.8%2083.9%2071.2%2083.8%2068.5%2083.6%2065.9%2083.5%2063.2%2083.3%2060.5%2083.3%2057.8%2083.2%2055.1%2083.1%2052.5%2082.9%2050%2082.7%2048.3%2082.5%2046.7%2082.1%2045.1%2081.7%2043.5%2081.3%2042.1%2080.8%2040.6%2080.3%2039.3%2079.8%2037.9%2079.2%2036.7%2078.7%2035.4%2078%2034.2%2077.4%2033%2076.6%2031.9%2075.8%2030.9%2075%2029.9%2074.1%2028.9%2073.2%2028%2072.2%2027.2%2071.1%2026.4%2070%2025.7%2068.9%2025%2067.8%2024.3%2066.6%2023.8%2065.4%2023.2%2064.1%2022.7%2062.9%2022.2%2061.6%2021.8%2060.2%2021.4%2058.9%2021%2057.5%2020.6%2056.1%2020.3%2054.7%2020%2053.2%2019.6%2051.7%2019.3%2050.2%2019.1%2048.6%2018.8%2047%2018.5%2045.4%2018.3%2043.8%2018.1%2042.1%2017.9%2040.4%2017.7%2038.7%2017.5%2037%2017.3%2035.2%2017.2%2033.4%2017.1%2031.6%2016.9%2029.7%2016.9%2027.8%2016.8%2025.9%2016.8%2024%2016.8Z%22%2F%3E%3Ccircle%20cx%3D%2278%22%20cy%3D%2281%22%20r%3D%226.2%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<style id="map-css"></style>
+<style>
+/* ================= NodeLab — stili dell'editor ================= */
+/* Tema scuro (predefinito nel codice; all'avvio segue il dispositivo) */
+:root {
+  --bg:#15130f; --surface:#1e1b16; --sur2:#25221b; --line:#3b3529; --line-2:#2e2a21;
+  --ink:#efe9dd; --ink-2:#cbc1af; --ink-3:#9e9481;
+  --accent:#e0a53a; --accent-hover:#f0b851; --accent-ink:#221703; --accent-soft:rgba(224,165,58,.15);
+  --bar:#2b1f09; --bar-ink:#fbf3df; --bar-ink-2:#d2bf97; --bar-line:rgba(255,255,255,.26);
+  --beta-bg:rgba(216,148,56,.12); --beta-ink:#f1cf95;
+  --focus:#f0b851;
+  --shadow:0 12px 34px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3);
+  --serif:"Palatino Linotype","Book Antiqua",Palatino,"Iowan Old Style",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"Cascadia Mono","SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+/* Tema chiaro */
+body.light {
+  --bg:#f3f0e9; --surface:#ffffff; --sur2:#f8f6f1; --line:#ddd6c8; --line-2:#ece7dd;
+  --ink:#2a2418; --ink-2:#5c5343; --ink-3:#716754;
+  --accent:#9a6400; --accent-hover:#7f5200; --accent-ink:#ffffff; --accent-soft:#f6ecd6;
+  --bar:#3a2a0c; --bar-ink:#fbf3df; --bar-ink-2:#d6c49e; --bar-line:rgba(255,255,255,.28);
+  --beta-bg:#fff8e9; --beta-ink:#6f5228;
+  --focus:#c98a1c;
+  --shadow:0 12px 34px rgba(42,30,8,.18),0 2px 6px rgba(42,30,8,.1);
+}
+
+*, *::before, *::after { box-sizing:border-box; }
+html, body { margin:0; }
+[hidden] { display:none !important; }
+body {
+  font-family:var(--sans); font-size:15px; line-height:1.45;
+  background:var(--bg); color:var(--ink);
+  height:100vh; height:100dvh; display:flex; flex-direction:column; overflow:hidden;
+  -webkit-text-size-adjust:100%;
+}
+button, input, select, textarea { font:inherit; color:inherit; }
+body.resizing { user-select:none; cursor:col-resize; }
+body.resizing.vert { cursor:row-resize; }
+:focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+svg.ic { width:18px; height:18px; flex:none; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ---------- Barra superiore ---------- */
+#topbar {
+  display:flex; align-items:center; gap:8px; min-height:54px; padding:8px 14px;
+  background:var(--bar); color:var(--bar-ink); flex-shrink:0; z-index:20;
+}
+.brand { display:flex; align-items:center; gap:10px; font-weight:750; font-size:1.06rem; letter-spacing:-.01em; white-space:nowrap; }
+.brand-logo { display:block; width:30px; height:30px; flex:none; }
+#topbar .sep { width:1px; align-self:stretch; margin:4px 2px; background:rgba(255,255,255,.18); flex:none; }
+#map-name {
+  flex:0 1 340px; min-width:90px; height:36px;
+  background:transparent; border:1px solid transparent; border-radius:8px;
+  color:var(--bar-ink); font-family:var(--serif); font-size:1.12rem; padding:4px 8px; outline:none;
+  text-overflow:ellipsis;
+}
+#map-name::placeholder { color:var(--bar-ink-2); font-style:italic; }
+#map-name:hover { border-color:rgba(255,255,255,.3); }
+#map-name:focus { border-color:rgba(255,255,255,.55); background:rgba(255,255,255,.06); }
+.spacer { flex:1; }
+.tb-actions { display:flex; align-items:center; gap:6px; flex-wrap:nowrap; }
+.tbtn {
+  display:inline-flex; align-items:center; justify-content:center; gap:7px;
+  height:36px; padding:0 12px; border-radius:10px; border:1px solid var(--bar-line);
+  background:transparent; color:var(--bar-ink); font-size:.86rem; font-weight:700;
+  cursor:pointer; white-space:nowrap; flex:none;
+}
+.tbtn:hover { background:rgba(255,255,255,.1); }
+.tbtn.icon { width:36px; padding:0; }
+.tbtn.primary { background:#fbf3df; border-color:#fbf3df; color:#3a2a0c; }
+.tbtn.primary:hover { background:#ffffff; }
+.tbtn .ic { width:17px; height:17px; }
+
+/* Menu Esporta */
+.menu-wrap { position:relative; flex:none; }
+.menu {
+  position:absolute; top:calc(100% + 8px); right:0; width:300px; z-index:60;
+  background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:12px;
+  box-shadow:var(--shadow); padding:6px;
+}
+.menu button {
+  display:flex; align-items:flex-start; gap:11px; width:100%; text-align:left;
+  background:none; border:none; cursor:pointer; padding:9px 10px; border-radius:9px; color:var(--ink);
+}
+.menu button:hover, .menu button:focus-visible { background:var(--accent-soft); outline:none; }
+.menu button .ic { color:var(--accent); margin-top:1px; }
+.menu strong { display:block; font-size:.88rem; }
+.menu small { display:block; color:var(--ink-3); font-size:.76rem; line-height:1.35; margin-top:2px; }
+.menu hr { border:0; border-top:1px solid var(--line-2); margin:5px 4px; }
+
+/* ---------- Pannelli ---------- */
+#main { display:flex; flex:1; overflow:hidden; min-height:0; }
+.phead {
+  display:flex; align-items:center; gap:10px; min-height:46px; padding:6px 14px;
+  border-bottom:1px solid var(--line); background:var(--surface); flex-shrink:0;
+}
+.kicker { font-size:.68rem; font-weight:800; letter-spacing:.11em; text-transform:uppercase; color:var(--accent); white-space:nowrap; }
+
+#epanel {
+  width:38%; min-width:240px; display:flex; flex-direction:column;
+  background:var(--surface); border-right:1px solid var(--line); flex-shrink:0; overflow:hidden;
+}
+#editor {
+  flex:1; background:transparent; color:var(--ink);
+  font-family:var(--mono); font-size:13.5px; line-height:1.75;
+  padding:16px 18px 16px 24px; border:none; outline:none; resize:none; overflow-y:auto; tab-size:2;
+}
+#editor:focus-visible { outline:none; box-shadow:inset 3px 0 0 var(--accent); }
+#efooter {
+  min-height:32px; padding:6px 14px; border-top:1px solid var(--line); flex-shrink:0;
+  display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  background:var(--sur2); font-size:.76rem; color:var(--ink-3);
+}
+#ehint { margin-left:auto; font-size:.74rem; color:var(--ink-3); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; }
+
+#divider { width:6px; background:var(--line); cursor:col-resize; flex-shrink:0; touch-action:none; }
+#divider:hover, #divider.drag, #divider:focus-visible { background:var(--accent); outline:none; }
+
+#mpanel { flex:1; min-width:0; display:flex; flex-direction:column; overflow:hidden; background:var(--map-bg); position:relative; }
+#mhead { flex-wrap:wrap; }
+#search-wrap { display:flex; align-items:center; gap:8px; margin-left:auto; }
+#search {
+  width:170px; height:32px; background:var(--sur2); border:1px solid var(--line); border-radius:8px;
+  color:var(--ink); font-size:.84rem; padding:4px 10px; outline:none;
+}
+#search::placeholder { color:var(--ink-3); }
+#search:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+#search-count, #ncount { font-size:.76rem; color:var(--ink-3); white-space:nowrap; }
+#search-count:empty { display:none; }
+.map-tools { display:flex; align-items:center; gap:5px; }
+.mbtn {
+  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+  height:32px; min-width:32px; padding:0 10px; border-radius:8px; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink-2); font-size:.82rem; font-weight:700; cursor:pointer; white-space:nowrap;
+}
+.mbtn.icon { width:32px; padding:0; }
+.mbtn:hover { background:var(--accent-soft); color:var(--accent); border-color:var(--accent); }
+.mbtn .ic { width:16px; height:16px; }
+.mbtn.primary { background:var(--accent); border-color:var(--accent); color:var(--accent-ink); }
+.mbtn.primary:hover { background:var(--accent-hover); color:var(--accent-ink); }
+
+#svg-wrap { flex:1; overflow:hidden; position:relative; min-height:0; }
+#mm-svg { width:100%; height:100%; display:block; background:var(--map-bg); }
+
+#maperr {
+  position:absolute; inset:0; display:none; align-items:center; justify-content:center; padding:24px;
+  background:var(--map-bg); z-index:5;
+}
+#maperr.show { display:flex; }
+#maperr .card {
+  max-width:440px; padding:22px 24px; border:1px solid var(--line); border-radius:14px;
+  background:var(--surface); box-shadow:var(--shadow); color:var(--ink-2); font-size:.9rem; line-height:1.6; text-align:center;
+}
+#maperr strong { display:block; color:var(--ink); font-size:1rem; margin-bottom:6px; }
+#maperr .mbtn { margin-top:14px; }
+
+/* ---------- Finestre di dialogo ---------- */
+.mbg {
+  display:none; position:fixed; inset:0; z-index:1000;
+  background:rgba(24,17,5,.55); align-items:center; justify-content:center; padding:12px;
+}
+.mbg.open { display:flex; }
+.mbox {
+  background:var(--surface); color:var(--ink); border-radius:14px; box-shadow:var(--shadow);
+  width:min(520px,100%); max-height:calc(100dvh - 24px);
+  display:flex; flex-direction:column; overflow:hidden; outline:none;
+}
+.dlg-head { display:flex; align-items:center; gap:12px; padding:0 12px 0 20px; min-height:58px; border-bottom:1px solid var(--line); flex:none; }
+.dlg-head h2 { margin:0; flex:1; font-size:1.1rem; }
+.ibtn {
+  display:grid; place-items:center; width:34px; height:34px; flex:none;
+  border:1px solid var(--line); border-radius:9px; background:var(--surface); color:var(--ink-2); cursor:pointer;
+}
+.ibtn:hover { background:var(--accent-soft); color:var(--accent); }
+.srow { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px; border-bottom:1px solid var(--line-2); }
+.srow:last-child { border-bottom:none; }
+.slabel { font-size:.92rem; font-weight:600; color:var(--ink); }
+.slabel small { display:block; font-size:.78rem; font-weight:400; color:var(--ink-3); margin-top:3px; line-height:1.4; }
+.sinput {
+  width:90px; height:38px; background:var(--surface); border:1px solid var(--line); border-radius:8px;
+  color:var(--ink); font-family:var(--mono); font-size:.9rem; padding:5px 9px; outline:none; text-align:center;
+}
+.sinput:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+.srow input[type=checkbox] { accent-color:var(--accent); width:18px; height:18px; flex:none; cursor:pointer; }
+
+/* ---------- Tutorial (stesso impianto del Tutorial di CronoLab e MapLab) ---------- */
+.mbox.tutorial-dlg { width:min(1120px,100%); height:min(860px,calc(100dvh - 24px)); max-height:none; }
+.tutorial-body { flex:1 1 auto; min-height:0; overflow:auto; background:var(--sur2); scroll-behavior:smooth; }
+.tutorial-layout { display:grid; grid-template-columns:235px minmax(0,1fr); align-items:stretch; min-height:100%; background:linear-gradient(90deg,var(--surface) 0,var(--surface) 235px,var(--sur2) 235px,var(--sur2) 100%); }
+.tutorial-menu { position:sticky; top:0; z-index:3; align-self:start; height:calc(min(860px,100dvh - 24px) - 58px); overflow:auto; padding:24px 18px; border-right:1px solid var(--line); background:var(--surface); }
+.tutorial-menu-title { margin:0 0 13px; color:var(--ink-3); font-size:.67rem; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
+.tutorial-menu nav { display:grid; gap:5px; }
+.tutorial-menu a { display:block; padding:9px 10px; border-radius:9px; color:var(--ink-2); font-size:.8rem; font-weight:700; text-decoration:none; }
+.tutorial-menu a:hover, .tutorial-menu a:focus-visible { background:var(--accent-soft); color:var(--accent); outline:none; }
+.tutorial-content { min-width:0; padding:32px clamp(24px,4vw,52px) 64px; }
+.tutorial-intro { padding:28px clamp(22px,4vw,38px); border:1px solid var(--line); border-radius:20px; background:linear-gradient(135deg,var(--surface),var(--accent-soft)); box-shadow:0 14px 40px rgba(154,100,0,.08); }
+.tutorial-kicker { margin:0 0 7px; color:var(--accent); font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.tutorial-intro h2, .tutorial-changelog h2 { margin:0 0 12px; font-size:clamp(1.5rem,3vw,2.1rem); line-height:1.12; letter-spacing:-.03em; }
+.tutorial-intro > p:not(.tutorial-kicker) { max-width:760px; margin:9px 0; color:var(--ink-2); font-size:.92rem; line-height:1.66; }
+.tutorial-version-link { color:var(--accent); font-weight:700; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; white-space:nowrap; }
+.tutorial-version-link:hover, .tutorial-version-link:focus-visible { color:var(--accent-hover); text-decoration-thickness:2px; }
+.tutorial-intro > p.tutorial-beta { padding:11px 13px; border-left:4px solid #d89438; border-radius:8px; background:var(--beta-bg); color:var(--beta-ink); }
+.tutorial-section { margin-top:42px; scroll-margin-top:18px; }
+.tutorial-section-heading { display:flex; align-items:center; gap:12px; margin-bottom:13px; }
+.tutorial-section-number { display:grid; place-items:center; width:31px; height:31px; flex:none; border-radius:10px; background:var(--accent-soft); color:var(--accent); font-size:.7rem; font-weight:800; }
+.tutorial-section h3 { margin:0; font-size:1.12rem; letter-spacing:-.01em; }
+.tutorial-faq-list { display:grid; gap:9px; }
+.tutorial-faq { border:1px solid var(--line); border-radius:13px; background:var(--surface); box-shadow:0 5px 18px rgba(42,30,8,.04); overflow:hidden; }
+.tutorial-faq summary { position:relative; display:flex; align-items:center; min-height:52px; padding:14px 48px 14px 17px; list-style:none; color:var(--ink); font-size:.88rem; font-weight:700; line-height:1.4; cursor:pointer; }
+.tutorial-faq summary::-webkit-details-marker { display:none; }
+.tutorial-faq summary::after { content:"+"; position:absolute; right:16px; display:grid; place-items:center; width:24px; height:24px; border-radius:8px; background:var(--accent-soft); color:var(--accent); font-size:1.05rem; line-height:1; }
+.tutorial-faq[open] summary { color:var(--accent); border-bottom:1px solid var(--line); background:var(--sur2); }
+.tutorial-faq[open] summary::after { content:"−"; }
+.tutorial-faq summary:hover, .tutorial-faq summary:focus-visible { background:var(--sur2); outline:none; }
+.tutorial-answer { padding:16px 18px 18px; color:var(--ink-2); font-size:.85rem; line-height:1.66; }
+.tutorial-answer p { margin:0 0 10px; }
+.tutorial-answer p:last-child, .tutorial-answer ul:last-child, .tutorial-answer table:last-child, .tutorial-answer pre:last-child { margin-bottom:0; }
+.tutorial-answer ul { margin:8px 0 13px; padding-left:21px; }
+.tutorial-answer li + li { margin-top:5px; }
+.tutorial-answer strong { color:var(--ink); }
+.tutorial-answer a, .tutorial-changelog a { color:var(--accent); font-weight:700; }
+.tutorial-answer code { font-family:var(--mono); font-size:.82rem; padding:1px 5px; border:1px solid var(--line); border-radius:5px; background:var(--sur2); color:var(--ink); white-space:nowrap; }
+.tutorial-answer pre { margin:8px 0 12px; padding:10px 13px; border:1px solid var(--line); border-radius:9px; background:var(--sur2); color:var(--ink); font-family:var(--mono); font-size:.8rem; line-height:1.6; overflow:auto; }
+.tutorial-answer mark { background:var(--mm-mark); color:inherit; padding:0 3px; border-radius:3px; }
+.tutorial-tip { padding:10px 12px; border-radius:9px; background:var(--accent-soft); color:var(--ink-2); }
+.tutorial-keys { width:100%; border-collapse:collapse; margin:0 0 12px; }
+.tutorial-keys td { padding:7px 8px; border-bottom:1px solid var(--line-2); vertical-align:top; }
+.tutorial-keys td:first-child { width:1%; padding-right:18px; white-space:nowrap; }
+.tutorial-keys kbd { display:inline-block; min-width:1.6em; padding:1px 6px; border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; background:var(--surface); color:var(--ink); font:600 .78rem var(--sans); text-align:center; }
+.tutorial-changelog { max-width:850px; margin:0 auto; padding:34px clamp(22px,5vw,54px) 64px; }
+.tutorial-back { display:inline-flex; margin-bottom:23px; text-decoration:none; }
+.tutorial-changelog-header { padding-bottom:22px; border-bottom:1px solid var(--line); }
+.tutorial-changelog-header p { max-width:680px; margin:0; color:var(--ink-3); font-size:.87rem; line-height:1.6; }
+.tutorial-release { margin-top:26px; padding:24px; border:1px solid var(--line); border-radius:17px; background:var(--surface); box-shadow:0 9px 30px rgba(42,30,8,.05); }
+.tutorial-release-current { border-color:rgba(154,100,0,.35); box-shadow:0 12px 34px rgba(154,100,0,.09); }
+.tutorial-release-head { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:16px; }
+.tutorial-release h3 { margin:0; font-size:1.15rem; }
+.tutorial-release-badge { padding:4px 9px; border-radius:999px; background:var(--accent-soft); color:var(--accent); font-size:.65rem; font-weight:800; text-transform:uppercase; letter-spacing:.07em; white-space:nowrap; }
+.tutorial-release h4 { margin:18px 0 7px; font-size:.86rem; }
+.tutorial-release ul { margin:0; padding-left:20px; color:var(--ink-2); font-size:.83rem; line-height:1.62; }
+.tutorial-release li + li { margin-top:5px; }
+
+/* ---------- Avvisi e trascinamento ---------- */
+#toast {
+  position:fixed; bottom:20px; left:50%; transform:translateX(-50%) translateY(6px);
+  background:var(--bar); color:var(--bar-ink); border-radius:10px; padding:10px 16px; font-size:.9rem;
+  box-shadow:var(--shadow); z-index:2000; opacity:0; transition:opacity .2s, transform .2s; pointer-events:none; max-width:min(520px,calc(100vw - 32px));
+}
+#toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+#drop {
+  position:fixed; inset:8px; display:none; align-items:center; justify-content:center; text-align:center; padding:20px;
+  background:rgba(154,100,0,.14); border:3px dashed var(--accent); border-radius:16px;
+  z-index:1500; font-size:1.1rem; font-weight:700; color:var(--ink); pointer-events:none;
+}
+#drop.show { display:flex; }
+::-webkit-scrollbar { width:8px; height:8px; }
+::-webkit-scrollbar-thumb { background:var(--line); border-radius:4px; }
+@media (prefers-reduced-motion: reduce) { * { transition:none !important; scroll-behavior:auto !important; } }
+
+/* ---------- Schermi medi e stretti ---------- */
+@media (max-width:1180px) {
+  .tbtn .lbl { display:none; }
+  .tbtn:not(.icon) { width:36px; padding:0; }
+  #ehint { display:none; }
+}
+@media (max-width:820px) {
+  .tutorial-layout { display:block; background:var(--sur2); }
+  .tutorial-menu { height:auto; padding:10px 13px; border-right:0; border-bottom:1px solid var(--line); box-shadow:0 7px 18px rgba(42,30,8,.07); }
+  .tutorial-menu-title { display:none; }
+  .tutorial-menu nav { display:flex; gap:5px; overflow-x:auto; padding-bottom:2px; scrollbar-width:thin; }
+  .tutorial-menu a { flex:none; padding:8px 9px; font-size:.74rem; }
+  .tutorial-content { padding:18px 14px 48px; }
+  .tutorial-intro { padding:21px 18px; border-radius:16px; }
+  .tutorial-section { margin-top:32px; }
+  .tutorial-faq summary { padding-left:14px; font-size:.84rem; }
+  .tutorial-answer { padding:14px; font-size:.82rem; }
+  .tutorial-keys td:first-child { white-space:normal; }
+  .tutorial-changelog { padding:24px 16px 48px; }
+  .tutorial-release { padding:19px; }
+}
+@media (max-width:760px) {
+  #topbar { flex-wrap:wrap; padding:8px 10px; gap:6px; }
+  #map-name { flex:1 1 120px; }
+  #topbar .spacer { display:none; }
+  .tb-actions { flex-basis:100%; justify-content:flex-end; }
+  .brand-name { display:none; }
+  #main { flex-direction:column; }
+  #epanel { width:100% !important; min-width:0; height:42%; border-right:none; border-bottom:1px solid var(--line); }
+  #divider { width:100%; height:10px; cursor:row-resize; }
+  #search { width:120px; }
+  .mbtn .lbl { display:none; }
+  .mbtn:not(.icon) { padding:0 8px; }
+}
+</style>
+</head>
+<body>
+
+<header id="topbar">
+  <span class="brand">
+    <svg class="brand-logo" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#fbf3df"/><g fill="#9a6400" transform="translate(.6 1.2)"><circle cx="24" cy="20" r="9.5"/><path d="M20.8 20 20.8 21.5 20.8 23 20.8 24.5 20.9 26 20.9 27.5 21 29 21 30.5 21 32 21 33.5 20.9 35 20.9 36.5 20.8 38 20.6 39.5 20.5 41 20.4 42.5 20.2 44.1 20 45.6 19.9 47.1 19.7 48.6 19.6 50.1 19.4 51.6 19.3 53.2 19.2 54.7 19.1 56.2 19 57.7 19 59.3 19 60.8 18.9 62.3 18.9 63.9 18.8 65.4 18.7 67 18.5 68.5 18.4 70.1 18.3 71.6 18.1 73.2 18 74.7 17.9 76.3 17.8 77.9 17.8 79.4 17.8 81 30.2 81 30.2 79.4 30.2 77.9 30.1 76.3 30 74.7 29.9 73.2 29.7 71.6 29.6 70.1 29.5 68.5 29.3 67 29.2 65.4 29.1 63.9 29.1 62.3 29 60.8 29 59.3 29 57.7 28.9 56.2 28.8 54.7 28.7 53.2 28.6 51.6 28.4 50.1 28.3 48.6 28.1 47.1 28 45.6 27.8 44.1 27.6 42.5 27.5 41 27.4 39.5 27.2 38 27.1 36.5 27.1 35 27 33.5 27 32 27 30.5 27 29 27.1 27.5 27.1 26 27.2 24.5 27.2 23 27.2 21.5 27.2 20Z"/><circle cx="24" cy="81" r="6.2"/><path d="M24 23.2 25.9 23.2 27.8 23.2 29.6 23.2 31.4 23.2 33.2 23.2 34.9 23.2 36.7 23.2 38.4 23.3 40 23.3 41.7 23.4 43.3 23.5 44.9 23.6 46.4 23.7 47.9 23.9 49.4 24.1 50.8 24.3 52.2 24.6 53.6 24.8 54.9 25.1 56.2 25.5 57.4 25.9 58.6 26.3 59.7 26.8 60.8 27.3 61.9 27.8 62.9 28.4 63.8 28.9 64.7 29.5 65.6 30.1 66.4 30.8 67.1 31.4 67.8 32.1 68.5 32.8 69.2 33.5 69.8 34.2 70.3 35 70.9 35.8 71.4 36.6 71.8 37.5 72.3 38.4 72.6 39.3 72.9 40.3 73.1 41.4 73.3 42.5 73.4 43.6 73.4 44.8 73.4 46 73.3 47.3 73.2 48.6 73.1 50 72.9 52.5 72.8 55.1 72.7 57.8 72.7 60.5 72.5 63.2 72.4 65.9 72.2 68.5 72.1 71.2 72 73.8 71.8 76.3 71.8 78.7 71.8 81 84.2 81 84.2 78.7 84.2 76.3 84 73.8 83.9 71.2 83.8 68.5 83.6 65.9 83.5 63.2 83.3 60.5 83.3 57.8 83.2 55.1 83.1 52.5 82.9 50 82.7 48.3 82.5 46.7 82.1 45.1 81.7 43.5 81.3 42.1 80.8 40.6 80.3 39.3 79.8 37.9 79.2 36.7 78.7 35.4 78 34.2 77.4 33 76.6 31.9 75.8 30.9 75 29.9 74.1 28.9 73.2 28 72.2 27.2 71.1 26.4 70 25.7 68.9 25 67.8 24.3 66.6 23.8 65.4 23.2 64.1 22.7 62.9 22.2 61.6 21.8 60.2 21.4 58.9 21 57.5 20.6 56.1 20.3 54.7 20 53.2 19.6 51.7 19.3 50.2 19.1 48.6 18.8 47 18.5 45.4 18.3 43.8 18.1 42.1 17.9 40.4 17.7 38.7 17.5 37 17.3 35.2 17.2 33.4 17.1 31.6 16.9 29.7 16.9 27.8 16.8 25.9 16.8 24 16.8Z"/><circle cx="78" cy="81" r="6.2"/></g></svg>
+    <span class="brand-name">NodeLab</span>
+  </span>
+  <span class="sep"></span>
+  <label class="sr-only" for="map-name">Nome della mappa</label>
+  <input id="map-name" type="text" maxlength="120" placeholder="Nome della mappa" value="La mia mappa" title="Nome della mappa: diventa il titolo della pagina esportata e il nome del file">
+  <span class="spacer"></span>
+  <nav class="tb-actions" aria-label="Azioni principali">
+    <button class="tbtn icon" id="btn-undo" type="button" title="Annulla (Ctrl/Cmd+Z)" aria-label="Annulla" aria-keyshortcuts="Control+Z Meta+Z">
+      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></svg>
+    </button>
+    <button class="tbtn icon" id="btn-redo" type="button" title="Ripristina (Ctrl/Cmd+Maiusc+Z o Ctrl/Cmd+Y)" aria-label="Ripristina" aria-keyshortcuts="Control+Shift+Z Meta+Shift+Z Control+Y Meta+Y">
+      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 14l5-5-5-5"/><path d="M20 9H9a5 5 0 0 0 0 10h3"/></svg>
+    </button>
+    <button class="tbtn" id="btn-load" type="button" title="Apri una mappa esportata o un file di testo (.html, .md, .txt): puoi anche trascinare il file nella finestra">
+      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+      <span class="lbl">Apri</span>
+    </button>
+    <input type="file" id="file-inp" accept=".html,.htm,.md,.markdown,.txt" hidden aria-label="Scegli il file da aprire">
+    <button class="tbtn icon" id="btn-theme" type="button" title="Passa al tema chiaro" aria-label="Passa al tema chiaro">
+      <svg class="ic" id="icon-theme" viewBox="0 0 24 24" aria-hidden="true"></svg>
+    </button>
+    <button class="tbtn icon" id="btn-settings" type="button" title="Impostazioni" aria-label="Impostazioni">
+      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+    </button>
+    <div class="menu-wrap">
+      <button class="tbtn primary" id="btn-export" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="export-menu" title="Esporta la mappa: pagina HTML, immagine, PDF o testo (Ctrl/Cmd+S per la pagina HTML)">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+        <span class="lbl">Esporta</span>
+      </button>
+      <div class="menu" id="export-menu" role="menu" hidden>
+        <button role="menuitem" type="button" data-exp="html">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          <span><strong>Pagina HTML interattiva</strong><small>La mappa da condividere, da riaprire con Apri per modificarla (Ctrl/Cmd+S)</small></span>
+        </button>
+        <hr>
+        <button role="menuitem" type="button" data-exp="png">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg>
+          <span><strong>Immagine PNG</strong><small>Con lo sfondo e i colori del tema attuale</small></span>
+        </button>
+        <button role="menuitem" type="button" data-exp="svg">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z"/><path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18"/><path d="m2.3 2.3 7.286 7.286"/><circle cx="11" cy="11" r="2"/></svg>
+          <span><strong>Immagine SVG</strong><small>Vettoriale: resta nitida a qualsiasi ingrandimento</small></span>
+        </button>
+        <button role="menuitem" type="button" data-exp="pdf">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>
+          <span><strong>PDF</strong><small>Si apre la finestra di stampa: scegli «Salva come PDF»</small></span>
+        </button>
+        <button role="menuitem" type="button" data-exp="md">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg>
+          <span><strong>Testo Markdown (.md)</strong><small>Solo il testo della mappa</small></span>
+        </button>
+      </div>
+    </div>
+    <button class="tbtn icon" id="btn-tut" type="button" title="Tutorial" aria-label="Tutorial">
+      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+    </button>
+  </nav>
+</header>
+
+<div id="main">
+  <section id="epanel" aria-label="Testo della mappa">
+    <div class="phead"><span class="kicker">Testo della mappa</span><span id="ehint">Tab indenta · Maiusc+Tab risale · Invio continua l'elenco</span></div>
+    <textarea id="editor" lang="it" spellcheck="true" aria-label="Testo della mappa in Markdown"></textarea>
+    <div id="efooter">
+      <span id="epos">Riga 1, col 1</span>
+    </div>
+  </section>
+  <div id="divider" role="separator" aria-orientation="vertical" aria-label="Ridimensiona testo e mappa" tabindex="0"></div>
+  <section id="mpanel" aria-label="Anteprima della mappa">
+    <div id="mhead" class="phead">
+      <span class="kicker">Anteprima</span>
+      <span id="ncount"></span>
+      <div id="search-wrap">
+        <label class="sr-only" for="search">Cerca tra i nodi</label>
+        <input id="search" type="search" placeholder="Cerca nodo…" autocomplete="off">
+        <span id="search-count" aria-live="polite"></span>
+        <div class="map-tools">
+          <button class="mbtn" id="btn-toggle" type="button"></button>
+          <button class="mbtn icon" id="btn-zo" type="button" title="Riduci lo zoom" aria-label="Riduci lo zoom">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M8 11h6"/></svg>
+          </button>
+          <button class="mbtn icon" id="btn-zi" type="button" title="Aumenta lo zoom" aria-label="Aumenta lo zoom">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+          </button>
+          <button class="mbtn icon" id="btn-fit" type="button" title="Adatta la mappa alla finestra" aria-label="Adatta la mappa alla finestra">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="svg-wrap">
+      <svg id="mm-svg" role="group" aria-label="Anteprima della mappa"></svg>
+      <div id="maperr" role="alert">
+        <div class="card">
+          <strong>Non riesco a caricare la libreria della mappa</strong>
+          Serve la connessione a internet (cdn.jsdelivr.net o unpkg.com). Se sei a scuola, la rete potrebbe bloccare questi indirizzi.
+          <br><button class="mbtn primary" id="btn-retry" type="button">Riprova</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="drop">Rilascia il file per aprirlo (.html, .md, .txt)</div>
+
+<!-- Impostazioni -->
+<div class="mbg" id="settings-bg">
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="settings-title" tabindex="-1">
+    <div class="dlg-head">
+      <h2 id="settings-title">Impostazioni</h2>
+      <button class="ibtn" type="button" data-close title="Chiudi" aria-label="Chiudi">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="srow">
+      <label class="slabel" for="maxwidth-input">Larghezza dei nodi <small>Larghezza massima del testo di un nodo, in pixel (da 100 a 1200). Viene salvata nel file esportato.</small></label>
+      <input class="sinput" id="maxwidth-input" type="number" min="100" max="1200" step="10" value="500">
+    </div>
+    <div class="srow">
+      <label class="slabel" for="ai-check">Mappa prodotta con l'IA <small>Nella pagina esportata compare un avviso: la mappa è stata prodotta con l'ausilio dell'intelligenza artificiale.</small></label>
+      <input id="ai-check" type="checkbox">
+    </div>
+    <div class="srow">
+      <label class="slabel" for="spell-check">Correttore ortografico <small>Sottolinea gli errori nel testo della mappa (lingua italiana).</small></label>
+      <input id="spell-check" type="checkbox" checked>
+    </div>
+  </div>
+</div>
+
+<!-- Tutorial: i testi sono nei <template> qui sotto -->
+<div class="mbg" id="tut-bg">
+  <div class="mbox tutorial-dlg" role="dialog" aria-modal="true" aria-labelledby="tut-title" tabindex="-1">
+    <div class="dlg-head">
+      <h2 id="tut-title">Tutorial</h2>
+      <button class="ibtn" type="button" data-close title="Chiudi" aria-label="Chiudi">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="tutorial-body" id="tut-body"></div>
+  </div>
+</div>
+
+<!--
+  CONTENUTO DEL TUTORIAL
+  Puoi modificare testi, titoli, grassetti e collegamenti direttamente nei tag HTML qui sotto.
+  Non cambiare gli attributi id, href e data-tutorial-page: servono alla navigazione.
+  Il numero di versione viene inserito da solo negli elementi con data-ver.
+-->
+<template id="nodelab-tutorial-content">
+  <div class="tutorial-layout">
+    <aside class="tutorial-menu" aria-label="Sezioni del Tutorial">
+      <p class="tutorial-menu-title">In questa pagina</p>
+      <nav>
+        <a href="#tutorial-primi-passi">Primi passi</a>
+        <a href="#tutorial-scrivere">Scrivere la mappa</a>
+        <a href="#tutorial-contenuti">Contenuti</a>
+        <a href="#tutorial-navigare">Navigare la mappa</a>
+        <a href="#tutorial-esportazione">Esportazione</a>
+        <a href="#tutorial-scorciatoie">Scorciatoie</a>
+        <a href="#tutorial-didattica">Uso didattico</a>
+      </nav>
+    </aside>
+
+    <article class="tutorial-content">
+      <header class="tutorial-intro" id="tutorial-inizio">
+        <p class="tutorial-kicker">Tutorial</p>
+        <h2>Creare e usare una mappa concettuale con NodeLab</h2>
+        <p>
+          NodeLab è uno strumento per trasformare un testo in una <strong>mappa concettuale interattiva</strong>:
+          si scrive l’elenco dei concetti e la mappa si disegna mentre si scrive
+          (<a class="tutorial-version-link" href="#" data-tutorial-page="changes">versione <span data-ver></span></a>).
+        </p>
+        <p class="tutorial-beta">
+          <strong>NodeLab è ancora in versione beta.</strong> Potrebbero quindi esserci errori e alcune funzioni
+          potrebbero cambiare, essere spostate o venire migliorate da un momento all’altro.
+        </p>
+      </header>
+
+      <section class="tutorial-section" id="tutorial-primi-passi">
+        <div class="tutorial-section-heading">
+          <span class="tutorial-section-number">01</span>
+          <h3>Primi passi</h3>
+        </div>
+        <div class="tutorial-faq-list">
+          <details class="tutorial-faq">
+            <summary>Da dove conviene iniziare?</summary>
+            <div class="tutorial-answer">
+              <p>
+                A sinistra si scrive il testo della mappa, a destra compare l’anteprima, che si aggiorna mentre scrivi.
+                All’apertura trovi una mappa di esempio con le principali possibilità: puoi modificarla oppure cancellarla
+                e ripartire da zero.
+              </p>
+              <p>
+                Nella barra superiore, accanto al logo, scrivi il <strong>nome della mappa</strong>: diventa il titolo della
+                pagina esportata e il nome del file. Con <strong>Apri</strong> riprendi una mappa esportata in precedenza.
+              </p>
+              <p class="tutorial-tip">
+                Per prendere confidenza con NodeLab, prova a scrivere una mappa con un titolo, due argomenti e tre punti per ciascuno.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Il lavoro viene salvato automaticamente?</summary>
+            <div class="tutorial-answer">
+              <p>
+                No. Il testo rimane nel browser soltanto mentre la pagina è aperta. Per conservare il lavoro usa
+                <strong>Esporta › Pagina HTML interattiva</strong> (oppure <strong>Ctrl/Cmd+S</strong>): il file esportato è la
+                mappa da condividere e anche il file da riaprire con <strong>Apri</strong> per continuare a modificarla.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come funzionano Annulla e Ripristina?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Puoi usare i pulsanti nella barra superiore oppure le scorciatoie <strong>Ctrl/Cmd+Z</strong>,
+                <strong>Ctrl/Cmd+Maiusc+Z</strong> e <strong>Ctrl/Cmd+Y</strong>. Annulla e Ripristina riguardano il testo della
+                mappa, comprese le modifiche fatte con Tab e Invio.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Quali file si possono aprire?</summary>
+            <div class="tutorial-answer">
+              <p>Con <strong>Apri</strong>, oppure trascinando il file nella finestra, si possono aprire:</p>
+              <ul>
+                <li>le pagine HTML esportate con NodeLab e con Nodely, la versione precedente dello strumento;</li>
+                <li>i file di testo <code>.md</code> e <code>.txt</code>;</li>
+                <li>le pagine HTML create con markmap.</li>
+              </ul>
+              <p>
+                Da una mappa esportata vengono ripristinati il testo, i rami aperti e chiusi, la larghezza dei nodi, il tema
+                e l’avviso sull’IA. Il file aperto sostituisce la mappa in corso: se vuoi conservarla, esportala prima.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="tutorial-section" id="tutorial-scrivere">
+        <div class="tutorial-section-heading">
+          <span class="tutorial-section-number">02</span>
+          <h3>Scrivere la mappa</h3>
+        </div>
+        <div class="tutorial-faq-list">
+          <details class="tutorial-faq">
+            <summary>Come si costruisce la struttura della mappa?</summary>
+            <div class="tutorial-answer">
+              <p>La gerarchia si indica all’inizio di ogni riga:</p>
+              <ul>
+                <li><code># Titolo</code> è il nodo centrale della mappa (uno solo);</li>
+                <li><code>## Argomento</code> è un ramo principale; con <code>###</code> si scende di un altro livello;</li>
+                <li><code>- Punto</code> è un nodo che parte dal ramo sopra di lui.</li>
+              </ul>
+<pre># La Prima guerra mondiale
+## Cause
+- Nazionalismi
+- Corsa agli armamenti
+## Fronti
+- Occidentale
+- Orientale</pre>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come si creano i sotto-punti?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Su una riga che inizia con <code>-</code>, <strong>Tab</strong> sposta il punto un livello più in profondità
+                e <strong>Maiusc+Tab</strong> lo riporta su. Funziona anche con più righe selezionate. In alternativa si possono
+                scrivere due spazi prima del trattino:
+              </p>
+<pre>- Nodo
+  - Sotto-nodo
+    - Livello successivo</pre>
+              <p>
+                Fuori dagli elenchi, per esempio su una riga con <code>##</code>, Tab passa al pulsante successivo:
+                in questo modo si può uscire dal testo anche usando solo la tastiera.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Che cosa fa Invio in un elenco?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Su una riga con <code>-</code> o con un numero, <strong>Invio</strong> crea una nuova voce allo stesso livello.
+                Su una voce vuota, Invio chiude l’elenco. Se il cursore è in mezzo al testo, la voce viene divisa in due.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come funzionano gli elenchi numerati?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Al posto del trattino si scrive <code>1.</code>, <code>2.</code>, <code>3.</code>: il numero compare anche nella mappa.
+                Con Tab le voci diventano <code>1.1.</code>, <code>1.2.</code> e i numeri si aggiornano da soli, anche quando si
+                inserisce una voce nel mezzo.
+              </p>
+              <p>Le date all’inizio di un nodo, come <code>1861.</code>, restano nel testo e non vengono trattate come numeri di elenco.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="tutorial-section" id="tutorial-contenuti">
+        <div class="tutorial-section-heading">
+          <span class="tutorial-section-number">03</span>
+          <h3>Contenuti</h3>
+        </div>
+        <div class="tutorial-faq-list">
+          <details class="tutorial-faq">
+            <summary>Come si formatta il testo dei nodi?</summary>
+            <div class="tutorial-answer">
+              <table class="tutorial-keys">
+                <tr><td><code>**grassetto**</code></td><td><strong>grassetto</strong></td></tr>
+                <tr><td><code>*corsivo*</code></td><td><em>corsivo</em></td></tr>
+                <tr><td><code>~~barrato~~</code></td><td><s>barrato</s></td></tr>
+                <tr><td><code>==evidenziato==</code></td><td><mark>evidenziato</mark></td></tr>
+                <tr><td><code>`codice`</code></td><td>testo a spaziatura fissa</td></tr>
+              </table>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come si scrivono le formule?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Le formule si scrivono in LaTeX tra due simboli del dollaro: <code>$E = mc^2$</code>. Con due dollari,
+                <code>$$\sum_{i=0}^n i$$</code>, la formula viene mostrata su una riga a sé, in formato esteso.
+              </p>
+              <p>Una formula deve stare dentro un nodo, per esempio in una voce di elenco: una riga con la sola formula non viene mostrata.</p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come si aggiungono le immagini?</summary>
+            <div class="tutorial-answer">
+              <p>Si indica l’indirizzo di un’immagine già pubblicata in rete, scegliendo la larghezza oppure l’altezza:</p>
+<pre>- Saturno &lt;img src="https://…" height="60"&gt;
+- ![Saturno](https://…)</pre>
+              <p>
+                L’altra misura si calcola da sola. Se l’immagine non si carica, al suo posto compare un riquadro tratteggiato.
+                Le immagini sono collegate, non incluse nel file: per vederle serve la connessione a internet.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Si possono inserire link e altri elementi HTML?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Sì. Un link si scrive <code>[testo](https://…)</code> e si apre in una nuova scheda. Si può usare anche una parte
+                sicura dell’HTML, come grassetto, apici, tabelle e immagini.
+              </p>
+              <p>
+                Script, frame e comandi nascosti vengono neutralizzati e mostrati come semplice testo: per questo si possono
+                aprire senza rischi anche le mappe ricevute da altri.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="tutorial-section" id="tutorial-navigare">
+        <div class="tutorial-section-heading">
+          <span class="tutorial-section-number">04</span>
+          <h3>Navigare la mappa</h3>
+        </div>
+        <div class="tutorial-faq-list">
+          <details class="tutorial-faq">
+            <summary>Come ci si muove nella mappa?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Si trascina la mappa per spostarla e si usa la rotellina del mouse, o due dita sul touchpad e sugli schermi
+                touch, per ingrandire e rimpicciolire. Sopra l’anteprima ci sono i pulsanti per lo zoom e
+                <strong>Adatta</strong>, che riporta tutta la mappa dentro la finestra.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come si aprono e si chiudono i rami?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Un clic sul cerchio di un nodo apre o chiude i suoi rami. <strong>Riduci</strong> chiude tutta la mappa e lascia
+                visibile solo il titolo; <strong>Espandi</strong> riapre tutti i rami.
+              </p>
+              <p>I rami aperti e chiusi vengono salvati nella pagina esportata: gli studenti trovano la mappa come l’hai lasciata.</p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come si ritrova un nodo?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Nel campo <strong>Cerca nodo</strong> si scrive una parola: i nodi che la contengono vengono evidenziati e la mappa
+                si sposta sul primo. <strong>Invio</strong> passa al successivo, <strong>Maiusc+Invio</strong> al precedente,
+                <strong>Esc</strong> cancella la ricerca.
+              </p>
+              <p>Un clic sul testo di un nodo seleziona la riga corrispondente nel testo della mappa.</p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come si cambia l’aspetto della mappa?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Il pulsante con la luna o il sole, nella barra superiore, passa dal tema chiaro a quello scuro. La prima volta
+                NodeLab segue il tema del dispositivo, poi ricorda la scelta. La pagina esportata si apre con il tema in uso.
+              </p>
+              <p>
+                In <strong>Impostazioni</strong> si sceglie la larghezza massima dei nodi: con valori bassi il testo va a capo prima
+                e la mappa diventa più compatta. Nelle Impostazioni si può anche disattivare il correttore ortografico.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="tutorial-section" id="tutorial-esportazione">
+        <div class="tutorial-section-heading">
+          <span class="tutorial-section-number">05</span>
+          <h3>Esportazione</h3>
+        </div>
+        <div class="tutorial-faq-list">
+          <details class="tutorial-faq">
+            <summary>Quali formati si possono esportare?</summary>
+            <div class="tutorial-answer">
+              <ul>
+                <li><strong>Pagina HTML interattiva</strong>: la mappa per gli studenti, che è anche il file da riaprire in NodeLab.</li>
+                <li><strong>Immagine PNG</strong> e <strong>immagine SVG</strong>, con i colori del tema attuale.</li>
+                <li><strong>PDF</strong>: si apre la finestra di stampa del browser, dove si sceglie «Salva come PDF».</li>
+                <li><strong>Testo Markdown</strong>: solo il testo della mappa.</li>
+              </ul>
+              <p>
+                Nelle immagini e nel PDF compaiono i rami aperti in quel momento. Le immagini collegate vengono incluse solo se
+                il sito che le ospita lo consente.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Che cosa vede chi apre la pagina esportata?</summary>
+            <div class="tutorial-answer">
+              <p>
+                La mappa, con i rami aperti e chiusi come li hai lasciati. Chi la consulta può spostarla, ingrandirla, aprire e
+                chiudere i rami, usare Riduci ed Espandi, cambiare tema e larghezza dei nodi, ma non può modificare il testo.
+              </p>
+              <p>
+                La pagina funziona su computer, tablet e smartphone. Per disegnare la mappa serve la connessione a internet:
+                se la rete non lo consente, compare un avviso con il pulsante Riprova.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come si segnala che una mappa è stata prodotta con l’IA?</summary>
+            <div class="tutorial-answer">
+              <p>
+                In <strong>Impostazioni</strong> si attiva <strong>Mappa prodotta con l’IA</strong>. Nella pagina esportata compare
+                un avviso, che chi legge può chiudere. L’impostazione viene salvata nel file.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come si può condividere una mappa?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Puoi inviare il file HTML, caricarlo su Classroom o Drive, inserirlo in Google Sites oppure pubblicarlo con un
+                servizio che ospita pagine web, come GitHub Pages. Prima di condividere controlla i diritti d’uso delle immagini,
+                le fonti e i dati personali.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="tutorial-section" id="tutorial-scorciatoie">
+        <div class="tutorial-section-heading">
+          <span class="tutorial-section-number">06</span>
+          <h3>Scorciatoie</h3>
+        </div>
+        <div class="tutorial-faq-list">
+          <details class="tutorial-faq">
+            <summary>Quali scorciatoie da tastiera ci sono?</summary>
+            <div class="tutorial-answer">
+              <table class="tutorial-keys">
+                <tr><td><kbd>Ctrl/Cmd</kbd>+<kbd>Z</kbd></td><td>Annulla</td></tr>
+                <tr><td><kbd>Ctrl/Cmd</kbd>+<kbd>Y</kbd> oppure <kbd>Ctrl/Cmd</kbd>+<kbd>Maiusc</kbd>+<kbd>Z</kbd></td><td>Ripristina</td></tr>
+                <tr><td><kbd>Ctrl/Cmd</kbd>+<kbd>S</kbd></td><td>Esporta la pagina HTML interattiva</td></tr>
+                <tr><td><kbd>Tab</kbd> / <kbd>Maiusc</kbd>+<kbd>Tab</kbd></td><td>In un elenco: sposta la voce un livello più in profondità o più in alto</td></tr>
+                <tr><td><kbd>Invio</kbd></td><td>In un elenco: nuova voce allo stesso livello; su una voce vuota chiude l’elenco</td></tr>
+                <tr><td><kbd>Invio</kbd> / <kbd>Maiusc</kbd>+<kbd>Invio</kbd></td><td>Nella ricerca: nodo successivo o precedente</td></tr>
+                <tr><td><kbd>Esc</kbd></td><td>Chiude finestre e menu; nella ricerca, la cancella</td></tr>
+                <tr><td><kbd>←</kbd> <kbd>→</kbd> (<kbd>↑</kbd> <kbd>↓</kbd> sugli schermi stretti)</td><td>Sulla barra divisoria: allarga o restringe il testo e la mappa</td></tr>
+              </table>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="tutorial-section" id="tutorial-didattica">
+        <div class="tutorial-section-heading">
+          <span class="tutorial-section-number">07</span>
+          <h3>Uso didattico</h3>
+        </div>
+        <div class="tutorial-faq-list">
+          <details class="tutorial-faq">
+            <summary>Quale idea didattica c’è dietro NodeLab?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Una mappa concettuale rende visibile la <strong>struttura di un argomento</strong>: che cosa è centrale, che cosa
+                ne dipende, come le parti si collegano. Scriverla come un elenco ordinato obbliga a scegliere le parole chiave e a
+                decidere i rapporti tra i concetti; vederla subito disegnata aiuta a controllare se l’organizzazione funziona.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come può essere usato NodeLab in classe?</summary>
+            <div class="tutorial-answer">
+              <ul>
+                <li>Come supporto a una spiegazione alla LIM, aprendo i rami uno alla volta.</li>
+                <li>Per costruire una mappa insieme alla classe durante la lezione.</li>
+                <li>Per un lavoro di gruppo in cui ogni gruppo scrive un ramo della mappa.</li>
+                <li>Per ricavare la struttura di un testo letto in classe.</li>
+                <li>Per una sintesi o un ripasso alla fine di un’unità.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come può essere usato a casa?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Può diventare uno strumento di studio autonomo o di ripasso: chiudendo i rami, chi studia prova a ricordare che
+                cosa contengono e poi li riapre per controllare. Può anche essere una consegna da completare e discutere in
+                seguito.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come rendere la mappa più accessibile e leggibile?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Usa nodi brevi, costruiti intorno a parole chiave, ed evita troppi livelli annidati. Non affidare un significato
+                soltanto al colore dei rami. Se inserisci immagini, accompagnale con un testo. Verifica che la mappa resti
+                leggibile su uno schermo piccolo e sulla LIM.
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Posso usare liberamente NodeLab?</summary>
+            <div class="tutorial-answer">
+              <p>
+                NodeLab è un progetto ideato e realizzato da Tommaso Sereni.
+                Può essere <strong>utilizzato liberamente per scopi personali, didattici e professionali</strong>.
+              </p>
+              <p>
+                Chi utilizza NodeLab è responsabile dei contenuti che crea, modifica, importa, esporta o condivide tramite lo strumento.
+                L’autore di NodeLab <strong>non è responsabile dei contenuti prodotti dagli utenti né dell’uso che ne viene fatto</strong>.
+                NodeLab viene messo a disposizione liberamente e può essere utilizzato e condiviso, mantenendo il riferimento al progetto e al suo autore.
+              </p>
+              <p>
+                NodeLab usa componenti di terze parti, caricati da internet: la libreria markmap (licenza MIT), con d3 (licenza ISC),
+                e KaTeX per le formule (licenza MIT). Include le icone Lucide (licenza ISC).
+              </p>
+            </div>
+          </details>
+
+          <details class="tutorial-faq">
+            <summary>Come posso segnalare un errore, dare un suggerimento o chiedere informazioni?</summary>
+            <div class="tutorial-answer">
+              <p>
+                Per segnalazioni, suggerimenti o richieste di informazioni puoi scrivere a
+                <a href="mailto:tms.sereni@gmail.com">tms.sereni@gmail.com</a>.
+                Se segnali un errore, indica possibilmente il browser usato e i passaggi che lo hanno prodotto.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+    </article>
+  </div>
+</template>
+
+<!-- PAGINA DELLE NOVITÀ: anche questo contenuto è in HTML tradizionale. -->
+<template id="nodelab-changelog-content">
+  <article class="tutorial-changelog">
+    <a class="tutorial-back" href="#" data-tutorial-page="tutorial">← Torna al Tutorial</a>
+    <header class="tutorial-changelog-header">
+      <p class="tutorial-kicker">Cronologia delle versioni</p>
+      <h2>Novità di NodeLab</h2>
+      <p>Questa pagina riassume le funzioni introdotte nelle diverse versioni pubbliche.</p>
+    </header>
+
+    <section class="tutorial-release tutorial-release-current">
+      <div class="tutorial-release-head">
+        <h3>Versione 0.2</h3>
+        <span class="tutorial-release-badge">Versione attuale</span>
+      </div>
+      <h4>Nome e interfaccia</h4>
+      <ul>
+        <li>Lo strumento cambia nome da Nodely a <strong>NodeLab</strong>, con un nuovo logo e una nuova interfaccia.</li>
+        <li>La barra superiore raccoglie Annulla, Ripristina, Apri, tema, Impostazioni, Esporta e Tutorial; i comandi della mappa sono sopra l’anteprima.</li>
+        <li>La guida è sostituita dal <strong>Tutorial</strong>, organizzato per sezioni, con la cronologia delle versioni.</li>
+        <li>L’opzione «Prodotta con IA» si trova in Impostazioni.</li>
+        <li>Le mappe esportate con Nodely si aprono in NodeLab.</li>
+      </ul>
+      <h4>Scrittura</h4>
+      <ul>
+        <li>Annulla e Ripristina funzionano anche dopo le modifiche fatte con Tab e Invio.</li>
+        <li>Tab e Maiusc+Tab agiscono anche su più righe selezionate; Invio continua l’elenco, lo chiude su una voce vuota o divide la voce.</li>
+        <li>Elenchi numerati su più livelli (1.1., 1.2.) con numerazione aggiornata da sola; le date come «1861.» restano nel testo.</li>
+        <li>Il correttore ortografico si può disattivare; il piè di pagina mostra riga e colonna.</li>
+      </ul>
+      <h4>Mappa</h4>
+      <ul>
+        <li>Mentre scrivi, la mappa mantiene zoom, posizione e rami aperti.</li>
+        <li><strong>Cerca nodo</strong>; un clic sul testo di un nodo seleziona la riga corrispondente.</li>
+        <li>Immagini con proporzioni corrette e un riquadro al posto di quelle che non si caricano; formule senza attese.</li>
+        <li>Il tema segue quello del dispositivo finché non ne scegli uno.</li>
+      </ul>
+      <h4>File ed esportazione</h4>
+      <ul>
+        <li>Esportazione in <strong>PNG</strong>, <strong>SVG</strong>, <strong>PDF</strong> e <strong>Markdown</strong>, oltre alla pagina HTML.</li>
+        <li>Apertura di file .md e .txt, anche trascinandoli nella finestra; Ctrl/Cmd+S esporta la pagina HTML.</li>
+        <li>Larghezza dei nodi, tema e avviso sull’IA vengono salvati nel file.</li>
+        <li>La pagina esportata ha la stessa veste dell’editor, funziona anche sugli smartphone e avvisa se la libreria della mappa non si carica.</li>
+        <li>L’HTML inserito nel testo viene filtrato: le mappe ricevute da altri si aprono senza rischi.</li>
+      </ul>
+    </section>
+
+    <section class="tutorial-release">
+      <div class="tutorial-release-head">
+        <h3>Versione 0.1</h3>
+        <span class="tutorial-release-badge">Prima versione</span>
+      </div>
+      <ul>
+        <li>Prima versione, con il nome Nodely: trasforma un testo in Markdown in una mappa interattiva ed esporta la mappa come pagina HTML.</li>
+      </ul>
+    </section>
+  </article>
+</template>
+
+<script>
+// ════════════════════════════════════════════════════════════════════
+//  NodeLabCore — motore condiviso tra editor ed export HTML.
+//  ATTENZIONE: la funzione deve restare autosufficiente (nessun
+//  riferimento a variabili esterne): l'export la incorpora con
+//  NodeLabCore.toString(). Vietato scrivere qui apertura di commento HTML o chiusura di script.
+// ════════════════════════════════════════════════════════════════════
+function NodeLabCore() {
+  'use strict';
+
+  const VERSION = '0.2';
+
+  // Palette dei rami: la versione chiara ha colori più scuri (contrasto su sfondo chiaro)
+  const PALETTES = {
+    dark:  ['#7c6af7', '#5de0c5', '#f7a26a', '#f06a6a', '#60c5f7', '#a8e86e', '#f760c5', '#f7e060'],
+    light: ['#5a4fd8', '#0e8f78', '#c2621f', '#d13f3f', '#1f7fc0', '#4f8a12', '#b02e8c', '#946f00']
+  };
+
+  const LIB_URLS = [
+    'https://cdn.jsdelivr.net/npm/markmap-autoloader@0.16.0',
+    'https://unpkg.com/markmap-autoloader@0.16.0'
+  ];
+
+  // ──────────────────────────────────────────────────────────────
+  //  CSS DELLA MAPPA (condiviso): variabili di tema + stile dei nodi.
+  //  Il testo, i link, il codice e l'evidenziazione si governano con le
+  //  variabili --markmap-* (nessun <style> iniettato nei foreignObject).
+  //  Il prefisso "body" alza la specificità sopra il CSS incorporato da markmap.
+  // ──────────────────────────────────────────────────────────────
+  const MAP_CSS = `
+:root {
+  --map-bg:#15130f; --node-text:#efe9dd;
+  --mm-link:#e8b04a; --mm-link-h:#f5c66f;
+  --mm-code-bg:rgba(224,165,58,.14); --mm-code:#e8b04a; --mm-code-bd:rgba(224,165,58,.32);
+  --mm-mark:rgba(255,210,50,.35); --mm-line:#5a5446;
+  --hit-bg:rgba(224,165,58,.24); --hit-cur:#e0a53a;
+}
+body.light {
+  --map-bg:#faf8f3; --node-text:#2a2418;
+  --mm-link:#8a5900; --mm-link-h:#6b4500;
+  --mm-code-bg:rgba(154,100,0,.10); --mm-code:#7f5200; --mm-code-bd:rgba(154,100,0,.28);
+  --mm-mark:rgba(255,200,0,.45); --mm-line:#a39a88;
+  --hit-bg:rgba(154,100,0,.16); --hit-cur:#9a6400;
+}
+body .markmap {
+  color:var(--node-text);
+  --markmap-a-color:var(--mm-link); --markmap-a-hover-color:var(--mm-link-h);
+  --markmap-code-bg:var(--mm-code-bg); --markmap-code-color:var(--mm-code);
+  --markmap-highlight-bg:var(--mm-mark); --markmap-table-border:1px solid var(--mm-line);
+}
+body .markmap .markmap-node > circle { stroke-width:2px; }
+body .markmap-foreign code { font-family:ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace; font-size:.88em; padding:1px 5px; border:1px solid var(--mm-code-bd); border-radius:4px; }
+body .markmap-foreign mark { color:inherit; border-radius:3px; padding:0 3px; }
+body .markmap-foreign a { text-decoration:underline; cursor:pointer; }
+body .markmap-foreign ol { list-style:decimal !important; padding-left:1.8em !important; margin:2px 0 !important; white-space:normal !important; }
+body .markmap-foreign ul { list-style:disc !important; padding-left:1.8em !important; margin:2px 0 !important; white-space:normal !important; }
+body .markmap-foreign li { display:list-item !important; white-space:normal !important; }
+body .markmap-foreign img { display:inline-block; vertical-align:middle; }
+body .markmap-foreign img[width]:not([height]) { height:auto; }
+body .markmap-foreign img[height]:not([width]) { width:auto; }
+body .markmap-foreign .nl-broken { display:inline-block; padding:2px 8px; border:1px dashed #e06060; border-radius:4px; font-size:.85em; opacity:.85; }
+body .markmap-node.nl-hit .markmap-foreign > div { background:var(--hit-bg); border-radius:4px; }
+body .markmap-node.nl-cur .markmap-foreign > div { background:var(--hit-bg); outline:2px solid var(--hit-cur); border-radius:4px; }
+`;
+
+  // ──────────────────────────────────────────────────────────────
+  //  UTILITÀ
+  // ──────────────────────────────────────────────────────────────
+  const escHtml = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const escAttr = escHtml;
+  const NAMED = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: String.fromCharCode(160) };
+  function cp(n) { return (n > 0 && n <= 0x10FFFF && !(n >= 0xD800 && n <= 0xDFFF)) ? String.fromCodePoint(n) : String.fromCharCode(0xFFFD); }
+  // Decodifica entità in UN solo passaggio (niente doppia decodifica)
+  function decodeEntities(s) {
+    return String(s).replace(/&(?:#x([0-9a-f]+)|#(\d+)|([a-z]+));/gi, (m, hx, dc, nm) => {
+      if (hx) return cp(parseInt(hx, 16));
+      if (dc) return cp(parseInt(dc, 10));
+      const v = NAMED[nm.toLowerCase()];
+      return v !== undefined ? v : m;
+    });
+  }
+  // Codifica/decodifica del markdown nei commenti dell'export: solo & < >
+  const encodeMd = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const decodeMd = s => String(s).replace(/&(amp|lt|gt);/g, (m, k) => ({ amp: '&', lt: '<', gt: '>' }[k]));
+
+  function safeFileName(name) {
+    const s = String(name || '').replace(/[^\p{L}\p{N}\s\-_.]/gu, '_').replace(/\s+/g, ' ').trim().replace(/^\.+/, '');
+    return (s || 'mappa').slice(0, 80);
+  }
+
+  // ──────────────────────────────────────────────────────────────
+  //  SANIFICAZIONE DELL'HTML GREZZO
+  //  Si aggancia alle regole di rendering di remarkable che emettono HTML
+  //  scritto dall'utente (htmltag, htmlblock): niente disallineamenti col
+  //  parser. Tutto ciò che non è in whitelist viene mostrato come testo.
+  // ──────────────────────────────────────────────────────────────
+  const TAGS = new Set('a abbr b blockquote br code del div em hr i img ins kbd li mark ol p pre s small span strong sub sup table tbody td th thead tr u ul'.split(' '));
+  const VOID = new Set(['br', 'hr', 'img']);
+  const STYLE_TAGS = new Set('span mark div p td th b i u s em strong code small sub sup img'.split(' '));
+  const STYLE_PROPS = new Set(['color', 'background', 'background-color', 'font-weight', 'font-style', 'font-size', 'text-decoration', 'text-decoration-line', 'text-decoration-color', 'padding', 'padding-left', 'padding-right', 'margin', 'margin-left', 'margin-right', 'border-radius', 'border', 'vertical-align', 'display', 'width', 'height', 'max-width', 'text-align', 'opacity']);
+  const TAG_RE = /<(\/?)([a-zA-Z][a-zA-Z0-9]*)((?:\s+[^\s"'<>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'=<>`]+))?)*)\s*(\/?)>/g;
+  const ATTR_RE = /([^\s"'<>\/=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+)))?/g;
+
+  function parseAttrs(str) {
+    const out = [];
+    const re = new RegExp(ATTR_RE.source, 'g');
+    let m;
+    while ((m = re.exec(str))) {
+      out.push([m[1].toLowerCase(), m[2] !== undefined ? m[2] : (m[3] !== undefined ? m[3] : (m[4] !== undefined ? m[4] : ''))]);
+    }
+    return out;
+  }
+
+  // Ritorna l'URL ripulito oppure null se lo schema non è ammesso
+  function safeUrl(raw, allowed) {
+    const v = decodeEntities(raw).trim();
+    const probe = v.replace(/[\u0000-\u0020\u007f-\u009f\u00ad\u200b-\u200f\u2028\u2029\u2060\ufeff]/g, '');
+    const clean = v.replace(/[\u0000-\u001f\u007f]/g, '');
+    const m = probe.match(/^([a-z][a-z0-9+.\-]*):/i);
+    if (!m) return clean;
+    const sch = m[1].toLowerCase();
+    if (sch === 'data') {
+      return (allowed.indexOf('data-image') >= 0 && /^data:image\/(png|jpe?g|gif|webp|bmp|avif|svg\+xml)[;,]/i.test(probe)) ? clean : null;
+    }
+    return allowed.indexOf(sch) >= 0 ? clean : null;
+  }
+
+  function cleanStyle(raw) {
+    return decodeEntities(raw).split(';').map(d => {
+      const i = d.indexOf(':');
+      if (i < 0) return '';
+      const p = d.slice(0, i).trim().toLowerCase();
+      const val = d.slice(i + 1).trim();
+      if (!STYLE_PROPS.has(p) || !val || /url\s*\(|expression|javascript|@import|behavior|binding|\\|[<>{}]/i.test(val)) return '';
+      return p + ':' + val;
+    }).filter(Boolean).join(';');
+  }
+
+  const numAttr = v => { const m = /^\s*(\d{1,4})(?:px)?\s*$/i.exec(v == null ? '' : String(v)); return m ? parseInt(m[1], 10) : null; };
+
+  // Costruisce <img> con dimensioni esplicite (evita la sovrapposizione dei nodi
+  // quando l'immagine si carica dopo la misura) oppure un segnaposto se rotta.
+  function buildImg(src, alt, w, h, extra, ctx) {
+    const info = ctx && ctx.img ? ctx.img(src) : null;
+    if (info && info.bad) return '<span class="nl-broken">' + escHtml(alt || 'immagine non disponibile') + '</span>';
+    let W = numAttr(w), H = numAttr(h);
+    const maxW = (ctx && ctx.maxWidth && ctx.maxWidth()) || 500;
+    if (info && info.w && info.h) {
+      if (W && !H) H = Math.round(W * info.h / info.w);
+      else if (H && !W) W = Math.round(H * info.w / info.h);
+      else if (!W && !H) { W = Math.min(info.w, maxW); H = Math.round(W * info.h / info.w); }
+    }
+    if (W && H && W > maxW) { H = Math.round(H * maxW / W); W = maxW; }
+    const at = ['src="' + escAttr(src) + '"', 'alt="' + escAttr(alt || '') + '"', 'referrerpolicy="no-referrer"'];
+    if (W) at.push('width="' + W + '"');
+    if (H) at.push('height="' + H + '"');
+    return '<img ' + at.concat(extra).join(' ') + '>';
+  }
+
+  function rebuildTag(m, ctx) {
+    const closing = m[1] === '/';
+    const tag = m[2].toLowerCase();
+    const bal = ctx && ctx.bal;
+    if (!TAGS.has(tag)) return '&lt;' + m[0].slice(1);
+    if (closing) {
+      if (VOID.has(tag)) return '';
+      return bal ? bal.close(tag) : '</' + tag + '>'; // chiusura senza apertura: scartata
+    }
+    const out = [];
+    let src = null, alt = '', w = null, h = null;
+    parseAttrs(m[3] || '').forEach(([n, v]) => {
+      if (n === 'title') out.push('title="' + escAttr(decodeEntities(v)) + '"');
+      else if (n === 'style' && STYLE_TAGS.has(tag)) { const s = cleanStyle(v); if (s) out.push('style="' + escAttr(s) + '"'); }
+      else if (n === 'data-lines' && /^[\d,]+$/.test(v)) out.push('data-lines="' + v + '"');
+      else if (tag === 'a' && n === 'href') { const u = safeUrl(v, ['http', 'https', 'mailto', 'tel']); if (u) out.push('href="' + escAttr(u) + '"'); }
+      else if (tag === 'img' && n === 'src') src = safeUrl(v, ['http', 'https', 'data-image']);
+      else if (tag === 'img' && n === 'alt') alt = decodeEntities(v);
+      else if (tag === 'img' && n === 'width') w = v;
+      else if (tag === 'img' && n === 'height') h = v;
+      else if ((tag === 'td' || tag === 'th') && (n === 'colspan' || n === 'rowspan') && /^\d{1,2}$/.test(v)) out.push(n + '="' + v + '"');
+      else if (tag === 'ol' && n === 'start' && /^\d{1,4}$/.test(v)) out.push('start="' + v + '"');
+    });
+    if (tag === 'img') return src ? buildImg(src, alt, w, h, out, ctx) : escHtml(alt);
+    if (tag === 'a') out.push('target="_blank"', 'rel="noopener noreferrer"');
+    if (bal && !VOID.has(tag)) bal.open(tag);
+    return '<' + tag + (out.length ? ' ' + out.join(' ') : '') + '>';
+  }
+
+  // Tiene traccia dei tag HTML aperti a mano: un <b> dimenticato non deve inghiottire il resto della mappa
+  function makeBalancer() {
+    const st = [];
+    return {
+      open(t) { st.push(t); },
+      close(t) {
+        const i = st.lastIndexOf(t);
+        if (i < 0) return '';
+        const out = st.slice(i + 1).reverse().map(x => '</' + x + '>').join('') + '</' + t + '>';
+        st.length = i;
+        return out;
+      },
+      flush() { const out = st.slice().reverse().map(x => '</' + x + '>').join(''); st.length = 0; return out; }
+    };
+  }
+
+  function sanitizeChunk(html, ctx) {
+    const src = String(html).replace(/<!-{2}[\s\S]*?-{2}>/g, '');
+    const re = new RegExp(TAG_RE.source, 'g');
+    let out = '', last = 0, m;
+    while ((m = re.exec(src))) {
+      out += src.slice(last, m.index).replace(/</g, '&lt;');
+      out += rebuildTag(m, ctx);
+      last = re.lastIndex;
+    }
+    return out + src.slice(last).replace(/</g, '&lt;');
+  }
+
+  // Aggancia la sanificazione al Transformer di markmap (remarkable)
+  const BLOCK_RULES = ['heading_open', 'heading_close', 'paragraph_open', 'paragraph_close', 'bullet_list_open', 'bullet_list_close', 'ordered_list_open', 'ordered_list_close', 'list_item_open', 'list_item_close', 'blockquote_open', 'blockquote_close', 'hr', 'fence', 'table_open', 'table_close', 'thead_open', 'thead_close', 'tbody_open', 'tbody_close', 'tr_open', 'tr_close', 'th_open', 'th_close', 'td_open', 'td_close'];
+  function harden(tr, baseCtx) {
+    const rules = tr.md.renderer.rules;
+    const bal = makeBalancer();
+    const ctx = Object.assign({}, baseCtx, { bal });
+    tr.hooks.beforeParse.tap(() => { bal.flush(); });
+    ['htmltag', 'image'].forEach(k => {
+      const orig = rules[k];
+      if (typeof orig === 'function') rules[k] = function () { return sanitizeChunk(orig.apply(this, arguments), ctx); };
+    });
+    const hb = rules.htmlblock;
+    if (typeof hb === 'function') rules.htmlblock = function () { return sanitizeChunk(hb.apply(this, arguments), ctx) + bal.flush(); };
+    BLOCK_RULES.forEach(k => {
+      const orig = rules[k];
+      if (typeof orig === 'function') rules[k] = function () { return bal.flush() + orig.apply(this, arguments); };
+    });
+    const lo = rules.link_open;
+    if (typeof lo === 'function') {
+      rules.link_open = function () {
+        return String(lo.apply(this, arguments)).replace(/^<a\b/, '<a target="_blank" rel="noopener noreferrer"');
+      };
+    }
+  }
+
+  // ──────────────────────────────────────────────────────────────
+  //  PREPROCESS: ==evidenziato== → <mark>, elenchi numerati → punti elenco
+  //  Non cambia mai il numero di righe (le righe dei nodi restano valide) e
+  //  non tocca codice, formule, tag HTML e URL.
+  // ──────────────────────────────────────────────────────────────
+  const PH = String.fromCharCode(0xE000);
+  const NUM_LINE = /^([ \t]*)(\d{1,2}(?:\.\d{1,2})*)\.([ \t]+)(.*)$/;
+
+  function protectInline(line, stash) {
+    const put = s => { stash.push(s); return PH + (stash.length - 1) + PH; };
+    return line
+      .replace(/\\[\s\S]/g, put)
+      .replace(/(`+)(?:[^`]|[^`][\s\S]*?[^`])\1(?!`)/g, put)
+      .replace(/\$\$[^$]+\$\$|\$(?=[^\s$])(?:\\.|[^$\\])*?[^\s\\$]\$(?!\d)/g, put)
+      .replace(/<\/?[a-zA-Z][^>]*>/g, put)
+      .replace(/https?:\/\/[^\s)>\]]+/g, put);
+  }
+
+  function transformLine(line, prev) {
+    const stash = [];
+    let t = protectInline(line, stash);
+    t = t.replace(/==(?=\S)([^=\n]*?\S)==/g, '<mark>$1</mark>');
+    // Anni e numeri lunghi ("1861. Unità"): markdown li leggerebbe come lista e il numero sparirebbe
+    t = t.replace(/^([ \t]*(?:[-*+][ \t]+)?)(\d{3,})\.(?=[ \t])/, '$1$2\\.');
+    const m = NUM_LINE.exec(t);
+    if (m) {
+      const dots = m[2].split('.').length - 1;
+      const real = indentWidth(m[1]);
+      // profondità = max(indentazione reale, profondità dei punti): compatibile coi vecchi file
+      let want = Math.max(real, dots * 2);
+      // non si può scendere più di un livello sotto la riga elenco precedente
+      want = prev.list ? Math.min(want, prev.depth + 2) : 0;
+      if (want % 2) want += 1;
+      t = ' '.repeat(want) + '- <strong>' + m[2] + '.</strong> ' + m[4];
+      prev.list = true; prev.depth = want;
+    } else {
+      const b = /^([ \t]*)[-*+][ \t]/.exec(t);
+      if (b) { prev.list = true; prev.depth = indentWidth(b[1]); }
+      else if (t.trim() !== '') prev.list = false;
+    }
+    // ripristina i segmenti protetti (anche annidati: un'escape dentro una formula)
+    const back = new RegExp(PH + '(\\d+)' + PH, 'g');
+    for (let k = 0; k < 6 && t.indexOf(PH) >= 0; k++) t = t.replace(back, (_, i) => stash[+i]);
+    return t;
+  }
+
+  function preprocess(md) {
+    const src = String(md).replace(/\r\n?/g, '\n').split(PH).join('');
+    let fence = null, math = false;
+    const prev = { list: false, depth: 0 };
+    return src.split('\n').map(line => {
+      const f = /^\s*(`{3,}|~{3,})/.exec(line);
+      if (fence) {
+        if (f && f[1][0] === fence[0] && f[1].length >= fence.length && /^\s*(`{3,}|~{3,})\s*$/.test(line)) fence = null;
+        return line;
+      }
+      if (f) { fence = f[1]; return line; }
+      if (math) { if (line.indexOf('$$') >= 0) math = false; return line; }
+      if (/^\s*\$\$/.test(line) && (line.match(/\$\$/g) || []).length % 2 === 1) { math = true; return line; }
+      return transformLine(line, prev);
+    }).join('\n');
+  }
+
+  // ──────────────────────────────────────────────────────────────
+  //  EDITING DELLE LISTE (funzioni pure: testo in → testo out)
+  // ──────────────────────────────────────────────────────────────
+  function indentWidth(s) { return String(s).replace(/\t/g, '  ').length; }
+
+  function parseListLine(line) {
+    let m = NUM_LINE.exec(line);
+    if (m) return { type: 'num', depth: indentWidth(m[1]), label: m[2], text: m[4], markLen: m[1].length + m[2].length + 1 + m[3].length };
+    m = /^([ \t]*)-([ \t]+)(.*)$/.exec(line);
+    if (m) return { type: 'bul', depth: indentWidth(m[1]), label: null, text: m[3], markLen: m[1].length + 1 + m[2].length };
+    return null;
+  }
+  function fmtItem(p, label, text) {
+    return ' '.repeat(p.depth) + (p.type === 'num' ? label + '. ' : '- ') + text;
+  }
+  function incLabel(label) {
+    const p = label.split('.');
+    const n = parseInt(p[p.length - 1], 10) + 1;
+    if (n > 99) return label;
+    p[p.length - 1] = String(n);
+    return p.join('.');
+  }
+
+  // Ricalcola le etichette 1. / 1.1. / 1.2. di tutto il blocco di elenco che
+  // contiene la riga idx, in base alla struttura (indentazione).
+  function relabelBlock(lines, idx) {
+    const isBlank = l => l.trim() === '';
+    let s = idx, e = idx;
+    while (s > 0 && (parseListLine(lines[s - 1]) || isBlank(lines[s - 1]))) s--;
+    while (e < lines.length - 1 && (parseListLine(lines[e + 1]) || isBlank(lines[e + 1]))) e++;
+    const stack = []; // {depth, type, label}
+    for (let i = s; i <= e; i++) {
+      const p = parseListLine(lines[i]);
+      if (!p) continue;
+      while (stack.length && stack[stack.length - 1].depth > p.depth) stack.pop();
+      const top = stack.length ? stack[stack.length - 1] : null;
+      let label = p.label;
+      if (p.type === 'num') {
+        if (top && top.depth === p.depth) {
+          if (top.type === 'num') label = incLabel(top.label);
+          else if (label.indexOf('.') >= 0) label = '1';
+        } else {
+          const parent = top && top.depth < p.depth ? top : null;
+          if (parent && parent.type === 'num') {
+            const pre = parent.label + '.';
+            const okTyped = label.indexOf(pre) === 0 && label.slice(pre.length).indexOf('.') < 0;
+            label = okTyped ? label : pre + '1';
+          } else if (label.indexOf('.') >= 0) label = '1';
+        }
+        if (label !== p.label) lines[i] = fmtItem(p, label, p.text);
+      }
+      // sostituisce l'eventuale frame dello stesso livello
+      if (top && top.depth === p.depth) stack.pop();
+      stack.push({ depth: p.depth, type: p.type, label });
+    }
+  }
+
+  const lineStartsOf = lines => { const r = []; let o = 0; lines.forEach(l => { r.push(o); o += l.length + 1; }); return r; };
+  function lineIndexAt(text, pos) { let n = 0; for (let i = 0; i < pos && i < text.length; i++) if (text.charCodeAt(i) === 10) n++; return n; }
+
+  // Profondità massima consentita alla riga i: una sotto la riga elenco precedente
+  function maxDepthFor(lines, i) {
+    for (let j = i - 1; j >= 0; j--) {
+      if (lines[j].trim() === '') continue;
+      const p = parseListLine(lines[j]);
+      return p ? Math.floor(p.depth / 2) * 2 + 2 : 0;
+    }
+    return 0;
+  }
+
+  // Tab / Shift+Tab su una o più righe di elenco. null = non gestito (comportamento del browser).
+  function editTab(text, selStart, selEnd, shift) {
+    const lines = text.split('\n');
+    const a = lineIndexAt(text, selStart);
+    let b = lineIndexAt(text, selEnd);
+    if (selEnd > selStart && text[selEnd - 1] === '\n') b = Math.max(a, b - 1);
+    const targets = [];
+    for (let i = a; i <= b; i++) if (parseListLine(lines[i])) targets.push(i);
+    if (!targets.length) return null;
+    const starts = lineStartsOf(lines);
+    const before = lines.slice();
+    let changed = false;
+    targets.forEach(i => {
+      const p = parseListLine(lines[i]);
+      let nd;
+      if (shift) nd = Math.max(0, Math.ceil((p.depth - 2) / 2) * 2);
+      else nd = Math.min(Math.floor(p.depth / 2) * 2 + 2, maxDepthFor(lines, i));
+      if (nd === p.depth) return;
+      lines[i] = fmtItem({ type: p.type, depth: nd }, p.label, p.text);
+      changed = true;
+    });
+    if (!changed) return { text, selStart, selEnd };
+    relabelBlock(lines, targets[0]);
+    const map = pos => {
+      const li = lineIndexAt(text, pos);
+      const col = pos - starts[li];
+      const o = parseListLine(before[li]), n = parseListLine(lines[li]);
+      const ns = lineStartsOf(lines)[li];
+      if (!o || !n) return ns + col;
+      return ns + (col >= o.markLen ? n.markLen + (col - o.markLen) : Math.min(col, n.markLen));
+    };
+    return { text: lines.join('\n'), selStart: map(selStart), selEnd: map(selEnd) };
+  }
+
+  // Invio: continua l'elenco, esce dall'elenco su voce vuota, divide la voce al cursore.
+  function editEnter(text, pos) {
+    const ls = text.lastIndexOf('\n', pos - 1) + 1;
+    const leRaw = text.indexOf('\n', pos);
+    const le = leRaw < 0 ? text.length : leRaw;
+    const line = text.slice(ls, le);
+    const p = parseListLine(line);
+    if (!p) return null;
+    const lines = text.split('\n');
+    const li = lineIndexAt(text, ls);
+    if (p.text.trim() === '') {
+      lines[li] = '';
+      relabelBlock(lines, Math.max(0, li - 1));
+      const res = lines.join('\n');
+      return { text: res, selStart: lineStartsOf(lines)[li], selEnd: lineStartsOf(lines)[li] };
+    }
+    const col = pos - ls;
+    if (col <= p.markLen) {
+      // cursore dentro il marcatore: nuova voce vuota SOPRA
+      const empty = p.type === 'num' ? fmtItem(p, p.label, '') : fmtItem(p, null, '');
+      lines.splice(li, 0, empty);
+      if (p.type === 'num') relabelBlock(lines, li);
+      const st = lineStartsOf(lines);
+      const np = parseListLine(lines[li + 1]);
+      const at = st[li + 1] + (np ? np.markLen : 0);
+      return { text: lines.join('\n'), selStart: at, selEnd: at };
+    }
+    const beforeTxt = line.slice(0, col), afterTxt = line.slice(col);
+    lines[li] = beforeTxt;
+    const nl = p.type === 'num' ? fmtItem(p, incLabel(p.label), afterTxt) : fmtItem(p, null, afterTxt);
+    lines.splice(li + 1, 0, nl);
+    if (p.type === 'num') relabelBlock(lines, li + 1);
+    const st = lineStartsOf(lines);
+    const np = parseListLine(lines[li + 1]);
+    const at = st[li + 1] + (np ? np.markLen : 0);
+    return { text: lines.join('\n'), selStart: at, selEnd: at };
+  }
+
+  // Intervallo minimo da sostituire per passare da a a b (per usare la cronologia nativa)
+  function diffRange(a, b) {
+    let s = 0;
+    const min = Math.min(a.length, b.length);
+    while (s < min && a.charCodeAt(s) === b.charCodeAt(s)) s++;
+    let ea = a.length, eb = b.length;
+    while (ea > s && eb > s && a.charCodeAt(ea - 1) === b.charCodeAt(eb - 1)) { ea--; eb--; }
+    return { from: s, to: ea, insert: b.slice(s, eb) };
+  }
+
+  // ──────────────────────────────────────────────────────────────
+  //  ALBERO: colori, fold, testo
+  // ──────────────────────────────────────────────────────────────
+  function assignColors(root) {
+    if (!root) return;
+    root.state = root.state || {}; root.state.ci = 0;
+    (root.children || []).forEach((c, i) => paint(c, (i + 1) % PALETTES.dark.length));
+    function paint(n, ci) { n.state = n.state || {}; n.state.ci = ci; (n.children || []).forEach(k => paint(k, ci)); }
+  }
+  function applyFold(node, map, path) {
+    if (map[path] !== undefined) { node.payload = node.payload || {}; node.payload.fold = map[path]; }
+    (node.children || []).forEach((c, i) => applyFold(c, map, path + '/' + i));
+  }
+  function snapFold(root) {
+    const s = {};
+    (function w(n, p) { s[p] = (n.payload && n.payload.fold) ? 1 : 0; (n.children || []).forEach((c, i) => w(c, p + '/' + i)); })(root, '0');
+    return s;
+  }
+  function countNodes(root) { let c = 0; (function w(n) { c++; (n.children || []).forEach(w); })(root); return c; }
+  function stripHtml(h) { return decodeEntities(String(h || '').replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim(); }
+
+  // ──────────────────────────────────────────────────────────────
+  //  CARICAMENTO DELLE LIBRERIE (con CDN alternativo)
+  // ──────────────────────────────────────────────────────────────
+  let libsPromise = null;
+  const libsReady = () => window.markmap && window.markmap.Markmap && window.markmap.Transformer;
+  function waitFor(fn, ms) {
+    return new Promise((res, rej) => {
+      const t0 = Date.now();
+      (function tick() { if (fn()) res(); else if (Date.now() - t0 > ms) rej(new Error('timeout')); else setTimeout(tick, 60); })();
+    });
+  }
+  function loadScript(url) {
+    return new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = url; s.async = true;
+      s.onload = res; s.onerror = () => rej(new Error('script'));
+      document.head.appendChild(s);
+    });
+  }
+  function loadLibs() {
+    if (libsPromise) return libsPromise;
+    window.markmap = Object.assign(window.markmap || {}, { autoLoader: Object.assign({ manual: true }, (window.markmap || {}).autoLoader) });
+    libsPromise = (async () => {
+      if (libsReady()) return window.markmap;
+      let err = null;
+      for (const url of LIB_URLS) {
+        try { await loadScript(url); await waitFor(libsReady, 20000); return window.markmap; } catch (e) { err = e; }
+      }
+      throw err || new Error('markmap non disponibile');
+    })();
+    libsPromise.catch(() => { libsPromise = null; });
+    return libsPromise;
+  }
+
+  // ──────────────────────────────────────────────────────────────
+  //  MAPVIEW: rendering della mappa (editor ed export)
+  // ──────────────────────────────────────────────────────────────
+  class MapView {
+    constructor(svg, opts) {
+      this.svg = svg;
+      this.opts = Object.assign({ maxWidth: 500, dark: true, onRender: null, onNodeClick: null }, opts);
+      this.seq = 0; this.root = null; this.inst = null; this.tr = null;
+      this.imgs = {}; this.lastMd = ''; this.katexLoaded = false;
+      this.q = ''; this.hits = []; this.cur = -1;
+      this.ctx = { img: src => this.imgInfo(src), maxWidth: () => this.opts.maxWidth };
+      svg.addEventListener('click', e => {
+        if (!this.opts.onNodeClick || e.target.closest('circle') || e.target.closest('a')) return;
+        const g = e.target.closest('.markmap-node');
+        const d = g && g.__data__;
+        const lines = d && d.data && d.data.payload && d.data.payload.lines;
+        if (lines) this.opts.onNodeClick(String(lines).split(',').map(Number), d.data);
+      });
+    }
+    palette() { return PALETTES[this.opts.dark ? 'dark' : 'light']; }
+
+    imgInfo(src) {
+      const e = this.imgs[src];
+      if (e) return e.state === 'ok' ? { w: e.w, h: e.h } : (e.state === 'bad' ? { bad: true } : null);
+      this.imgs[src] = { state: 'pending' };
+      const im = new Image();
+      im.referrerPolicy = 'no-referrer';
+      im.onload = () => { this.imgs[src] = { state: 'ok', w: im.naturalWidth || 0, h: im.naturalHeight || 0 }; this.scheduleRerender(); };
+      im.onerror = () => { this.imgs[src] = { state: 'bad' }; this.scheduleRerender(); };
+      im.src = src;
+      return null;
+    }
+    resetImages() { this.imgs = {}; }
+    scheduleRerender() { clearTimeout(this._rt); this._rt = setTimeout(() => this.render(this.lastMd), 60); }
+
+    async render(md, o) {
+      o = o || {};
+      this.lastMd = md;
+      const seq = ++this.seq;
+      const mm = await loadLibs();
+      if (seq !== this.seq) return false;
+      if (!this.tr) {
+        this.tr = new mm.Transformer();
+        harden(this.tr, this.ctx);
+        this.tr.hooks.retransform.tap(() => this.scheduleRerender()); // KaTeX pronto → ridisegna
+      }
+      const { root, features } = this.tr.transform(preprocess(md));
+      if (features && features.katex && !this.katexLoaded) {
+        this.katexLoaded = true;
+        try {
+          const a = this.tr.getUsedAssets(features);
+          if (a.styles && a.styles.length && mm.loadCSS) Promise.resolve(mm.loadCSS(a.styles)).catch(() => {});
+          if (a.scripts && a.scripts.length && mm.loadJS) Promise.resolve(mm.loadJS(a.scripts, { getMarkmap: () => mm })).catch(() => {});
+        } catch (_) { /* offline: le formule restano come testo */ }
+      }
+      if (seq !== this.seq) return false;
+      const fold = ('fold' in o) ? o.fold : (this.root ? snapFold(this.root) : null);
+      assignColors(root);
+      if (fold) applyFold(root, fold, '0');
+      this.root = root;
+      if (!this.inst) {
+        this.inst = new mm.Markmap(this.svg, {
+          maxWidth: this.opts.maxWidth, paddingX: 22, duration: 250,
+          color: n => this.palette()[(n.state && n.state.ci) || 0]
+        });
+        const orig = this.inst.renderData.bind(this.inst);
+        this.inst.renderData = (...a) => { const r = orig(...a); this.afterRender(); return r; };
+        this.inst.setData(root);
+        await this.inst.fit();
+      } else {
+        this.inst.setData(root);
+        if (o.fit) await this.inst.fit();
+      }
+      return true;
+    }
+
+    afterRender() {
+      this.paintCircles();
+      this.collectHits(true);
+      if (this.opts.onRender) this.opts.onRender(this);
+    }
+    // Il cerchio del nodo prende il colore del suo ramo (stile inline: sopravvive alle transizioni d3)
+    paintCircles() {
+      this.svg.querySelectorAll('.markmap-node > circle').forEach(c => {
+        const d = c.__data__;
+        if (d && d.data) c.style.setProperty('fill', this.palette()[(d.data.state && d.data.state.ci) || 0]);
+      });
+    }
+    setMaxWidth(v) { this.opts.maxWidth = v; if (this.inst) { this.inst.setOptions({ maxWidth: v }); return this.render(this.lastMd, { fit: true }); } }
+    setDark(d) { this.opts.dark = d; if (this.inst) this.inst.setData(); }
+    fit() { return this.inst ? this.inst.fit() : null; }
+    zoomBy(f) { return this.inst ? this.inst.rescale(f) : null; }
+    getFold() { return this.root ? snapFold(this.root) : {}; }
+    isFolded() { return !!(this.root && this.root.payload && this.root.payload.fold); }
+    foldAll(collapsed) {
+      if (!this.root || !this.inst) return;
+      (function w(n) { if (n.children && n.children.length) { n.payload = Object.assign({}, n.payload, { fold: collapsed ? 1 : 0 }); } (n.children || []).forEach(w); })(this.root);
+      this.inst.setData();
+      return this.inst.fit();
+    }
+    nodeCount() { return this.root ? countNodes(this.root) : 0; }
+
+    // ── ricerca tra i nodi ──
+    search(q) { this.q = String(q || '').trim().toLowerCase(); this.cur = -1; this.collectHits(false); return { n: this.hits.length }; }
+    collectHits(keepCur) {
+      const prev = keepCur && this.cur >= 0 && this.hits[this.cur] ? this.hits[this.cur].node : null;
+      this.hits = [];
+      if (this.q && this.root) {
+        (function w(n, anc, self) {
+          if (stripHtml(n.content).toLowerCase().indexOf(self.q) >= 0) self.hits.push({ node: n, anc: anc.slice() });
+          anc.push(n); (n.children || []).forEach(c => w(c, anc, self)); anc.pop();
+        })(this.root, [], this);
+      }
+      if (prev) { const i = this.hits.findIndex(h => h.node === prev); this.cur = i; }
+      this.markHits();
+    }
+    markHits() {
+      const set = new Set(this.hits.map(h => h.node));
+      const cur = this.cur >= 0 && this.hits[this.cur] ? this.hits[this.cur].node : null;
+      this.svg.querySelectorAll('.markmap-node').forEach(g => {
+        const n = g.__data__ && g.__data__.data;
+        g.classList.toggle('nl-hit', !!n && set.has(n));
+        g.classList.toggle('nl-cur', !!n && n === cur);
+      });
+    }
+    async gotoHit(dir) {
+      if (!this.hits.length) return null;
+      this.cur = (this.cur + (dir || 1) + this.hits.length) % this.hits.length;
+      const h = this.hits[this.cur];
+      let opened = null;
+      h.anc.forEach(a => { if (a.payload && a.payload.fold) { a.payload = Object.assign({}, a.payload, { fold: 0 }); opened = a; } });
+      if (opened) this.inst.renderData(opened);
+      this.markHits();
+      await this.inst.ensureView(h.node, { left: 40, right: 40, top: 40, bottom: 40 });
+      return { i: this.cur + 1, n: this.hits.length };
+    }
+  }
+
+  // ──────────────────────────────────────────────────────────────
+  //  LETTURA DEI FILE SALVATI
+  // ──────────────────────────────────────────────────────────────
+  function block(text, name) {
+    const m = new RegExp(name + '_START\\r?\\n([\\s\\S]*?)\\r?\\n' + name + '_END').exec(text);
+    return m ? m[1] : null;
+  }
+  // Legge un file salvato da NodeLab (stringa HTML o Document).
+  // Riconosce anche i file di Nodely (marcatori NODELY_*), comprese le versioni più vecchie.
+  function readSaved(input) {
+    let doc = input, raw = null;
+    if (typeof input === 'string') {
+      raw = input.replace(/\r\n?/g, '\n');
+      doc = new DOMParser().parseFromString(raw, 'text/html');
+    }
+    const comments = [];
+    const tw = doc.createTreeWalker(doc, NodeFilter.SHOW_COMMENT);
+    while (tw.nextNode()) comments.push(tw.currentNode.nodeValue);
+    const all = comments.join('\n');
+    const get = name => block(all, name) !== null ? block(all, name) : (raw ? block(raw, name) : null);
+    let pre = 'NODELAB_', md = get('NODELAB_MD');
+    if (md === null) { pre = 'NODELY_'; md = get('NODELY_MD'); }
+    if (md === null) return null;
+    let fold = null, meta = null;
+    try { const f = get(pre + 'FOLD'); if (f) fold = JSON.parse(f); } catch (_) { fold = null; }
+    try { const mt = get(pre + 'META'); if (mt) meta = JSON.parse(mt); } catch (_) { meta = null; }
+    return { md: decodeMd(md), fold, meta, title: (doc.title || '').trim() };
+  }
+
+  // ──────────────────────────────────────────────────────────────
+  //  IMPORT DI FILE markmap.js
+  // ──────────────────────────────────────────────────────────────
+  function scanJsonObject(s, start) {
+    let depth = 0, inStr = false;
+    for (let i = start; i < s.length; i++) {
+      const ch = s[i];
+      if (inStr) { if (ch === '\\') i++; else if (ch === '"') inStr = false; continue; }
+      if (ch === '"') inStr = true;
+      else if (ch === '{') depth++;
+      else if (ch === '}') { depth--; if (depth === 0) return i; }
+    }
+    return -1;
+  }
+  function findMarkmapTree(html) {
+    const re = /[,(]\s*(\{\s*"content"\s*:)/g;
+    let m, tries = 0;
+    while ((m = re.exec(html)) && tries++ < 6) {
+      const start = m.index + m[0].length - m[1].length;
+      const end = scanJsonObject(html, start);
+      if (end < 0) continue;
+      const txt = html.slice(start, end + 1).replace(/\\x([0-9a-fA-F]{2})/g, (_, h) => '\\u00' + h);
+      try { const t = JSON.parse(txt); if (t && ('content' in t)) return t; } catch (_) { /* prossimo candidato */ }
+    }
+    return null;
+  }
+  // HTML di un nodo → markdown inline (formule, immagini, evidenziazioni, link, grassetto…)
+  function inlineHtmlToMd(html) {
+    const doc = new DOMParser().parseFromString('<div>' + html + '</div>', 'text/html');
+    function walk(n) {
+      if (n.nodeType === 3) return n.nodeValue;
+      if (n.nodeType !== 1) return '';
+      const tag = n.tagName.toLowerCase();
+      if (tag === 'annotation') return '';
+      if (n.classList && n.classList.contains('katex')) {
+        const a = n.querySelector('annotation[encoding="application/x-tex"]');
+        return a ? '$' + a.textContent.trim() + '$' : '';
+      }
+      if (n.classList && n.classList.contains('katex-display')) {
+        const a = n.querySelector('annotation[encoding="application/x-tex"]');
+        return a ? '$$' + a.textContent.trim() + '$$' : '';
+      }
+      const inner = () => Array.prototype.map.call(n.childNodes, walk).join('');
+      if (tag === 'strong' || tag === 'b') return '**' + inner() + '**';
+      if (tag === 'em' || tag === 'i') return '*' + inner() + '*';
+      if (tag === 'del' || tag === 's') return '~~' + inner() + '~~';
+      if (tag === 'mark') return '==' + inner() + '==';
+      if (tag === 'code') return '`' + n.textContent + '`';
+      if (tag === 'a') { const h = n.getAttribute('href') || ''; return h ? '[' + inner() + '](' + h + ')' : inner(); }
+      if (tag === 'br') return ' ';
+      if (tag === 'img') {
+        const at = ['src', 'alt', 'width', 'height'].filter(k => n.getAttribute(k)).map(k => k + '="' + escAttr(n.getAttribute(k)) + '"');
+        return '<img ' + at.join(' ') + '>';
+      }
+      if (tag === 'span' && /background/i.test(n.getAttribute('style') || '')) return '==' + inner() + '==';
+      return inner();
+    }
+    return walk(doc.body.firstChild).replace(/\s+/g, ' ').trim();
+  }
+  function treeToMd(tree, title) {
+    const lines = [];
+    function nodeMd(node, depth) {
+      const text = inlineHtmlToMd(node.content || '');
+      if (!text) { (node.children || []).forEach(c => nodeMd(c, depth)); return; } // wrapper vuoto: figli allo stesso livello
+      if (depth === 0) lines.push('# ' + text);
+      else if (depth === 1) lines.push('', '## ' + text);
+      else lines.push('  '.repeat(depth - 2) + '- ' + text);
+      (node.children || []).forEach(c => nodeMd(c, depth + 1));
+    }
+    if (!inlineHtmlToMd(tree.content || '') && (tree.children || []).length > 1) {
+      lines.push('# ' + (title || 'Mappa'));
+      tree.children.forEach(c => nodeMd(c, 1));
+    } else nodeMd(tree, 0);
+    return lines.join('\n').replace(/^\n+/, '') + '\n';
+  }
+
+  return {
+    VERSION, PALETTES, MAP_CSS, LIB_URLS,
+    escHtml, decodeEntities, encodeMd, decodeMd, safeFileName,
+    sanitizeChunk, harden, preprocess, transformLine,
+    parseListLine, relabelBlock, editTab, editEnter, diffRange, incLabel,
+    assignColors, applyFold, snapFold, countNodes, stripHtml,
+    loadLibs, MapView,
+    readSaved, findMarkmapTree, treeToMd, inlineHtmlToMd
+  };
+}
+
+// ════════════════════════════════════════════════════════════
+//  NODELAB — EDITOR
+// ════════════════════════════════════════════════════════════
+const core = NodeLabCore();
+const VERSION = core.VERSION;
+const $ = id => document.getElementById(id);
+document.getElementById('map-css').textContent = core.MAP_CSS;
+
+// Sito di NodeLab: il logo della pagina esportata porta qui
+const NODELAB_URL = 'https://sites.google.com/view/nodelab';
+
+// Logo (albero a due rami): simbolo in un quadrato 100×100
+const LOGO_GLYPH = '<circle cx="24" cy="20" r="9.5"/><path d="M20.8 20 20.8 21.5 20.8 23 20.8 24.5 20.9 26 20.9 27.5 21 29 21 30.5 21 32 21 33.5 20.9 35 20.9 36.5 20.8 38 20.6 39.5 20.5 41 20.4 42.5 20.2 44.1 20 45.6 19.9 47.1 19.7 48.6 19.6 50.1 19.4 51.6 19.3 53.2 19.2 54.7 19.1 56.2 19 57.7 19 59.3 19 60.8 18.9 62.3 18.9 63.9 18.8 65.4 18.7 67 18.5 68.5 18.4 70.1 18.3 71.6 18.1 73.2 18 74.7 17.9 76.3 17.8 77.9 17.8 79.4 17.8 81 30.2 81 30.2 79.4 30.2 77.9 30.1 76.3 30 74.7 29.9 73.2 29.7 71.6 29.6 70.1 29.5 68.5 29.3 67 29.2 65.4 29.1 63.9 29.1 62.3 29 60.8 29 59.3 29 57.7 28.9 56.2 28.8 54.7 28.7 53.2 28.6 51.6 28.4 50.1 28.3 48.6 28.1 47.1 28 45.6 27.8 44.1 27.6 42.5 27.5 41 27.4 39.5 27.2 38 27.1 36.5 27.1 35 27 33.5 27 32 27 30.5 27 29 27.1 27.5 27.1 26 27.2 24.5 27.2 23 27.2 21.5 27.2 20Z"/><circle cx="24" cy="81" r="6.2"/><path d="M24 23.2 25.9 23.2 27.8 23.2 29.6 23.2 31.4 23.2 33.2 23.2 34.9 23.2 36.7 23.2 38.4 23.3 40 23.3 41.7 23.4 43.3 23.5 44.9 23.6 46.4 23.7 47.9 23.9 49.4 24.1 50.8 24.3 52.2 24.6 53.6 24.8 54.9 25.1 56.2 25.5 57.4 25.9 58.6 26.3 59.7 26.8 60.8 27.3 61.9 27.8 62.9 28.4 63.8 28.9 64.7 29.5 65.6 30.1 66.4 30.8 67.1 31.4 67.8 32.1 68.5 32.8 69.2 33.5 69.8 34.2 70.3 35 70.9 35.8 71.4 36.6 71.8 37.5 72.3 38.4 72.6 39.3 72.9 40.3 73.1 41.4 73.3 42.5 73.4 43.6 73.4 44.8 73.4 46 73.3 47.3 73.2 48.6 73.1 50 72.9 52.5 72.8 55.1 72.7 57.8 72.7 60.5 72.5 63.2 72.4 65.9 72.2 68.5 72.1 71.2 72 73.8 71.8 76.3 71.8 78.7 71.8 81 84.2 81 84.2 78.7 84.2 76.3 84 73.8 83.9 71.2 83.8 68.5 83.6 65.9 83.5 63.2 83.3 60.5 83.3 57.8 83.2 55.1 83.1 52.5 82.9 50 82.7 48.3 82.5 46.7 82.1 45.1 81.7 43.5 81.3 42.1 80.8 40.6 80.3 39.3 79.8 37.9 79.2 36.7 78.7 35.4 78 34.2 77.4 33 76.6 31.9 75.8 30.9 75 29.9 74.1 28.9 73.2 28 72.2 27.2 71.1 26.4 70 25.7 68.9 25 67.8 24.3 66.6 23.8 65.4 23.2 64.1 22.7 62.9 22.2 61.6 21.8 60.2 21.4 58.9 21 57.5 20.6 56.1 20.3 54.7 20 53.2 19.6 51.7 19.3 50.2 19.1 48.6 18.8 47 18.5 45.4 18.3 43.8 18.1 42.1 17.9 40.4 17.7 38.7 17.5 37 17.3 35.2 17.2 33.4 17.1 31.6 16.9 29.7 16.9 27.8 16.8 25.9 16.8 24 16.8Z"/><circle cx="78" cy="81" r="6.2"/>';
+function logoSvg(bg, fg, size) {
+  return '<svg class="brand-logo" viewBox="0 0 100 100" width="' + size + '" height="' + size + '" aria-hidden="true"><rect width="100" height="100" rx="24" fill="' + bg + '"/><g fill="' + fg + '" transform="translate(.6 1.2)">' + LOGO_GLYPH + '</g></svg>';
+}
+
+const DEFAULT_MD = `# La mia mappa
+
+## Argomento 1
+- Punto con **grassetto** e *corsivo*
+- Punto con \`inline code\`
+  - Sotto-punto A
+  - Sotto-punto B
+
+## Argomento 2
+- Testo con ==evidenziazione==
+- Formula: $E = mc^2$
+- Immagine: <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Saturn_during_Equinox.jpg/1280px-Saturn_during_Equinox.jpg" height="60">
+
+## Note
+- Nota ~~barrata~~
+  1. Primo elemento
+  2. Secondo elemento
+`;
+
+// Icone Lucide (licenza ISC)
+const ICON = {
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',
+  moon: '<path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>',
+  shrink: '<path d="m15 15 6 6m-6-6v4.8m0-4.8h4.8"/><path d="M9 19.8V15m0 0H4.2M9 15l-6 6"/><path d="M15 4.2V9m0 0h4.8M15 9l6-6"/><path d="M9 4.2V9m0 0H4.2M9 9 3 3"/>',
+  expand: '<path d="m15 15 6 6"/><path d="m15 9 6-6"/><path d="M21 16v5h-5"/><path d="M21 8V3h-5"/><path d="M3 16v5h5"/><path d="m3 21 6-6"/><path d="M3 8V3h5"/><path d="M9 9 3 3"/>',
+  zin: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/>',
+  zout: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M8 11h6"/>',
+  fit: '<path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/>',
+  gear: '<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>',
+  close: '<path d="M6 6l12 12M18 6L6 18"/>',
+  sparkles: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4M22 5h-4M4 17v2M5 18H3"/>'
+};
+const ic = (name, size) => '<svg class="ic" viewBox="0 0 24 24"' + (size ? ' style="width:' + size + 'px;height:' + size + 'px"' : '') + ' aria-hidden="true">' + ICON[name] + '</svg>';
+
+// Preferenze del browser (le chiavi di Nodely restano valide come riserva)
+const store = {
+  get(k) {
+    try { const v = localStorage.getItem('nodelab-' + k); return v !== null ? v : localStorage.getItem('nodely-' + k); } catch (_) { return null; }
+  },
+  set(k, v) { try { localStorage.setItem('nodelab-' + k, v); } catch (_) { /* archiviazione non disponibile */ } }
+};
+const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
+
+// ════════════════════════════════════════════════════════════
+//  STATO
+// ════════════════════════════════════════════════════════════
+const editor = $('editor');
+const svgEl  = $('mm-svg');
+const mqDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+let isDark   = store.get('theme') ? store.get('theme') === 'dark' : (mqDark ? mqDark.matches : false);
+let toastTid, renderTimer;
+
+const view = new core.MapView(svgEl, {
+  maxWidth: 500,
+  dark: isDark,
+  onRender: onMapRender,
+  onNodeClick: lines => goToLine(lines[0])
+});
+
+// ════════════════════════════════════════════════════════════
+//  AVVISI
+// ════════════════════════════════════════════════════════════
+function toast(msg) {
+  const el = $('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTid);
+  toastTid = setTimeout(() => el.classList.remove('show'), 3400);
+}
+
+// ════════════════════════════════════════════════════════════
+//  TEMA (segue il dispositivo finché l'utente non sceglie)
+// ════════════════════════════════════════════════════════════
+function applyTheme(dark) {
+  isDark = dark;
+  document.body.classList.toggle('light', !dark);
+  $('icon-theme').innerHTML = dark ? ICON.sun : ICON.moon;
+  const t = dark ? 'Passa al tema chiaro' : 'Passa al tema scuro';
+  $('btn-theme').title = t; $('btn-theme').setAttribute('aria-label', t);
+  view.setDark(dark);
+}
+$('btn-theme').addEventListener('click', () => { applyTheme(!isDark); store.set('theme', isDark ? 'dark' : 'light'); });
+if (mqDark && mqDark.addEventListener) mqDark.addEventListener('change', e => { if (!store.get('theme')) applyTheme(e.matches); });
+
+// ════════════════════════════════════════════════════════════
+//  DISEGNO DELLA MAPPA
+// ════════════════════════════════════════════════════════════
+function showMapError(show) { $('maperr').classList.toggle('show', show); }
+function scheduleRender(ms) { clearTimeout(renderTimer); renderTimer = setTimeout(() => renderNow(), ms == null ? 300 : ms); }
+async function renderNow(opts) {
+  try {
+    const ok = await view.render(editor.value, opts);
+    if (ok) showMapError(false);
+  } catch (err) {
+    console.error('[NodeLab] disegno della mappa:', err);
+    if (!(window.markmap && window.markmap.Markmap)) showMapError(true);
+  }
+}
+$('btn-retry').addEventListener('click', () => { showMapError(false); renderNow(); });
+
+function updateToggleBtn() {
+  const folded = view.isFolded(), b = $('btn-toggle');
+  b.innerHTML = folded ? ic('expand') + '<span class="lbl">Espandi</span>' : ic('shrink') + '<span class="lbl">Riduci</span>';
+  b.title = folded ? 'Espandi: apri tutti i rami' : 'Riduci: chiudi tutti i rami';
+  b.setAttribute('aria-label', folded ? 'Espandi tutti i rami' : 'Riduci tutti i rami');
+}
+function onMapRender(v) {
+  const n = v.nodeCount();
+  $('ncount').textContent = n + (n === 1 ? ' nodo' : ' nodi');
+  updateToggleBtn();
+  updateSearchCount();
+}
+$('btn-toggle').addEventListener('click', () => { view.foldAll(!view.isFolded()); });
+updateToggleBtn();
+
+// ════════════════════════════════════════════════════════════
+//  EDITOR: modifica programmatica che mantiene la cronologia nativa (Ctrl+Z)
+// ════════════════════════════════════════════════════════════
+function applyEdit(r) {
+  const cur = editor.value;
+  if (r.text !== cur) {
+    const d = core.diffRange(cur, r.text);
+    editor.focus();
+    editor.setSelectionRange(d.from, d.to);
+    let ok = false;
+    try { ok = d.insert === '' ? document.execCommand('delete') : document.execCommand('insertText', false, d.insert); } catch (_) { ok = false; }
+    if (!ok || editor.value !== r.text) { editor.value = r.text; editor.dispatchEvent(new Event('input', { bubbles: true })); }
+  }
+  editor.setSelectionRange(r.selStart, r.selEnd);
+  updateStatus();
+}
+
+editor.addEventListener('input', () => { scheduleRender(300); updateStatus(); });
+editor.addEventListener('keydown', e => {
+  if (e.isComposing || e.ctrlKey || e.altKey || e.metaKey) return;
+  if (e.key === 'Tab') {
+    const r = core.editTab(editor.value, editor.selectionStart, editor.selectionEnd, e.shiftKey);
+    if (r) { e.preventDefault(); applyEdit(r); }
+    return; // fuori dagli elenchi Tab sposta il focus come di consueto
+  }
+  if (e.key === 'Enter' && !e.shiftKey && editor.selectionStart === editor.selectionEnd) {
+    const r = core.editEnter(editor.value, editor.selectionStart);
+    if (r) { e.preventDefault(); applyEdit(r); }
+  }
+});
+function histCmd(cmd) { editor.focus(); document.execCommand(cmd); }
+$('btn-undo').addEventListener('click', () => histCmd('undo'));
+$('btn-redo').addEventListener('click', () => histCmd('redo'));
+
+// ── riga/colonna nel piè di pagina ──
+let statusRaf = 0;
+function updateStatus() {
+  cancelAnimationFrame(statusRaf);
+  statusRaf = requestAnimationFrame(() => {
+    const pos = editor.selectionStart, v = editor.value;
+    const before = v.slice(0, pos);
+    const line = before.split('\n').length, col = pos - before.lastIndexOf('\n');
+    $('epos').textContent = 'Riga ' + line + ', col ' + col + ' · ' + v.split('\n').length + ' righe';
+  });
+}
+['keyup', 'click', 'focus'].forEach(ev => editor.addEventListener(ev, updateStatus));
+document.addEventListener('selectionchange', () => { if (document.activeElement === editor) updateStatus(); });
+
+// ── clic su un nodo → seleziona la riga nell'editor ──
+function textTop(pos) {
+  const cs = getComputedStyle(editor), m = document.createElement('div');
+  ['fontFamily', 'fontSize', 'fontWeight', 'lineHeight', 'letterSpacing', 'tabSize', 'paddingTop', 'paddingLeft', 'paddingRight'].forEach(p => { m.style[p] = cs[p]; });
+  Object.assign(m.style, { position: 'absolute', visibility: 'hidden', top: '0', left: '-9999px', boxSizing: 'border-box', whiteSpace: 'pre-wrap', overflowWrap: 'break-word', width: editor.clientWidth + 'px' });
+  m.textContent = editor.value.slice(0, pos);
+  const mark = document.createElement('span'); mark.textContent = '.'; m.appendChild(mark);
+  document.body.appendChild(m);
+  const top = mark.offsetTop;
+  m.remove();
+  return top;
+}
+function goToLine(lineIdx) {
+  const v = editor.value;
+  let off = 0;
+  for (let i = 0; i < lineIdx; i++) { off = v.indexOf('\n', off); if (off < 0) return; off++; }
+  let end = v.indexOf('\n', off); if (end < 0) end = v.length;
+  editor.focus({ preventScroll: true });
+  editor.setSelectionRange(off, end);
+  editor.scrollTop = Math.max(0, textTop(off) - editor.clientHeight / 2);
+  updateStatus();
+}
+
+// ════════════════════════════════════════════════════════════
+//  DIVISORE (mouse, tocco e tastiera)
+// ════════════════════════════════════════════════════════════
+const divider = $('divider'), epanel = $('epanel');
+const mqNarrow = window.matchMedia('(max-width: 760px)');
+let dragging = false;
+function resizeTo(clientX, clientY) {
+  const r = $('main').getBoundingClientRect();
+  if (mqNarrow.matches) epanel.style.height = clamp(clientY - r.top, 120, r.height - 160) + 'px';
+  else epanel.style.width = clamp(clientX - r.left, 220, r.width - 220) + 'px';
+}
+divider.addEventListener('pointerdown', e => {
+  dragging = true; divider.setPointerCapture(e.pointerId); divider.classList.add('drag');
+  document.body.classList.add('resizing'); document.body.classList.toggle('vert', mqNarrow.matches);
+  e.preventDefault();
+});
+divider.addEventListener('pointermove', e => { if (dragging) resizeTo(e.clientX, e.clientY); });
+['pointerup', 'pointercancel'].forEach(ev => divider.addEventListener(ev, () => {
+  if (!dragging) return;
+  dragging = false; divider.classList.remove('drag'); document.body.classList.remove('resizing', 'vert');
+}));
+divider.addEventListener('keydown', e => {
+  const step = e.shiftKey ? 80 : 24, r = epanel.getBoundingClientRect();
+  const dec = mqNarrow.matches ? 'ArrowUp' : 'ArrowLeft', inc = mqNarrow.matches ? 'ArrowDown' : 'ArrowRight';
+  if (e.key !== dec && e.key !== inc) return;
+  e.preventDefault();
+  const delta = e.key === inc ? step : -step;
+  if (mqNarrow.matches) resizeTo(0, r.bottom + delta);
+  else resizeTo(r.right + delta, 0);
+});
+const onNarrowChange = () => { epanel.style.width = ''; epanel.style.height = ''; divider.setAttribute('aria-orientation', mqNarrow.matches ? 'horizontal' : 'vertical'); };
+if (mqNarrow.addEventListener) mqNarrow.addEventListener('change', onNarrowChange); else if (mqNarrow.addListener) mqNarrow.addListener(onNarrowChange);
+onNarrowChange();
+
+// ════════════════════════════════════════════════════════════
+//  ZOOM
+// ════════════════════════════════════════════════════════════
+$('btn-zi').addEventListener('click', () => view.zoomBy(1.3));
+$('btn-zo').addEventListener('click', () => view.zoomBy(1 / 1.3));
+$('btn-fit').addEventListener('click', () => view.fit());
+
+// ════════════════════════════════════════════════════════════
+//  RICERCA TRA I NODI
+// ════════════════════════════════════════════════════════════
+const searchInp = $('search');
+function updateSearchCount() {
+  const el = $('search-count');
+  if (!view.q) { el.textContent = ''; return; }
+  el.textContent = view.hits.length ? (view.cur >= 0 ? view.cur + 1 : '–') + '/' + view.hits.length : '0';
+}
+searchInp.addEventListener('input', () => {
+  view.search(searchInp.value);
+  updateSearchCount();
+  if (view.hits.length) view.gotoHit(1).then(updateSearchCount);
+});
+searchInp.addEventListener('keydown', e => {
+  if (e.key === 'Enter') { e.preventDefault(); view.gotoHit(e.shiftKey ? -1 : 1).then(updateSearchCount); }
+  else if (e.key === 'Escape' && searchInp.value) { e.stopPropagation(); searchInp.value = ''; view.search(''); updateSearchCount(); }
+});
+
+// ════════════════════════════════════════════════════════════
+//  IMPOSTAZIONI
+// ════════════════════════════════════════════════════════════
+function setMaxWidthQuiet(v) {
+  view.opts.maxWidth = v;
+  if (view.inst) view.inst.setOptions({ maxWidth: v });
+  $('maxwidth-input').value = v;
+}
+$('maxwidth-input').addEventListener('input', function () {
+  const v = parseInt(this.value, 10);
+  if (!v || v < 100 || v > 1200) return;
+  view.setMaxWidth(v);
+});
+$('maxwidth-input').addEventListener('change', function () {
+  const v = clamp(parseInt(this.value, 10) || 500, 100, 1200);
+  this.value = v;
+  if (v !== view.opts.maxWidth) view.setMaxWidth(v);
+});
+function applySpell(on) { editor.spellcheck = on; $('spell-check').checked = on; }
+$('spell-check').addEventListener('change', function () { applySpell(this.checked); store.set('spell', this.checked ? '1' : '0'); });
+applySpell(store.get('spell') !== '0');
+
+// ════════════════════════════════════════════════════════════
+//  FINESTRE (Esc, focus, trappola del Tab)
+// ════════════════════════════════════════════════════════════
+let openModalEl = null, modalOpener = null;
+function openModal(bg) {
+  modalOpener = document.activeElement;
+  bg.classList.add('open'); openModalEl = bg;
+  const first = bg.querySelector('input, button');
+  (first || bg.querySelector('.mbox')).focus();
+}
+function closeModal() {
+  if (!openModalEl) return;
+  openModalEl.classList.remove('open'); openModalEl = null;
+  if (modalOpener && modalOpener.focus) modalOpener.focus();
+}
+document.querySelectorAll('.mbg').forEach(bg => {
+  bg.addEventListener('click', e => { if (e.target === bg) closeModal(); });
+  bg.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', closeModal));
+});
+$('btn-settings').addEventListener('click', () => openModal($('settings-bg')));
+
+// ── Tutorial: i testi sono nei <template> «nodelab-tutorial-content» e «nodelab-changelog-content» ──
+const tutBody = $('tut-body');
+function showTutorial(page) {
+  const tpl = $(page === 'changes' ? 'nodelab-changelog-content' : 'nodelab-tutorial-content');
+  tutBody.innerHTML = tpl ? tpl.innerHTML : '';
+  tutBody.querySelectorAll('[data-ver]').forEach(el => { el.textContent = VERSION; });
+  tutBody.scrollTop = 0;
+}
+tutBody.addEventListener('click', e => {
+  const page = e.target.closest('[data-tutorial-page]');
+  if (page) { e.preventDefault(); showTutorial(page.dataset.tutorialPage); return; }
+  const link = e.target.closest('a[href^="#tutorial-"]');
+  if (link) {
+    e.preventDefault();
+    const target = tutBody.querySelector(link.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+});
+$('btn-tut').addEventListener('click', () => { showTutorial('tutorial'); openModal($('tut-bg')); });
+
+// ════════════════════════════════════════════════════════════
+//  MENU ESPORTA
+// ════════════════════════════════════════════════════════════
+const expBtn = $('btn-export'), expMenu = $('export-menu');
+function setMenu(open) {
+  expMenu.hidden = !open; expBtn.setAttribute('aria-expanded', String(open));
+  if (open) expMenu.querySelector('button').focus();
+}
+expBtn.addEventListener('click', () => setMenu(expMenu.hidden));
+document.addEventListener('click', e => { if (!expMenu.hidden && !e.target.closest('.menu-wrap')) setMenu(false); });
+expMenu.addEventListener('keydown', e => {
+  const items = Array.from(expMenu.querySelectorAll('button')), i = items.indexOf(document.activeElement);
+  if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+});
+expMenu.addEventListener('click', e => {
+  const b = e.target.closest('[data-exp]');
+  if (!b) return;
+  setMenu(false);
+  const kind = b.getAttribute('data-exp');
+  if (kind === 'html') saveHtml();
+  else if (kind === 'pdf') exportPdf(); else if (kind === 'png') exportPng(); else if (kind === 'svg') exportSvg(); else exportMd();
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (openModalEl) { e.preventDefault(); closeModal(); }
+    else if (!expMenu.hidden) { e.preventDefault(); setMenu(false); expBtn.focus(); }
+  }
+  if (e.key === 'Tab' && openModalEl) {
+    const f = Array.from(openModalEl.querySelectorAll('button, input, a[href], summary, [tabindex]:not([tabindex="-1"])')).filter(x => !x.disabled && x.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && (document.activeElement === first || document.activeElement === openModalEl.querySelector('.mbox'))) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+  if ((e.ctrlKey || e.metaKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 's') { e.preventDefault(); saveHtml(); }
+});
+
+// ════════════════════════════════════════════════════════════
+//  FILE: salvataggio
+// ════════════════════════════════════════════════════════════
+function mapName() { return $('map-name').value.trim() || 'mappa'; }
+function downloadBlob(blob, fileName) {
+  const a = document.createElement('a');
+  const url = URL.createObjectURL(blob);
+  a.href = url; a.download = fileName;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+}
+async function saveFile(blob, fileName, mime, ext, okMsg) {
+  if (window.showSaveFilePicker) {
+    try {
+      const handle = await window.showSaveFilePicker({ suggestedName: fileName, types: [{ description: fileName.split('.').pop().toUpperCase(), accept: { [mime]: [ext] } }] });
+      const w = await handle.createWritable(); await w.write(blob); await w.close();
+      toast('Salvato: ' + handle.name); return;
+    } catch (err) { if (err && err.name === 'AbortError') return; }
+  }
+  downloadBlob(blob, fileName);
+  toast(okMsg + ': ' + fileName);
+}
+
+// Marcatori del formato (costruiti a pezzi per non comparire mai per intero nel sorgente dell'editor)
+const CMT_OPEN = '<' + '!' + '--', CMT_CLOSE = '-' + '-' + '>'; // niente commento HTML letterale dentro lo <script>
+const mkBlock = (n, txt) => CMT_OPEN + ' NODELAB_' + n + '_START\n' + txt + '\nNODELAB_' + n + '_END ' + CMT_CLOSE;
+
+// CSS comune alla pagina esportata (stessa veste dell'editor)
+const EXPORT_CSS = `
+:root { --bar:#2b1f09; --bar-ink:#fbf3df; --bar-line:rgba(255,255,255,.26); --surface:#1e1b16; --sur2:#25221b; --line:#3b3529; --ink:#efe9dd; --ink-2:#cbc1af; --ink-3:#9e9481; --accent:#e0a53a; --accent-hover:#f0b851; --accent-ink:#221703; --accent-soft:rgba(224,165,58,.15); --focus:#f0b851; --shadow:0 12px 34px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3); }
+body.light { --bar:#3a2a0c; --surface:#ffffff; --sur2:#f8f6f1; --line:#ddd6c8; --ink:#2a2418; --ink-2:#5c5343; --ink-3:#716754; --accent:#9a6400; --accent-hover:#7f5200; --accent-ink:#ffffff; --accent-soft:#f6ecd6; --focus:#c98a1c; --shadow:0 12px 34px rgba(42,30,8,.18),0 2px 6px rgba(42,30,8,.1); }
+* { box-sizing:border-box; }
+[hidden] { display:none !important; }
+html, body { margin:0; height:100%; }
+body { display:flex; flex-direction:column; height:100vh; height:100dvh; overflow:hidden; background:var(--map-bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; font-size:15px; -webkit-text-size-adjust:100%; }
+button, input { font:inherit; color:inherit; }
+:focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+svg.ic { width:17px; height:17px; flex:none; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.topbar { display:flex; align-items:center; gap:10px; min-height:54px; padding:8px 14px; background:var(--bar); color:var(--bar-ink); flex:none; }
+.brand { display:flex; align-items:center; flex:none; color:inherit; text-decoration:none; border-radius:9px; }
+a.brand:hover { opacity:.85; }
+.brand-logo { display:block; width:30px; height:30px; }
+.title { margin:0; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-family:"Palatino Linotype","Book Antiqua",Palatino,"Iowan Old Style",Georgia,serif; font-size:1.15rem; font-weight:600; }
+.spacer { flex:1; }
+.actions { display:flex; align-items:center; gap:6px; flex:none; }
+.tbtn { display:inline-flex; align-items:center; justify-content:center; gap:7px; height:36px; min-width:36px; padding:0 12px; border-radius:10px; border:1px solid var(--bar-line); background:transparent; color:var(--bar-ink); font-size:.86rem; font-weight:700; cursor:pointer; white-space:nowrap; }
+.tbtn.icon { width:36px; padding:0; }
+.tbtn:hover { background:rgba(255,255,255,.1); }
+.tsep { width:1px; align-self:stretch; margin:4px 2px; background:rgba(255,255,255,.18); }
+#mm { flex:1; min-height:0; width:100%; display:block; background:var(--map-bg); }
+#mm .markmap-link:hover { stroke-opacity:.85 !important; }
+#ai-banner { position:fixed; top:66px; left:0; right:0; margin:0 auto; width:fit-content; z-index:50; display:flex; align-items:center; gap:10px; max-width:calc(100vw - 24px); padding:7px 8px 7px 16px; border-radius:999px; background:var(--bar); color:var(--bar-ink); box-shadow:var(--shadow); font-size:.88rem; }
+#ai-banner > span { display:flex; align-items:center; gap:8px; line-height:1.35; }
+#ai-close { display:grid; place-items:center; width:28px; height:28px; flex:none; border-radius:999px; border:1px solid rgba(255,255,255,.35); background:transparent; color:inherit; cursor:pointer; }
+#ai-close:hover { background:rgba(255,255,255,.12); }
+.mbg { display:none; position:fixed; inset:0; z-index:200; background:rgba(24,17,5,.55); align-items:center; justify-content:center; padding:12px; }
+.mbg.open { display:flex; }
+.mbox { width:min(420px,100%); background:var(--surface); color:var(--ink); border-radius:14px; box-shadow:var(--shadow); overflow:hidden; }
+.dlg-head { display:flex; align-items:center; gap:12px; min-height:58px; padding:0 12px 0 20px; border-bottom:1px solid var(--line); }
+.dlg-head h2 { margin:0; flex:1; font-size:1.1rem; }
+.ibtn { display:grid; place-items:center; width:34px; height:34px; border:1px solid var(--line); border-radius:9px; background:var(--surface); color:var(--ink-2); cursor:pointer; }
+.ibtn:hover { background:var(--accent-soft); color:var(--accent); }
+.srow { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 20px; }
+.slabel { font-size:.92rem; font-weight:600; }
+.slabel small { display:block; margin-top:3px; font-size:.78rem; font-weight:400; color:var(--ink-3); line-height:1.4; }
+.sinput { width:90px; height:38px; padding:5px 9px; border:1px solid var(--line); border-radius:8px; background:var(--surface); color:var(--ink); font-family:ui-monospace,Menlo,Consolas,monospace; text-align:center; outline:none; }
+.sinput:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+#err { position:fixed; inset:54px 0 0 0; display:none; align-items:center; justify-content:center; padding:24px; background:var(--map-bg); z-index:150; }
+#err.show { display:flex; }
+#err .card { max-width:440px; padding:22px 24px; border:1px solid var(--line); border-radius:14px; background:var(--surface); box-shadow:var(--shadow); color:var(--ink-2); font-size:.9rem; line-height:1.6; text-align:center; }
+#err strong { display:block; margin-bottom:6px; color:var(--ink); font-size:1rem; }
+#err button { margin-top:14px; height:34px; padding:0 16px; border-radius:8px; border:1px solid var(--accent); background:var(--accent); color:var(--accent-ink); font-weight:700; cursor:pointer; }
+@media (max-width:760px) { .tbtn .lbl { display:none; } .tbtn:not(.icon) { width:36px; padding:0; } .tsep { display:none; } }
+@media (max-width:480px) { .topbar { flex-wrap:wrap; } .actions { flex-basis:100%; justify-content:flex-end; } #ai-banner { top:108px; } #err { inset:100px 0 0 0; } }
+@media print {
+  @page { size:landscape; margin:8mm; }
+  .topbar, #ai-banner, .mbg, #err { display:none !important; }
+  html, body { height:auto; overflow:visible; display:block; }
+  #mm { width:100%; height:190mm; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}`;
+
+function buildExport(md, name, fold, meta) {
+  const esc = core.escHtml;
+  const dark = meta.theme === 'dark';
+  const favicon = 'data:image/svg+xml,' + encodeURIComponent(logoSvg('#9a6400', '#fbf3df', 64).replace(' class="brand-logo"', ' xmlns="http://www.w3.org/2000/svg"').replace(' aria-hidden="true"', ''));
+  const brand = NODELAB_URL
+    ? `<a class="brand" href="${esc(NODELAB_URL)}" target="_blank" rel="noopener" title="Creata con NodeLab" aria-label="Creata con NodeLab: apri il sito in una nuova scheda">${logoSvg('#fbf3df', '#9a6400', 30)}</a>`
+    : `<span class="brand" aria-hidden="true">${logoSvg('#fbf3df', '#9a6400', 30)}</span>`;
+  const aiBanner = meta.ai ? `
+<div id="ai-banner" role="note">
+  <span>${ic('sparkles', 16)}Mappa prodotta con l'ausilio dell'intelligenza artificiale</span>
+  <button id="ai-close" type="button" title="Chiudi l'avviso" aria-label="Chiudi l'avviso">${ic('close', 15)}</button>
+</div>` : '';
+  return `<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="NodeLab ${esc(VERSION)}">
+<title>${esc(name)}</title>
+<link rel="icon" type="image/svg+xml" href="${favicon}">
+<style>
+${core.MAP_CSS}
+${EXPORT_CSS}
+</style>
+</head>
+<body class="${dark ? '' : 'light'}">
+<header class="topbar">
+  ${brand}
+  <h1 class="title">${esc(name)}</h1>
+  <span class="spacer"></span>
+  <nav class="actions" aria-label="Comandi della mappa">
+    <button class="tbtn" id="tb-toggle" type="button"></button>
+    <span class="tsep"></span>
+    <button class="tbtn icon" id="tb-zo" type="button" title="Riduci lo zoom" aria-label="Riduci lo zoom">${ic('zout')}</button>
+    <button class="tbtn icon" id="tb-zi" type="button" title="Aumenta lo zoom" aria-label="Aumenta lo zoom">${ic('zin')}</button>
+    <button class="tbtn icon" id="tb-fit" type="button" title="Adatta la mappa alla finestra" aria-label="Adatta la mappa alla finestra">${ic('fit')}</button>
+    <span class="tsep"></span>
+    <button class="tbtn icon" id="tb-theme" type="button" title="Cambia tema" aria-label="Cambia tema"><svg class="ic" id="tb-ti" viewBox="0 0 24 24" aria-hidden="true"></svg></button>
+    <button class="tbtn icon" id="tb-settings" type="button" title="Impostazioni" aria-label="Impostazioni">${ic('gear')}</button>
+  </nav>
+</header>
+${aiBanner}
+<svg id="mm" role="group" aria-label="${esc(name)}"></svg>
+<div id="err" role="alert"><div class="card"><strong>Non riesco a caricare la libreria della mappa</strong>Serve la connessione a internet (cdn.jsdelivr.net o unpkg.com). Se sei a scuola, la rete potrebbe bloccare questi indirizzi.<br><button id="err-retry" type="button">Riprova</button></div></div>
+<div class="mbg" id="s-bg">
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="s-title">
+    <div class="dlg-head"><h2 id="s-title">Impostazioni</h2><button class="ibtn" id="s-close-btn" type="button" title="Chiudi" aria-label="Chiudi">${ic('close')}</button></div>
+    <div class="srow"><label class="slabel" for="s-maxw">Larghezza dei nodi<small>Larghezza massima del testo di un nodo, in pixel</small></label><input class="sinput" id="s-maxw" type="number" min="100" max="1200" step="10" value="${view.opts.maxWidth}"></div>
+  </div>
+</div>
+${mkBlock('MD', core.encodeMd(md))}
+${mkBlock('FOLD', JSON.stringify(fold))}
+${mkBlock('META', JSON.stringify(meta))}
+<script>
+const NodeLabCore = ${NodeLabCore.toString()};
+(function () {
+  var core = NodeLabCore();
+  var $ = function (id) { return document.getElementById(id); };
+  var saved = core.readSaved(document) || { md: '', fold: null, meta: {} };
+  var meta = saved.meta || {};
+  var dark = !document.body.classList.contains('light');
+  var maxW = (meta.maxWidth >= 100 && meta.maxWidth <= 1200) ? meta.maxWidth : 500;
+  var view = new core.MapView($('mm'), { maxWidth: maxW, dark: dark, onRender: updateToggle });
+  var ICON = ${JSON.stringify({ sun: ICON.sun, moon: ICON.moon, shrink: ICON.shrink, expand: ICON.expand })};
+  function ic(n) { return '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true">' + ICON[n] + '</svg>'; }
+
+  function updateToggle() {
+    var f = view.isFolded(), b = $('tb-toggle');
+    b.innerHTML = f ? ic('expand') + '<span class="lbl">Espandi</span>' : ic('shrink') + '<span class="lbl">Riduci</span>';
+    b.title = f ? 'Espandi: apri tutti i rami' : 'Riduci: chiudi tutti i rami';
+    b.setAttribute('aria-label', f ? 'Espandi tutti i rami' : 'Riduci tutti i rami');
+  }
+  function draw() {
+    return view.render(saved.md, { fold: saved.fold, fit: true }).then(function () { $('err').classList.remove('show'); })
+      .catch(function () { $('err').classList.add('show'); });
+  }
+  $('err-retry').addEventListener('click', function () { $('err').classList.remove('show'); draw(); });
+  $('tb-toggle').addEventListener('click', function () { view.foldAll(!view.isFolded()); });
+
+  function applyTheme(dk) {
+    dark = dk;
+    document.body.classList.toggle('light', !dk);
+    $('tb-ti').innerHTML = dk ? ICON.sun : ICON.moon;
+    var t = dk ? 'Passa al tema chiaro' : 'Passa al tema scuro';
+    $('tb-theme').title = t; $('tb-theme').setAttribute('aria-label', t);
+    view.setDark(dk);
+  }
+  $('tb-theme').addEventListener('click', function () { applyTheme(!dark); });
+  $('tb-zi').addEventListener('click', function () { view.zoomBy(1.3); });
+  $('tb-zo').addEventListener('click', function () { view.zoomBy(1 / 1.3); });
+  $('tb-fit').addEventListener('click', function () { view.fit(); });
+
+  var sbg = $('s-bg'), opener = null;
+  function openS() { opener = document.activeElement; sbg.classList.add('open'); $('s-maxw').focus(); }
+  function closeS() { sbg.classList.remove('open'); if (opener && opener.focus) opener.focus(); }
+  $('tb-settings').addEventListener('click', openS);
+  $('s-close-btn').addEventListener('click', closeS);
+  sbg.addEventListener('click', function (e) { if (e.target === sbg) closeS(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sbg.classList.contains('open')) closeS(); });
+  $('s-maxw').addEventListener('input', function () {
+    var v = parseInt(this.value, 10);
+    if (!v || v < 100 || v > 1200) return;
+    view.setMaxWidth(v);
+  });
+
+  var aiClose = $('ai-close');
+  if (aiClose) aiClose.addEventListener('click', function () { $('ai-banner').style.display = 'none'; });
+
+  updateToggle();
+  applyTheme(dark);
+  draw();
+})();
+<\/script>
+</body>
+</html>`;
+}
+
+function currentMeta() {
+  return { format: 'nodelab', version: VERSION, maxWidth: view.opts.maxWidth, theme: isDark ? 'dark' : 'light', ai: $('ai-check').checked };
+}
+async function saveHtml() {
+  const name = mapName();
+  const html = buildExport(editor.value, name, view.getFold(), currentMeta());
+  await saveFile(new Blob([html], { type: 'text/html;charset=utf-8' }), core.safeFileName(name) + '.html', 'text/html', '.html', 'Esportata');
+}
+
+async function exportMd() {
+  const name = mapName();
+  await saveFile(new Blob([editor.value], { type: 'text/markdown;charset=utf-8' }), core.safeFileName(name) + '.md', 'text/markdown', '.md', 'Esportato');
+}
+
+// ════════════════════════════════════════════════════════════
+//  ESPORTA IMMAGINE (SVG / PNG / PDF)
+// ════════════════════════════════════════════════════════════
+function blobToDataUrl(b) { return new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(b); }); }
+function imgViaCanvas(src) {
+  return new Promise((res, rej) => {
+    const im = new Image(); im.crossOrigin = 'anonymous';
+    im.onload = () => { try { const c = document.createElement('canvas'); c.width = im.naturalWidth; c.height = im.naturalHeight; c.getContext('2d').drawImage(im, 0, 0); res(c.toDataURL('image/png')); } catch (e) { rej(e); } };
+    im.onerror = rej; im.src = src;
+  });
+}
+// Le immagini esterne non si caricano dentro un SVG usato come immagine: le incorporiamo come data URI
+async function inlineImages(clone) {
+  let failed = 0;
+  await Promise.all(Array.from(clone.querySelectorAll('img')).map(async im => {
+    const src = im.getAttribute('src');
+    if (!src || src.startsWith('data:')) return;
+    try {
+      const r = await fetch(src, { mode: 'cors', referrerPolicy: 'no-referrer' });
+      if (!r.ok) throw new Error('http');
+      im.setAttribute('src', await blobToDataUrl(await r.blob()));
+    } catch (_) {
+      try { im.setAttribute('src', await imgViaCanvas(src)); } catch (__) { failed++; }
+    }
+  }));
+  return failed;
+}
+async function buildMapSvg() {
+  const inst = view.inst;
+  if (!inst || !view.root) throw new Error('La mappa non è ancora pronta.');
+  const st = inst.state, pad = 28;
+  const w = Math.ceil(st.maxY - st.minY + pad * 2), h = Math.ceil(st.maxX - st.minX + pad * 2);
+  const x = st.minY - pad, y = st.minX - pad;
+  const clone = svgEl.cloneNode(true);
+  ['id', 'style', 'role', 'aria-label'].forEach(a => clone.removeAttribute(a));
+  clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  clone.setAttribute('viewBox', x + ' ' + y + ' ' + w + ' ' + h);
+  clone.setAttribute('width', w); clone.setAttribute('height', h);
+  const g = clone.querySelector(':scope > g');
+  if (g) g.removeAttribute('transform');
+  const cs = getComputedStyle(svgEl);
+  const vars = ['--node-text', '--mm-link', '--mm-link-h', '--mm-code-bg', '--mm-code', '--mm-code-bd', '--mm-mark', '--mm-line'];
+  const bg = getComputedStyle(document.body).getPropertyValue('--map-bg').trim() || '#ffffff';
+  const css = 'svg.markmap{' + vars.map(v => v + ':' + cs.getPropertyValue(v).trim()).join(';') + '}' +
+    core.MAP_CSS.replace(/(^|\n)\s*(?::root|body\.light)\s*\{[^}]*\}/g, '').replace(/\bbody\s+(?=\.)/g, '');
+  const style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
+  style.textContent = css;
+  const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+  [['x', x], ['y', y], ['width', w], ['height', h], ['fill', bg]].forEach(([k, v]) => rect.setAttribute(k, v));
+  clone.insertBefore(rect, clone.firstChild);
+  clone.insertBefore(style, clone.firstChild);
+  const failed = await inlineImages(clone);
+  return { svg: new XMLSerializer().serializeToString(clone), w, h, failed };
+}
+const imgWarn = n => n + (n === 1 ? ' immagine non inclusa' : ' immagini non incluse') + ': il sito che le ospita non ne consente la copia.';
+async function exportSvg() {
+  try {
+    const r = await buildMapSvg();
+    await saveFile(new Blob(['<?xml version="1.0" encoding="UTF-8"?>\n' + r.svg], { type: 'image/svg+xml' }), core.safeFileName(mapName()) + '.svg', 'image/svg+xml', '.svg', 'Esportata');
+    if (r.failed) toast(imgWarn(r.failed));
+  } catch (e) { toast(e.message || 'Esportazione SVG non riuscita.'); }
+}
+async function exportPng() {
+  try {
+    const r = await buildMapSvg();
+    const url = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(r.svg);
+    const img = new Image();
+    await new Promise((res, rej) => { img.onload = res; img.onerror = () => rej(new Error('Il browser non riesce a disegnare la mappa come immagine.')); img.src = url; });
+    const s = Math.min(2, 8000 / Math.max(r.w, r.h));
+    const c = document.createElement('canvas'); c.width = Math.round(r.w * s); c.height = Math.round(r.h * s);
+    c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+    const blob = await new Promise((res, rej) => { try { c.toBlob(b => b ? res(b) : rej(new Error('PNG vuoto')), 'image/png'); } catch (e) { rej(e); } });
+    await saveFile(blob, core.safeFileName(mapName()) + '.png', 'image/png', '.png', 'Esportata');
+    if (r.failed) toast(imgWarn(r.failed));
+  } catch (e) { toast('Esportazione PNG non riuscita' + (e && e.message ? ': ' + e.message : '.')); }
+}
+async function exportPdf() {
+  const w = window.open('', '_blank'); // va aperta subito, dentro il gesto dell'utente
+  if (!w) { toast('Il browser ha bloccato la finestra: consenti le finestre pop-up per questa pagina.'); return; }
+  w.document.write('<p style="font-family:sans-serif;padding:20px">Preparazione del PDF…</p>');
+  try {
+    const r = await buildMapSvg();
+    const name = core.escHtml(mapName());
+    w.document.open();
+    w.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + name + '</title><style>@page{size:A4 ' + (r.w >= r.h ? 'landscape' : 'portrait') + ';margin:8mm}html,body{margin:0;height:100%}svg{display:block;width:100%;height:100vh}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}</style></head><body>' + r.svg + '</body></html>');
+    w.document.close();
+    setTimeout(() => { w.focus(); w.print(); }, 600);
+    if (r.failed) toast(imgWarn(r.failed));
+  } catch (e) { w.close(); toast(e.message || 'Esportazione PDF non riuscita.'); }
+}
+
+// ════════════════════════════════════════════════════════════
+//  FILE: apertura (pulsante e trascinamento)
+// ════════════════════════════════════════════════════════════
+function setEditorText(text) {
+  editor.value = text;
+  editor.setSelectionRange(0, 0);
+  editor.scrollTop = 0;
+  updateStatus();
+}
+function openMarkdown(md, name, msg) {
+  $('map-name').value = name;
+  setEditorText(md);
+  view.resetImages();
+  renderNow({ fold: null, fit: true });
+  toast(msg);
+}
+async function loadFile(file) {
+  let text;
+  try { text = (await file.text()).replace(/\r\n?/g, '\n'); } catch (_) { toast('Impossibile leggere il file.'); return; }
+  const base = file.name.replace(/\.[^.]+$/, '');
+  const ext = (file.name.split('.').pop() || '').toLowerCase();
+  if (ext === 'md' || ext === 'markdown' || ext === 'txt') { openMarkdown(text, base, 'Testo aperto.'); return; }
+
+  let saved = null;
+  try { saved = core.readSaved(text); } catch (err) { console.error(err); }
+  if (saved) {
+    const meta = saved.meta || {};
+    $('map-name').value = saved.title || base;
+    if (meta.maxWidth >= 100 && meta.maxWidth <= 1200) setMaxWidthQuiet(meta.maxWidth);
+    if (typeof meta.ai === 'boolean') $('ai-check').checked = meta.ai;
+    if (meta.theme === 'dark' || meta.theme === 'light') applyTheme(meta.theme === 'dark');
+    setEditorText(saved.md);
+    view.resetImages();
+    renderNow({ fold: saved.fold || null, fit: true });
+    toast('Mappa aperta.');
+    return;
+  }
+  const tree = core.findMarkmapTree(text);
+  if (tree) {
+    try { openMarkdown(core.treeToMd(tree, base), base, 'Mappa markmap importata.'); }
+    catch (err) { console.error('Errore nella lettura del file markmap:', err); toast('Errore nella lettura del file markmap.'); }
+    return;
+  }
+  if (!/<\s*(?:!doctype|html|head|body|script)\b/i.test(text)) { openMarkdown(text, base, 'File di testo aperto.'); return; }
+  toast('File non riconosciuto: non contiene una mappa di NodeLab, di Nodely o di markmap.');
+}
+$('btn-load').addEventListener('click', () => $('file-inp').click());
+$('file-inp').addEventListener('change', e => { const f = e.target.files[0]; e.target.value = ''; if (f) loadFile(f); });
+
+let dragDepth = 0;
+const hasFiles = e => e.dataTransfer && Array.from(e.dataTransfer.types || []).indexOf('Files') >= 0;
+window.addEventListener('dragenter', e => { if (hasFiles(e)) { dragDepth++; $('drop').classList.add('show'); } });
+window.addEventListener('dragleave', e => { if (hasFiles(e) && --dragDepth <= 0) { dragDepth = 0; $('drop').classList.remove('show'); } });
+window.addEventListener('dragover', e => { if (hasFiles(e)) e.preventDefault(); });
+window.addEventListener('drop', e => {
+  if (!hasFiles(e)) return;
+  e.preventDefault(); dragDepth = 0; $('drop').classList.remove('show');
+  const f = e.dataTransfer.files[0];
+  if (f) loadFile(f);
+});
+
+// ════════════════════════════════════════════════════════════
+//  AVVIO
+// ════════════════════════════════════════════════════════════
+editor.value = DEFAULT_MD;
+applyTheme(isDark);
+updateStatus();
+renderNow();
+
+</script>
+</body>
+</html>
