@@ -2,69 +2,127 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="NodeLab 0.2">
 <title>Europa-fisica</title>
-<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.16.0"></script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%2264%22%20height%3D%2264%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2224%22%20fill%3D%22%239a6400%22%2F%3E%3Cg%20fill%3D%22%23fbf3df%22%20transform%3D%22translate(.6%201.2)%22%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2220%22%20r%3D%229.5%22%2F%3E%3Cpath%20d%3D%22M20.8%2020%2020.8%2021.5%2020.8%2023%2020.8%2024.5%2020.9%2026%2020.9%2027.5%2021%2029%2021%2030.5%2021%2032%2021%2033.5%2020.9%2035%2020.9%2036.5%2020.8%2038%2020.6%2039.5%2020.5%2041%2020.4%2042.5%2020.2%2044.1%2020%2045.6%2019.9%2047.1%2019.7%2048.6%2019.6%2050.1%2019.4%2051.6%2019.3%2053.2%2019.2%2054.7%2019.1%2056.2%2019%2057.7%2019%2059.3%2019%2060.8%2018.9%2062.3%2018.9%2063.9%2018.8%2065.4%2018.7%2067%2018.5%2068.5%2018.4%2070.1%2018.3%2071.6%2018.1%2073.2%2018%2074.7%2017.9%2076.3%2017.8%2077.9%2017.8%2079.4%2017.8%2081%2030.2%2081%2030.2%2079.4%2030.2%2077.9%2030.1%2076.3%2030%2074.7%2029.9%2073.2%2029.7%2071.6%2029.6%2070.1%2029.5%2068.5%2029.3%2067%2029.2%2065.4%2029.1%2063.9%2029.1%2062.3%2029%2060.8%2029%2059.3%2029%2057.7%2028.9%2056.2%2028.8%2054.7%2028.7%2053.2%2028.6%2051.6%2028.4%2050.1%2028.3%2048.6%2028.1%2047.1%2028%2045.6%2027.8%2044.1%2027.6%2042.5%2027.5%2041%2027.4%2039.5%2027.2%2038%2027.1%2036.5%2027.1%2035%2027%2033.5%2027%2032%2027%2030.5%2027%2029%2027.1%2027.5%2027.1%2026%2027.2%2024.5%2027.2%2023%2027.2%2021.5%2027.2%2020Z%22%2F%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2281%22%20r%3D%226.2%22%2F%3E%3Cpath%20d%3D%22M24%2023.2%2025.9%2023.2%2027.8%2023.2%2029.6%2023.2%2031.4%2023.2%2033.2%2023.2%2034.9%2023.2%2036.7%2023.2%2038.4%2023.3%2040%2023.3%2041.7%2023.4%2043.3%2023.5%2044.9%2023.6%2046.4%2023.7%2047.9%2023.9%2049.4%2024.1%2050.8%2024.3%2052.2%2024.6%2053.6%2024.8%2054.9%2025.1%2056.2%2025.5%2057.4%2025.9%2058.6%2026.3%2059.7%2026.8%2060.8%2027.3%2061.9%2027.8%2062.9%2028.4%2063.8%2028.9%2064.7%2029.5%2065.6%2030.1%2066.4%2030.8%2067.1%2031.4%2067.8%2032.1%2068.5%2032.8%2069.2%2033.5%2069.8%2034.2%2070.3%2035%2070.9%2035.8%2071.4%2036.6%2071.8%2037.5%2072.3%2038.4%2072.6%2039.3%2072.9%2040.3%2073.1%2041.4%2073.3%2042.5%2073.4%2043.6%2073.4%2044.8%2073.4%2046%2073.3%2047.3%2073.2%2048.6%2073.1%2050%2072.9%2052.5%2072.8%2055.1%2072.7%2057.8%2072.7%2060.5%2072.5%2063.2%2072.4%2065.9%2072.2%2068.5%2072.1%2071.2%2072%2073.8%2071.8%2076.3%2071.8%2078.7%2071.8%2081%2084.2%2081%2084.2%2078.7%2084.2%2076.3%2084%2073.8%2083.9%2071.2%2083.8%2068.5%2083.6%2065.9%2083.5%2063.2%2083.3%2060.5%2083.3%2057.8%2083.2%2055.1%2083.1%2052.5%2082.9%2050%2082.7%2048.3%2082.5%2046.7%2082.1%2045.1%2081.7%2043.5%2081.3%2042.1%2080.8%2040.6%2080.3%2039.3%2079.8%2037.9%2079.2%2036.7%2078.7%2035.4%2078%2034.2%2077.4%2033%2076.6%2031.9%2075.8%2030.9%2075%2029.9%2074.1%2028.9%2073.2%2028%2072.2%2027.2%2071.1%2026.4%2070%2025.7%2068.9%2025%2067.8%2024.3%2066.6%2023.8%2065.4%2023.2%2064.1%2022.7%2062.9%2022.2%2061.6%2021.8%2060.2%2021.4%2058.9%2021%2057.5%2020.6%2056.1%2020.3%2054.7%2020%2053.2%2019.6%2051.7%2019.3%2050.2%2019.1%2048.6%2018.8%2047%2018.5%2045.4%2018.3%2043.8%2018.1%2042.1%2017.9%2040.4%2017.7%2038.7%2017.5%2037%2017.3%2035.2%2017.2%2033.4%2017.1%2031.6%2016.9%2029.7%2016.9%2027.8%2016.8%2025.9%2016.8%2024%2016.8Z%22%2F%3E%3Ccircle%20cx%3D%2278%22%20cy%3D%2281%22%20r%3D%226.2%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
 <style>
-:root { --map-bg:#0f0f13; --node-text:#e8e8f0; --accent:#7c6af7; --border:#2e2e3a; --surf:rgba(23,23,30,.93); --muted:#8888a0; }
-body.light { --map-bg:#f4f4f8; --node-text:#1a1a2e; --accent:#5a4fd8; --border:#d0d0de; --surf:rgba(237,237,243,.95); --muted:#5a5a7a; }
-* { box-sizing:border-box; margin:0; padding:0; }
-body { background:var(--map-bg); overflow:hidden; height:100vh; transition:background .25s; }
-#mm { width:100vw; height:100vh; display:block; background:var(--map-bg); transition:background .25s; }
-#mm text { fill:var(--node-text) !important; transition:fill .25s; }
-#mm .markmap-link:hover { stroke-opacity:.85 !important; }
-#mm .markmap-node circle { stroke-width:2px !important; }
-#toolbar { position:fixed; bottom:20px; right:20px; z-index:100; display:flex; align-items:center; gap:5px; background:var(--surf); border:1px solid var(--border); border-radius:14px; padding:5px 9px; backdrop-filter:blur(10px); box-shadow:0 4px 24px rgba(0,0,0,.35); transition:background .25s,border-color .25s; }
-#tb-brand { display:flex; align-items:center; gap:7px; text-decoration:none; margin-right:3px; }
-#tb-logo { width:24px; height:24px; border-radius:7px; background:var(--accent); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background .25s; }
-#tb-logo svg { width:13px; height:13px; color:#fff; }
-#tb-name { font-family:serif; font-size:14px; color:var(--accent); letter-spacing:-.3px; transition:color .25s; }
-.tb-sep { width:1px; height:20px; background:var(--border); margin:0 2px; flex-shrink:0; transition:background .25s; }
-.tb-btn { width:28px; height:28px; border-radius:8px; background:transparent; border:1px solid var(--border); color:var(--muted); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .15s,color .15s,border-color .25s; flex-shrink:0; }
-.tb-btn:hover { background:rgba(124,106,247,.15); color:var(--accent); border-color:var(--accent); }
-.tb-btn svg { width:13px; height:13px; pointer-events:none; }
-#s-bg { display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); backdrop-filter:blur(5px); z-index:200; align-items:center; justify-content:center; }
-#s-bg.open { display:flex; }
-#s-box { background:#17171e; border:1px solid #2e2e3a; border-radius:14px; box-shadow:0 8px 48px rgba(0,0,0,.6); width:90%; max-width:360px; overflow:hidden; animation:mIn .2s ease; }
-body.light #s-box { background:#fff; border-color:#d0d0de; }
-@keyframes mIn { from{opacity:0;transform:translateY(8px) scale(.97)} to{opacity:1;transform:none} }
-.s-head { display:flex; align-items:center; justify-content:space-between; padding:14px 18px 10px; border-bottom:1px solid #2e2e3a; font-family:serif; font-size:16px; color:var(--accent); }
-body.light .s-head { border-bottom-color:#d0d0de; }
-.s-close { background:none; border:none; color:var(--muted); cursor:pointer; font-size:18px; line-height:1; }
-.srow { display:flex; align-items:center; justify-content:space-between; padding:12px 18px; border-bottom:1px solid #2e2e3a; gap:10px; }
-body.light .srow { border-bottom-color:#d0d0de; }
-.srow:last-child { border-bottom:none; }
-.slabel { font-family:sans-serif; font-size:13px; color:var(--node-text); }
-.slabel small { display:block; font-size:11px; color:var(--muted); margin-top:2px; }
-.sinput { width:76px; background:#25252f; border:1px solid #2e2e3a; border-radius:6px; color:#e8e8f0; font-family:monospace; font-size:13px; padding:5px 8px; outline:none; text-align:center; transition:border-color .2s; }
-body.light .sinput { background:#e2e2ea; border-color:#d0d0de; color:#1a1a2e; }
-.sinput:focus { border-color:var(--accent); }
 
+:root {
+  --map-bg:#15130f; --node-text:#efe9dd;
+  --mm-link:#e8b04a; --mm-link-h:#f5c66f;
+  --mm-code-bg:rgba(224,165,58,.14); --mm-code:#e8b04a; --mm-code-bd:rgba(224,165,58,.32);
+  --mm-mark:rgba(255,210,50,.35); --mm-line:#5a5446;
+  --hit-bg:rgba(224,165,58,.24); --hit-cur:#e0a53a;
+}
+body.light {
+  --map-bg:#faf8f3; --node-text:#2a2418;
+  --mm-link:#8a5900; --mm-link-h:#6b4500;
+  --mm-code-bg:rgba(154,100,0,.10); --mm-code:#7f5200; --mm-code-bd:rgba(154,100,0,.28);
+  --mm-mark:rgba(255,200,0,.45); --mm-line:#a39a88;
+  --hit-bg:rgba(154,100,0,.16); --hit-cur:#9a6400;
+}
+body .markmap {
+  color:var(--node-text);
+  --markmap-a-color:var(--mm-link); --markmap-a-hover-color:var(--mm-link-h);
+  --markmap-code-bg:var(--mm-code-bg); --markmap-code-color:var(--mm-code);
+  --markmap-highlight-bg:var(--mm-mark); --markmap-table-border:1px solid var(--mm-line);
+}
+body .markmap .markmap-node > circle { stroke-width:2px; }
+body .markmap-foreign code { font-family:ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace; font-size:.88em; padding:1px 5px; border:1px solid var(--mm-code-bd); border-radius:4px; }
+body .markmap-foreign mark { color:inherit; border-radius:3px; padding:0 3px; }
+body .markmap-foreign a { text-decoration:underline; cursor:pointer; }
+body .markmap-foreign ol { list-style:decimal !important; padding-left:1.8em !important; margin:2px 0 !important; white-space:normal !important; }
+body .markmap-foreign ul { list-style:disc !important; padding-left:1.8em !important; margin:2px 0 !important; white-space:normal !important; }
+body .markmap-foreign li { display:list-item !important; white-space:normal !important; }
+body .markmap-foreign img { display:inline-block; vertical-align:middle; }
+body .markmap-foreign img[width]:not([height]) { height:auto; }
+body .markmap-foreign img[height]:not([width]) { width:auto; }
+body .markmap-foreign .nl-broken { display:inline-block; padding:2px 8px; border:1px dashed #e06060; border-radius:4px; font-size:.85em; opacity:.85; }
+body .markmap-node.nl-hit .markmap-foreign > div { background:var(--hit-bg); border-radius:4px; }
+body .markmap-node.nl-cur .markmap-foreign > div { background:var(--hit-bg); outline:2px solid var(--hit-cur); border-radius:4px; }
+
+
+:root { --bar:#2b1f09; --bar-ink:#fbf3df; --bar-line:rgba(255,255,255,.26); --surface:#1e1b16; --sur2:#25221b; --line:#3b3529; --ink:#efe9dd; --ink-2:#cbc1af; --ink-3:#9e9481; --accent:#e0a53a; --accent-hover:#f0b851; --accent-ink:#221703; --accent-soft:rgba(224,165,58,.15); --focus:#f0b851; --shadow:0 12px 34px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3); }
+body.light { --bar:#3a2a0c; --surface:#ffffff; --sur2:#f8f6f1; --line:#ddd6c8; --ink:#2a2418; --ink-2:#5c5343; --ink-3:#716754; --accent:#9a6400; --accent-hover:#7f5200; --accent-ink:#ffffff; --accent-soft:#f6ecd6; --focus:#c98a1c; --shadow:0 12px 34px rgba(42,30,8,.18),0 2px 6px rgba(42,30,8,.1); }
+* { box-sizing:border-box; }
+[hidden] { display:none !important; }
+html, body { margin:0; height:100%; }
+body { display:flex; flex-direction:column; height:100vh; height:100dvh; overflow:hidden; background:var(--map-bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; font-size:15px; -webkit-text-size-adjust:100%; }
+button, input { font:inherit; color:inherit; }
+:focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+svg.ic { width:17px; height:17px; flex:none; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.topbar { display:flex; align-items:center; gap:10px; min-height:54px; padding:8px 14px; background:var(--bar); color:var(--bar-ink); flex:none; }
+.brand { display:flex; align-items:center; flex:none; color:inherit; text-decoration:none; border-radius:9px; }
+a.brand:hover { opacity:.85; }
+.brand-logo { display:block; width:30px; height:30px; }
+.title { margin:0; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-family:"Palatino Linotype","Book Antiqua",Palatino,"Iowan Old Style",Georgia,serif; font-size:1.15rem; font-weight:600; }
+.spacer { flex:1; }
+.actions { display:flex; align-items:center; gap:6px; flex:none; }
+.tbtn { display:inline-flex; align-items:center; justify-content:center; gap:7px; height:36px; min-width:36px; padding:0 12px; border-radius:10px; border:1px solid var(--bar-line); background:transparent; color:var(--bar-ink); font-size:.86rem; font-weight:700; cursor:pointer; white-space:nowrap; }
+.tbtn.icon { width:36px; padding:0; }
+.tbtn:hover { background:rgba(255,255,255,.1); }
+.tsep { width:1px; align-self:stretch; margin:4px 2px; background:rgba(255,255,255,.18); }
+#mm { flex:1; min-height:0; width:100%; display:block; background:var(--map-bg); }
+#mm .markmap-link:hover { stroke-opacity:.85 !important; }
+#ai-banner { position:fixed; top:66px; left:0; right:0; margin:0 auto; width:fit-content; z-index:50; display:flex; align-items:center; gap:10px; max-width:calc(100vw - 24px); padding:7px 8px 7px 16px; border-radius:999px; background:var(--bar); color:var(--bar-ink); box-shadow:var(--shadow); font-size:.88rem; }
+#ai-banner > span { display:flex; align-items:center; gap:8px; line-height:1.35; }
+#ai-close { display:grid; place-items:center; width:28px; height:28px; flex:none; border-radius:999px; border:1px solid rgba(255,255,255,.35); background:transparent; color:inherit; cursor:pointer; }
+#ai-close:hover { background:rgba(255,255,255,.12); }
+.mbg { display:none; position:fixed; inset:0; z-index:200; background:rgba(24,17,5,.55); align-items:center; justify-content:center; padding:12px; }
+.mbg.open { display:flex; }
+.mbox { width:min(420px,100%); background:var(--surface); color:var(--ink); border-radius:14px; box-shadow:var(--shadow); overflow:hidden; }
+.dlg-head { display:flex; align-items:center; gap:12px; min-height:58px; padding:0 12px 0 20px; border-bottom:1px solid var(--line); }
+.dlg-head h2 { margin:0; flex:1; font-size:1.1rem; }
+.ibtn { display:grid; place-items:center; width:34px; height:34px; border:1px solid var(--line); border-radius:9px; background:var(--surface); color:var(--ink-2); cursor:pointer; }
+.ibtn:hover { background:var(--accent-soft); color:var(--accent); }
+.srow { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 20px; }
+.slabel { font-size:.92rem; font-weight:600; }
+.slabel small { display:block; margin-top:3px; font-size:.78rem; font-weight:400; color:var(--ink-3); line-height:1.4; }
+.sinput { width:90px; height:38px; padding:5px 9px; border:1px solid var(--line); border-radius:8px; background:var(--surface); color:var(--ink); font-family:ui-monospace,Menlo,Consolas,monospace; text-align:center; outline:none; }
+.sinput:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+#err { position:fixed; inset:54px 0 0 0; display:none; align-items:center; justify-content:center; padding:24px; background:var(--map-bg); z-index:150; }
+#err.show { display:flex; }
+#err .card { max-width:440px; padding:22px 24px; border:1px solid var(--line); border-radius:14px; background:var(--surface); box-shadow:var(--shadow); color:var(--ink-2); font-size:.9rem; line-height:1.6; text-align:center; }
+#err strong { display:block; margin-bottom:6px; color:var(--ink); font-size:1rem; }
+#err button { margin-top:14px; height:34px; padding:0 16px; border-radius:8px; border:1px solid var(--accent); background:var(--accent); color:var(--accent-ink); font-weight:700; cursor:pointer; }
+@media (max-width:760px) { .tbtn .lbl { display:none; } .tbtn:not(.icon) { width:36px; padding:0; } .tsep { display:none; } }
+@media (max-width:480px) { .topbar { flex-wrap:wrap; } .actions { flex-basis:100%; justify-content:flex-end; } #ai-banner { top:108px; } #err { inset:100px 0 0 0; } }
+@media print {
+  @page { size:landscape; margin:8mm; }
+  .topbar, #ai-banner, .mbg, #err { display:none !important; }
+  html, body { height:auto; overflow:visible; display:block; }
+  #mm { width:100%; height:190mm; }
+  * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
 </style>
 </head>
 <body class="">
+<header class="topbar">
+  <a class="brand" href="https://sites.google.com/view/nodelab" target="_blank" rel="noopener" title="Creata con NodeLab" aria-label="Creata con NodeLab: apri il sito in una nuova scheda"><svg class="brand-logo" viewBox="0 0 100 100" width="30" height="30" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#fbf3df"/><g fill="#9a6400" transform="translate(.6 1.2)"><circle cx="24" cy="20" r="9.5"/><path d="M20.8 20 20.8 21.5 20.8 23 20.8 24.5 20.9 26 20.9 27.5 21 29 21 30.5 21 32 21 33.5 20.9 35 20.9 36.5 20.8 38 20.6 39.5 20.5 41 20.4 42.5 20.2 44.1 20 45.6 19.9 47.1 19.7 48.6 19.6 50.1 19.4 51.6 19.3 53.2 19.2 54.7 19.1 56.2 19 57.7 19 59.3 19 60.8 18.9 62.3 18.9 63.9 18.8 65.4 18.7 67 18.5 68.5 18.4 70.1 18.3 71.6 18.1 73.2 18 74.7 17.9 76.3 17.8 77.9 17.8 79.4 17.8 81 30.2 81 30.2 79.4 30.2 77.9 30.1 76.3 30 74.7 29.9 73.2 29.7 71.6 29.6 70.1 29.5 68.5 29.3 67 29.2 65.4 29.1 63.9 29.1 62.3 29 60.8 29 59.3 29 57.7 28.9 56.2 28.8 54.7 28.7 53.2 28.6 51.6 28.4 50.1 28.3 48.6 28.1 47.1 28 45.6 27.8 44.1 27.6 42.5 27.5 41 27.4 39.5 27.2 38 27.1 36.5 27.1 35 27 33.5 27 32 27 30.5 27 29 27.1 27.5 27.1 26 27.2 24.5 27.2 23 27.2 21.5 27.2 20Z"/><circle cx="24" cy="81" r="6.2"/><path d="M24 23.2 25.9 23.2 27.8 23.2 29.6 23.2 31.4 23.2 33.2 23.2 34.9 23.2 36.7 23.2 38.4 23.3 40 23.3 41.7 23.4 43.3 23.5 44.9 23.6 46.4 23.7 47.9 23.9 49.4 24.1 50.8 24.3 52.2 24.6 53.6 24.8 54.9 25.1 56.2 25.5 57.4 25.9 58.6 26.3 59.7 26.8 60.8 27.3 61.9 27.8 62.9 28.4 63.8 28.9 64.7 29.5 65.6 30.1 66.4 30.8 67.1 31.4 67.8 32.1 68.5 32.8 69.2 33.5 69.8 34.2 70.3 35 70.9 35.8 71.4 36.6 71.8 37.5 72.3 38.4 72.6 39.3 72.9 40.3 73.1 41.4 73.3 42.5 73.4 43.6 73.4 44.8 73.4 46 73.3 47.3 73.2 48.6 73.1 50 72.9 52.5 72.8 55.1 72.7 57.8 72.7 60.5 72.5 63.2 72.4 65.9 72.2 68.5 72.1 71.2 72 73.8 71.8 76.3 71.8 78.7 71.8 81 84.2 81 84.2 78.7 84.2 76.3 84 73.8 83.9 71.2 83.8 68.5 83.6 65.9 83.5 63.2 83.3 60.5 83.3 57.8 83.2 55.1 83.1 52.5 82.9 50 82.7 48.3 82.5 46.7 82.1 45.1 81.7 43.5 81.3 42.1 80.8 40.6 80.3 39.3 79.8 37.9 79.2 36.7 78.7 35.4 78 34.2 77.4 33 76.6 31.9 75.8 30.9 75 29.9 74.1 28.9 73.2 28 72.2 27.2 71.1 26.4 70 25.7 68.9 25 67.8 24.3 66.6 23.8 65.4 23.2 64.1 22.7 62.9 22.2 61.6 21.8 60.2 21.4 58.9 21 57.5 20.6 56.1 20.3 54.7 20 53.2 19.6 51.7 19.3 50.2 19.1 48.6 18.8 47 18.5 45.4 18.3 43.8 18.1 42.1 17.9 40.4 17.7 38.7 17.5 37 17.3 35.2 17.2 33.4 17.1 31.6 16.9 29.7 16.9 27.8 16.8 25.9 16.8 24 16.8Z"/><circle cx="78" cy="81" r="6.2"/></g></svg></a>
+  <h1 class="title">Europa-fisica</h1>
+  <span class="spacer"></span>
+  <nav class="actions" aria-label="Comandi della mappa">
+    <button class="tbtn" id="tb-toggle" type="button"></button>
+    <span class="tsep"></span>
+    <button class="tbtn icon" id="tb-zo" type="button" title="Riduci lo zoom" aria-label="Riduci lo zoom"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M8 11h6"/></svg></button>
+    <button class="tbtn icon" id="tb-zi" type="button" title="Aumenta lo zoom" aria-label="Aumenta lo zoom"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></button>
+    <button class="tbtn icon" id="tb-fit" type="button" title="Adatta la mappa alla finestra" aria-label="Adatta la mappa alla finestra"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+    <span class="tsep"></span>
+    <button class="tbtn icon" id="tb-theme" type="button" title="Cambia tema" aria-label="Cambia tema"><svg class="ic" id="tb-ti" viewBox="0 0 24 24" aria-hidden="true"></svg></button>
+    <button class="tbtn icon" id="tb-settings" type="button" title="Impostazioni" aria-label="Impostazioni"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></button>
+  </nav>
+</header>
 
-<svg id="mm"></svg>
-<div id="toolbar">
-  <a id="tb-brand" href="https://sites.google.com/view/nodely" target="_blank" title="Apri Nodely">
-<div id="mf-logo-box">
-  <img src="https://holovkolite.github.io/nodely/Logo-Nodely_DEF.svg" width="26" height="26" style="display:block;">
-</div>
-    <span id="tb-name">Nodely</span>
-  </a>
-  <div class="tb-sep"></div>
-  <button class="tb-btn" id="tb-theme" title="Chiaro / Scuro"><svg id="tb-ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
-  <button class="tb-btn" id="tb-zi" title="Zoom +"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></button>
-  <button class="tb-btn" id="tb-zo" title="Zoom -"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg></button>
-  <button class="tb-btn" id="tb-fit" title="Adatta alla finestra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3"/><path d="M21 8V5a2 2 0 00-2-2h-3"/><path d="M3 16v3a2 2 0 002 2h3"/><path d="M16 21h3a2 2 0 002-2v-3"/></svg></button>
-  <button class="tb-btn" id="tb-settings" title="Impostazioni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button>
-</div>
-<div id="s-bg">
-  <div id="s-box">
-    <div class="s-head">Impostazioni <button class="s-close" id="s-close-btn">&#x2715;</button></div>
-    <div class="srow"><div class="slabel">Larghezza nodi<small>Testo max per nodo (px)</small></div><input class="sinput" id="s-maxw" type="number" min="100" max="1200" step="10" value="500"></div>
+<svg id="mm" role="group" aria-label="Europa-fisica"></svg>
+<div id="err" role="alert"><div class="card"><strong>Non riesco a caricare la libreria della mappa</strong>Serve la connessione a internet (cdn.jsdelivr.net o unpkg.com). Se sei a scuola, la rete potrebbe bloccare questi indirizzi.<br><button id="err-retry" type="button">Riprova</button></div></div>
+<div class="mbg" id="s-bg">
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="s-title">
+    <div class="dlg-head"><h2 id="s-title">Impostazioni</h2><button class="ibtn" id="s-close-btn" type="button" title="Chiudi" aria-label="Chiudi"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="srow"><label class="slabel" for="s-maxw">Larghezza dei nodi<small>Larghezza massima del testo di un nodo, in pixel</small></label><input class="sinput" id="s-maxw" type="number" min="100" max="1200" step="10" value="500"></div>
   </div>
 </div>
-<!-- NODELY_MD_START
+<!-- NODELAB_MD_START
 # Europa fisica
 
 ## 1. Posizione e caratteristiche generali
@@ -142,119 +200,827 @@ body.light .sinput { background:#e2e2ea; border-color:#d0d0de; color:#1a1a2e; }
     - Presenti in Irlanda (scogliere), Francia e in molte zone del Mediterraneo.
 - **Problemi dei mari**
   - Inquinamento, pesca eccessiva e cementificazione delle coste.
-NODELY_MD_END -->
-<!-- NODELY_FOLD_START
+NODELAB_MD_END -->
+<!-- NODELAB_FOLD_START
 {"0":1,"0/0":1,"0/0/0":1,"0/0/0/0":0,"0/0/1":1,"0/0/1/0":0,"0/0/1/1":0,"0/0/1/2":0,"0/0/1/3":0,"0/0/2":1,"0/0/2/0":0,"0/0/3":1,"0/0/3/0":0,"0/1":1,"0/1/0":0,"0/1/1":1,"0/1/1/0":0,"0/1/1/1":0,"0/1/1/2":0,"0/1/2":1,"0/1/2/0":0,"0/1/2/1":0,"0/1/2/2":0,"0/1/3":1,"0/1/3/0":0,"0/2":1,"0/2/0":1,"0/2/0/0":0,"0/2/1":1,"0/2/1/0":0,"0/2/1/1":0,"0/2/1/2":0,"0/2/2":1,"0/2/2/0":0,"0/2/2/1":0,"0/2/2/2":0,"0/2/3":1,"0/2/3/0":0,"0/2/3/1":0,"0/3":1,"0/3/0":1,"0/3/0/0":0,"0/3/0/1":1,"0/3/0/1/0":1,"0/3/0/1/0/0":0,"0/3/0/1/1":1,"0/3/0/1/1/0":0,"0/3/0/1/2":1,"0/3/0/1/2/0":0,"0/3/1":1,"0/3/1/0":0,"0/3/1/1":0,"0/3/1/2":0,"0/4":1,"0/4/0":1,"0/4/0/0":0,"0/4/1":1,"0/4/1/0":1,"0/4/1/0/0":0,"0/4/1/1":1,"0/4/1/1/0":0,"0/4/1/2":1,"0/4/1/2/0":0,"0/4/2":1,"0/4/2/0":1,"0/4/2/0/0":0,"0/4/2/1":1,"0/4/2/1/0":0,"0/4/2/2":1,"0/4/2/2/0":0,"0/4/3":1,"0/4/3/0":0}
-NODELY_FOLD_END -->
+NODELAB_FOLD_END -->
+<!-- NODELAB_META_START
+{"format":"nodelab","version":"0.2","maxWidth":500,"theme":"dark","ai":false}
+NODELAB_META_END -->
 <script>
-(async () => {
-  const COLORS = ["#7c6af7","#5de0c5","#f7a26a","#f06a6a","#60c5f7","#a8e86e","#f760c5","#f7e060"];
-  let dark = true;
+const NodeLabCore = function NodeLabCore() {
+  'use strict';
 
-  function buildInner(isDk) {
-    var txt = isDk ? '#e8e8f0' : '#1a1a2e';
-    var cbg = isDk ? 'rgba(124,106,247,0.18)' : 'rgba(90,79,216,0.12)';
-    var cc  = isDk ? '#a89fff' : '#5a4fd8';
-    var cbr = isDk ? 'rgba(124,106,247,0.3)' : 'rgba(90,79,216,0.25)';
-    return '* { color:'+txt+' !important; box-sizing:border-box; }' +
-      'strong,b{font-weight:700;}em,i{font-style:italic;}del,s{text-decoration:line-through;}' +
-      'mark{background:rgba(255,210,50,0.35)!important;color:'+txt+'!important;border-radius:3px;padding:0 3px;}' +
-      'code{background:'+cbg+'!important;color:'+cc+'!important;border-radius:4px;padding:1px 5px;font-family:monospace;font-size:0.88em;border:1px solid '+cbr+';}' +
-      'ol{list-style:decimal!important;padding-left:1.8em!important;margin:2px 0!important;white-space:normal!important;}' +
-      'ul{list-style:disc!important;padding-left:1.8em!important;margin:2px 0!important;white-space:normal!important;}' +
-      'li{display:list-item!important;color:'+txt+'!important;white-space:normal!important;}' +
-      'a{color:#7c6af7!important;text-decoration:underline;cursor:pointer;}a:hover{color:#a89fff!important;}' +
-      '.katex,.katex *{color:'+txt+'!important;}.katex svg,.katex path{fill:'+txt+'!important;stroke:'+txt+'!important;}' +
-      'img{max-width:100%;display:inline-block;}';
+  const VERSION = '0.2';
+
+  // Palette dei rami: la versione chiara ha colori più scuri (contrasto su sfondo chiaro)
+  const PALETTES = {
+    dark:  ['#7c6af7', '#5de0c5', '#f7a26a', '#f06a6a', '#60c5f7', '#a8e86e', '#f760c5', '#f7e060'],
+    light: ['#5a4fd8', '#0e8f78', '#c2621f', '#d13f3f', '#1f7fc0', '#4f8a12', '#b02e8c', '#946f00']
+  };
+
+  const LIB_URLS = [
+    'https://cdn.jsdelivr.net/npm/markmap-autoloader@0.16.0',
+    'https://unpkg.com/markmap-autoloader@0.16.0'
+  ];
+
+  // ──────────────────────────────────────────────────────────────
+  //  CSS DELLA MAPPA (condiviso): variabili di tema + stile dei nodi.
+  //  Il testo, i link, il codice e l'evidenziazione si governano con le
+  //  variabili --markmap-* (nessun <style> iniettato nei foreignObject).
+  //  Il prefisso "body" alza la specificità sopra il CSS incorporato da markmap.
+  // ──────────────────────────────────────────────────────────────
+  const MAP_CSS = `
+:root {
+  --map-bg:#15130f; --node-text:#efe9dd;
+  --mm-link:#e8b04a; --mm-link-h:#f5c66f;
+  --mm-code-bg:rgba(224,165,58,.14); --mm-code:#e8b04a; --mm-code-bd:rgba(224,165,58,.32);
+  --mm-mark:rgba(255,210,50,.35); --mm-line:#5a5446;
+  --hit-bg:rgba(224,165,58,.24); --hit-cur:#e0a53a;
+}
+body.light {
+  --map-bg:#faf8f3; --node-text:#2a2418;
+  --mm-link:#8a5900; --mm-link-h:#6b4500;
+  --mm-code-bg:rgba(154,100,0,.10); --mm-code:#7f5200; --mm-code-bd:rgba(154,100,0,.28);
+  --mm-mark:rgba(255,200,0,.45); --mm-line:#a39a88;
+  --hit-bg:rgba(154,100,0,.16); --hit-cur:#9a6400;
+}
+body .markmap {
+  color:var(--node-text);
+  --markmap-a-color:var(--mm-link); --markmap-a-hover-color:var(--mm-link-h);
+  --markmap-code-bg:var(--mm-code-bg); --markmap-code-color:var(--mm-code);
+  --markmap-highlight-bg:var(--mm-mark); --markmap-table-border:1px solid var(--mm-line);
+}
+body .markmap .markmap-node > circle { stroke-width:2px; }
+body .markmap-foreign code { font-family:ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace; font-size:.88em; padding:1px 5px; border:1px solid var(--mm-code-bd); border-radius:4px; }
+body .markmap-foreign mark { color:inherit; border-radius:3px; padding:0 3px; }
+body .markmap-foreign a { text-decoration:underline; cursor:pointer; }
+body .markmap-foreign ol { list-style:decimal !important; padding-left:1.8em !important; margin:2px 0 !important; white-space:normal !important; }
+body .markmap-foreign ul { list-style:disc !important; padding-left:1.8em !important; margin:2px 0 !important; white-space:normal !important; }
+body .markmap-foreign li { display:list-item !important; white-space:normal !important; }
+body .markmap-foreign img { display:inline-block; vertical-align:middle; }
+body .markmap-foreign img[width]:not([height]) { height:auto; }
+body .markmap-foreign img[height]:not([width]) { width:auto; }
+body .markmap-foreign .nl-broken { display:inline-block; padding:2px 8px; border:1px dashed #e06060; border-radius:4px; font-size:.85em; opacity:.85; }
+body .markmap-node.nl-hit .markmap-foreign > div { background:var(--hit-bg); border-radius:4px; }
+body .markmap-node.nl-cur .markmap-foreign > div { background:var(--hit-bg); outline:2px solid var(--hit-cur); border-radius:4px; }
+`;
+
+  // ──────────────────────────────────────────────────────────────
+  //  UTILITÀ
+  // ──────────────────────────────────────────────────────────────
+  const escHtml = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const escAttr = escHtml;
+  const NAMED = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: String.fromCharCode(160) };
+  function cp(n) { return (n > 0 && n <= 0x10FFFF && !(n >= 0xD800 && n <= 0xDFFF)) ? String.fromCodePoint(n) : String.fromCharCode(0xFFFD); }
+  // Decodifica entità in UN solo passaggio (niente doppia decodifica)
+  function decodeEntities(s) {
+    return String(s).replace(/&(?:#x([0-9a-f]+)|#(\d+)|([a-z]+));/gi, (m, hx, dc, nm) => {
+      if (hx) return cp(parseInt(hx, 16));
+      if (dc) return cp(parseInt(dc, 10));
+      const v = NAMED[nm.toLowerCase()];
+      return v !== undefined ? v : m;
+    });
+  }
+  // Codifica/decodifica del markdown nei commenti dell'export: solo & < >
+  const encodeMd = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const decodeMd = s => String(s).replace(/&(amp|lt|gt);/g, (m, k) => ({ amp: '&', lt: '<', gt: '>' }[k]));
+
+  function safeFileName(name) {
+    const s = String(name || '').replace(/[^\p{L}\p{N}\s\-_.]/gu, '_').replace(/\s+/g, ' ').trim().replace(/^\.+/, '');
+    return (s || 'mappa').slice(0, 80);
   }
 
-  function injectFO(svg, isDk) {
-    const css = buildInner(isDk);
-    svg.querySelectorAll('foreignObject').forEach(fo => {
-      const old = fo.querySelector('style[data-mf]'); if (old) old.remove();
-      const s = document.createElement('style');
-      s.setAttribute('data-mf','1'); s.textContent = css;
-      if (fo.firstElementChild) fo.insertBefore(s, fo.firstElementChild); else fo.appendChild(s);
+  // ──────────────────────────────────────────────────────────────
+  //  SANIFICAZIONE DELL'HTML GREZZO
+  //  Si aggancia alle regole di rendering di remarkable che emettono HTML
+  //  scritto dall'utente (htmltag, htmlblock): niente disallineamenti col
+  //  parser. Tutto ciò che non è in whitelist viene mostrato come testo.
+  // ──────────────────────────────────────────────────────────────
+  const TAGS = new Set('a abbr b blockquote br code del div em hr i img ins kbd li mark ol p pre s small span strong sub sup table tbody td th thead tr u ul'.split(' '));
+  const VOID = new Set(['br', 'hr', 'img']);
+  const STYLE_TAGS = new Set('span mark div p td th b i u s em strong code small sub sup img'.split(' '));
+  const STYLE_PROPS = new Set(['color', 'background', 'background-color', 'font-weight', 'font-style', 'font-size', 'text-decoration', 'text-decoration-line', 'text-decoration-color', 'padding', 'padding-left', 'padding-right', 'margin', 'margin-left', 'margin-right', 'border-radius', 'border', 'vertical-align', 'display', 'width', 'height', 'max-width', 'text-align', 'opacity']);
+  const TAG_RE = /<(\/?)([a-zA-Z][a-zA-Z0-9]*)((?:\s+[^\s"'<>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'=<>`]+))?)*)\s*(\/?)>/g;
+  const ATTR_RE = /([^\s"'<>\/=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+)))?/g;
+
+  function parseAttrs(str) {
+    const out = [];
+    const re = new RegExp(ATTR_RE.source, 'g');
+    let m;
+    while ((m = re.exec(str))) {
+      out.push([m[1].toLowerCase(), m[2] !== undefined ? m[2] : (m[3] !== undefined ? m[3] : (m[4] !== undefined ? m[4] : ''))]);
+    }
+    return out;
+  }
+
+  // Ritorna l'URL ripulito oppure null se lo schema non è ammesso
+  function safeUrl(raw, allowed) {
+    const v = decodeEntities(raw).trim();
+    const probe = v.replace(/[\u0000-\u0020\u007f-\u009f\u00ad\u200b-\u200f\u2028\u2029\u2060\ufeff]/g, '');
+    const clean = v.replace(/[\u0000-\u001f\u007f]/g, '');
+    const m = probe.match(/^([a-z][a-z0-9+.\-]*):/i);
+    if (!m) return clean;
+    const sch = m[1].toLowerCase();
+    if (sch === 'data') {
+      return (allowed.indexOf('data-image') >= 0 && /^data:image\/(png|jpe?g|gif|webp|bmp|avif|svg\+xml)[;,]/i.test(probe)) ? clean : null;
+    }
+    return allowed.indexOf(sch) >= 0 ? clean : null;
+  }
+
+  function cleanStyle(raw) {
+    return decodeEntities(raw).split(';').map(d => {
+      const i = d.indexOf(':');
+      if (i < 0) return '';
+      const p = d.slice(0, i).trim().toLowerCase();
+      const val = d.slice(i + 1).trim();
+      if (!STYLE_PROPS.has(p) || !val || /url\s*\(|expression|javascript|@import|behavior|binding|\\|[<>{}]/i.test(val)) return '';
+      return p + ':' + val;
+    }).filter(Boolean).join(';');
+  }
+
+  const numAttr = v => { const m = /^\s*(\d{1,4})(?:px)?\s*$/i.exec(v == null ? '' : String(v)); return m ? parseInt(m[1], 10) : null; };
+
+  // Costruisce <img> con dimensioni esplicite (evita la sovrapposizione dei nodi
+  // quando l'immagine si carica dopo la misura) oppure un segnaposto se rotta.
+  function buildImg(src, alt, w, h, extra, ctx) {
+    const info = ctx && ctx.img ? ctx.img(src) : null;
+    if (info && info.bad) return '<span class="nl-broken">' + escHtml(alt || 'immagine non disponibile') + '</span>';
+    let W = numAttr(w), H = numAttr(h);
+    const maxW = (ctx && ctx.maxWidth && ctx.maxWidth()) || 500;
+    if (info && info.w && info.h) {
+      if (W && !H) H = Math.round(W * info.h / info.w);
+      else if (H && !W) W = Math.round(H * info.w / info.h);
+      else if (!W && !H) { W = Math.min(info.w, maxW); H = Math.round(W * info.h / info.w); }
+    }
+    if (W && H && W > maxW) { H = Math.round(H * maxW / W); W = maxW; }
+    const at = ['src="' + escAttr(src) + '"', 'alt="' + escAttr(alt || '') + '"', 'referrerpolicy="no-referrer"'];
+    if (W) at.push('width="' + W + '"');
+    if (H) at.push('height="' + H + '"');
+    return '<img ' + at.concat(extra).join(' ') + '>';
+  }
+
+  function rebuildTag(m, ctx) {
+    const closing = m[1] === '/';
+    const tag = m[2].toLowerCase();
+    const bal = ctx && ctx.bal;
+    if (!TAGS.has(tag)) return '&lt;' + m[0].slice(1);
+    if (closing) {
+      if (VOID.has(tag)) return '';
+      return bal ? bal.close(tag) : '</' + tag + '>'; // chiusura senza apertura: scartata
+    }
+    const out = [];
+    let src = null, alt = '', w = null, h = null;
+    parseAttrs(m[3] || '').forEach(([n, v]) => {
+      if (n === 'title') out.push('title="' + escAttr(decodeEntities(v)) + '"');
+      else if (n === 'style' && STYLE_TAGS.has(tag)) { const s = cleanStyle(v); if (s) out.push('style="' + escAttr(s) + '"'); }
+      else if (n === 'data-lines' && /^[\d,]+$/.test(v)) out.push('data-lines="' + v + '"');
+      else if (tag === 'a' && n === 'href') { const u = safeUrl(v, ['http', 'https', 'mailto', 'tel']); if (u) out.push('href="' + escAttr(u) + '"'); }
+      else if (tag === 'img' && n === 'src') src = safeUrl(v, ['http', 'https', 'data-image']);
+      else if (tag === 'img' && n === 'alt') alt = decodeEntities(v);
+      else if (tag === 'img' && n === 'width') w = v;
+      else if (tag === 'img' && n === 'height') h = v;
+      else if ((tag === 'td' || tag === 'th') && (n === 'colspan' || n === 'rowspan') && /^\d{1,2}$/.test(v)) out.push(n + '="' + v + '"');
+      else if (tag === 'ol' && n === 'start' && /^\d{1,4}$/.test(v)) out.push('start="' + v + '"');
     });
-    const nc = isDk ? '#e8e8f0' : '#1a1a2e';
-    svg.querySelectorAll('text').forEach(t => t.style.setProperty('fill', nc, 'important'));
-    function fixC(svg) {
-      svg.querySelectorAll('.markmap-node circle').forEach(circle => {
-        let stroke = getComputedStyle(circle).stroke;
-        if (!stroke || stroke === 'none' || stroke === '') {
-          const g = circle.closest('.markmap-node');
-          if (g) stroke = g.getAttribute('stroke') || getComputedStyle(g).stroke;
+    if (tag === 'img') return src ? buildImg(src, alt, w, h, out, ctx) : escHtml(alt);
+    if (tag === 'a') out.push('target="_blank"', 'rel="noopener noreferrer"');
+    if (bal && !VOID.has(tag)) bal.open(tag);
+    return '<' + tag + (out.length ? ' ' + out.join(' ') : '') + '>';
+  }
+
+  // Tiene traccia dei tag HTML aperti a mano: un <b> dimenticato non deve inghiottire il resto della mappa
+  function makeBalancer() {
+    const st = [];
+    return {
+      open(t) { st.push(t); },
+      close(t) {
+        const i = st.lastIndexOf(t);
+        if (i < 0) return '';
+        const out = st.slice(i + 1).reverse().map(x => '</' + x + '>').join('') + '</' + t + '>';
+        st.length = i;
+        return out;
+      },
+      flush() { const out = st.slice().reverse().map(x => '</' + x + '>').join(''); st.length = 0; return out; }
+    };
+  }
+
+  function sanitizeChunk(html, ctx) {
+    const src = String(html).replace(/<!-{2}[\s\S]*?-{2}>/g, '');
+    const re = new RegExp(TAG_RE.source, 'g');
+    let out = '', last = 0, m;
+    while ((m = re.exec(src))) {
+      out += src.slice(last, m.index).replace(/</g, '&lt;');
+      out += rebuildTag(m, ctx);
+      last = re.lastIndex;
+    }
+    return out + src.slice(last).replace(/</g, '&lt;');
+  }
+
+  // Aggancia la sanificazione al Transformer di markmap (remarkable)
+  const BLOCK_RULES = ['heading_open', 'heading_close', 'paragraph_open', 'paragraph_close', 'bullet_list_open', 'bullet_list_close', 'ordered_list_open', 'ordered_list_close', 'list_item_open', 'list_item_close', 'blockquote_open', 'blockquote_close', 'hr', 'fence', 'table_open', 'table_close', 'thead_open', 'thead_close', 'tbody_open', 'tbody_close', 'tr_open', 'tr_close', 'th_open', 'th_close', 'td_open', 'td_close'];
+  function harden(tr, baseCtx) {
+    const rules = tr.md.renderer.rules;
+    const bal = makeBalancer();
+    const ctx = Object.assign({}, baseCtx, { bal });
+    tr.hooks.beforeParse.tap(() => { bal.flush(); });
+    ['htmltag', 'image'].forEach(k => {
+      const orig = rules[k];
+      if (typeof orig === 'function') rules[k] = function () { return sanitizeChunk(orig.apply(this, arguments), ctx); };
+    });
+    const hb = rules.htmlblock;
+    if (typeof hb === 'function') rules.htmlblock = function () { return sanitizeChunk(hb.apply(this, arguments), ctx) + bal.flush(); };
+    BLOCK_RULES.forEach(k => {
+      const orig = rules[k];
+      if (typeof orig === 'function') rules[k] = function () { return bal.flush() + orig.apply(this, arguments); };
+    });
+    const lo = rules.link_open;
+    if (typeof lo === 'function') {
+      rules.link_open = function () {
+        return String(lo.apply(this, arguments)).replace(/^<a\b/, '<a target="_blank" rel="noopener noreferrer"');
+      };
+    }
+  }
+
+  // ──────────────────────────────────────────────────────────────
+  //  PREPROCESS: ==evidenziato== → <mark>, elenchi numerati → punti elenco
+  //  Non cambia mai il numero di righe (le righe dei nodi restano valide) e
+  //  non tocca codice, formule, tag HTML e URL.
+  // ──────────────────────────────────────────────────────────────
+  const PH = String.fromCharCode(0xE000);
+  const NUM_LINE = /^([ \t]*)(\d{1,2}(?:\.\d{1,2})*)\.([ \t]+)(.*)$/;
+
+  function protectInline(line, stash) {
+    const put = s => { stash.push(s); return PH + (stash.length - 1) + PH; };
+    return line
+      .replace(/\\[\s\S]/g, put)
+      .replace(/(`+)(?:[^`]|[^`][\s\S]*?[^`])\1(?!`)/g, put)
+      .replace(/\$\$[^$]+\$\$|\$(?=[^\s$])(?:\\.|[^$\\])*?[^\s\\$]\$(?!\d)/g, put)
+      .replace(/<\/?[a-zA-Z][^>]*>/g, put)
+      .replace(/https?:\/\/[^\s)>\]]+/g, put);
+  }
+
+  function transformLine(line, prev) {
+    const stash = [];
+    let t = protectInline(line, stash);
+    t = t.replace(/==(?=\S)([^=\n]*?\S)==/g, '<mark>$1</mark>');
+    // Anni e numeri lunghi ("1861. Unità"): markdown li leggerebbe come lista e il numero sparirebbe
+    t = t.replace(/^([ \t]*(?:[-*+][ \t]+)?)(\d{3,})\.(?=[ \t])/, '$1$2\\.');
+    const m = NUM_LINE.exec(t);
+    if (m) {
+      const dots = m[2].split('.').length - 1;
+      const real = indentWidth(m[1]);
+      // profondità = max(indentazione reale, profondità dei punti): compatibile coi vecchi file
+      let want = Math.max(real, dots * 2);
+      // non si può scendere più di un livello sotto la riga elenco precedente
+      want = prev.list ? Math.min(want, prev.depth + 2) : 0;
+      if (want % 2) want += 1;
+      t = ' '.repeat(want) + '- <strong>' + m[2] + '.</strong> ' + m[4];
+      prev.list = true; prev.depth = want;
+    } else {
+      const b = /^([ \t]*)[-*+][ \t]/.exec(t);
+      if (b) { prev.list = true; prev.depth = indentWidth(b[1]); }
+      else if (t.trim() !== '') prev.list = false;
+    }
+    // ripristina i segmenti protetti (anche annidati: un'escape dentro una formula)
+    const back = new RegExp(PH + '(\\d+)' + PH, 'g');
+    for (let k = 0; k < 6 && t.indexOf(PH) >= 0; k++) t = t.replace(back, (_, i) => stash[+i]);
+    return t;
+  }
+
+  function preprocess(md) {
+    const src = String(md).replace(/\r\n?/g, '\n').split(PH).join('');
+    let fence = null, math = false;
+    const prev = { list: false, depth: 0 };
+    return src.split('\n').map(line => {
+      const f = /^\s*(`{3,}|~{3,})/.exec(line);
+      if (fence) {
+        if (f && f[1][0] === fence[0] && f[1].length >= fence.length && /^\s*(`{3,}|~{3,})\s*$/.test(line)) fence = null;
+        return line;
+      }
+      if (f) { fence = f[1]; return line; }
+      if (math) { if (line.indexOf('$$') >= 0) math = false; return line; }
+      if (/^\s*\$\$/.test(line) && (line.match(/\$\$/g) || []).length % 2 === 1) { math = true; return line; }
+      return transformLine(line, prev);
+    }).join('\n');
+  }
+
+  // ──────────────────────────────────────────────────────────────
+  //  EDITING DELLE LISTE (funzioni pure: testo in → testo out)
+  // ──────────────────────────────────────────────────────────────
+  function indentWidth(s) { return String(s).replace(/\t/g, '  ').length; }
+
+  function parseListLine(line) {
+    let m = NUM_LINE.exec(line);
+    if (m) return { type: 'num', depth: indentWidth(m[1]), label: m[2], text: m[4], markLen: m[1].length + m[2].length + 1 + m[3].length };
+    m = /^([ \t]*)-([ \t]+)(.*)$/.exec(line);
+    if (m) return { type: 'bul', depth: indentWidth(m[1]), label: null, text: m[3], markLen: m[1].length + 1 + m[2].length };
+    return null;
+  }
+  function fmtItem(p, label, text) {
+    return ' '.repeat(p.depth) + (p.type === 'num' ? label + '. ' : '- ') + text;
+  }
+  function incLabel(label) {
+    const p = label.split('.');
+    const n = parseInt(p[p.length - 1], 10) + 1;
+    if (n > 99) return label;
+    p[p.length - 1] = String(n);
+    return p.join('.');
+  }
+
+  // Ricalcola le etichette 1. / 1.1. / 1.2. di tutto il blocco di elenco che
+  // contiene la riga idx, in base alla struttura (indentazione).
+  function relabelBlock(lines, idx) {
+    const isBlank = l => l.trim() === '';
+    let s = idx, e = idx;
+    while (s > 0 && (parseListLine(lines[s - 1]) || isBlank(lines[s - 1]))) s--;
+    while (e < lines.length - 1 && (parseListLine(lines[e + 1]) || isBlank(lines[e + 1]))) e++;
+    const stack = []; // {depth, type, label}
+    for (let i = s; i <= e; i++) {
+      const p = parseListLine(lines[i]);
+      if (!p) continue;
+      while (stack.length && stack[stack.length - 1].depth > p.depth) stack.pop();
+      const top = stack.length ? stack[stack.length - 1] : null;
+      let label = p.label;
+      if (p.type === 'num') {
+        if (top && top.depth === p.depth) {
+          if (top.type === 'num') label = incLabel(top.label);
+          else if (label.indexOf('.') >= 0) label = '1';
+        } else {
+          const parent = top && top.depth < p.depth ? top : null;
+          if (parent && parent.type === 'num') {
+            const pre = parent.label + '.';
+            const okTyped = label.indexOf(pre) === 0 && label.slice(pre.length).indexOf('.') < 0;
+            label = okTyped ? label : pre + '1';
+          } else if (label.indexOf('.') >= 0) label = '1';
         }
-        if (stroke && stroke !== 'none' && stroke !== '') circle.style.setProperty('fill', stroke, 'important');
+        if (label !== p.label) lines[i] = fmtItem(p, label, p.text);
+      }
+      // sostituisce l'eventuale frame dello stesso livello
+      if (top && top.depth === p.depth) stack.pop();
+      stack.push({ depth: p.depth, type: p.type, label });
+    }
+  }
+
+  const lineStartsOf = lines => { const r = []; let o = 0; lines.forEach(l => { r.push(o); o += l.length + 1; }); return r; };
+  function lineIndexAt(text, pos) { let n = 0; for (let i = 0; i < pos && i < text.length; i++) if (text.charCodeAt(i) === 10) n++; return n; }
+
+  // Profondità massima consentita alla riga i: una sotto la riga elenco precedente
+  function maxDepthFor(lines, i) {
+    for (let j = i - 1; j >= 0; j--) {
+      if (lines[j].trim() === '') continue;
+      const p = parseListLine(lines[j]);
+      return p ? Math.floor(p.depth / 2) * 2 + 2 : 0;
+    }
+    return 0;
+  }
+
+  // Tab / Shift+Tab su una o più righe di elenco. null = non gestito (comportamento del browser).
+  function editTab(text, selStart, selEnd, shift) {
+    const lines = text.split('\n');
+    const a = lineIndexAt(text, selStart);
+    let b = lineIndexAt(text, selEnd);
+    if (selEnd > selStart && text[selEnd - 1] === '\n') b = Math.max(a, b - 1);
+    const targets = [];
+    for (let i = a; i <= b; i++) if (parseListLine(lines[i])) targets.push(i);
+    if (!targets.length) return null;
+    const starts = lineStartsOf(lines);
+    const before = lines.slice();
+    let changed = false;
+    targets.forEach(i => {
+      const p = parseListLine(lines[i]);
+      let nd;
+      if (shift) nd = Math.max(0, Math.ceil((p.depth - 2) / 2) * 2);
+      else nd = Math.min(Math.floor(p.depth / 2) * 2 + 2, maxDepthFor(lines, i));
+      if (nd === p.depth) return;
+      lines[i] = fmtItem({ type: p.type, depth: nd }, p.label, p.text);
+      changed = true;
+    });
+    if (!changed) return { text, selStart, selEnd };
+    relabelBlock(lines, targets[0]);
+    const map = pos => {
+      const li = lineIndexAt(text, pos);
+      const col = pos - starts[li];
+      const o = parseListLine(before[li]), n = parseListLine(lines[li]);
+      const ns = lineStartsOf(lines)[li];
+      if (!o || !n) return ns + col;
+      return ns + (col >= o.markLen ? n.markLen + (col - o.markLen) : Math.min(col, n.markLen));
+    };
+    return { text: lines.join('\n'), selStart: map(selStart), selEnd: map(selEnd) };
+  }
+
+  // Invio: continua l'elenco, esce dall'elenco su voce vuota, divide la voce al cursore.
+  function editEnter(text, pos) {
+    const ls = text.lastIndexOf('\n', pos - 1) + 1;
+    const leRaw = text.indexOf('\n', pos);
+    const le = leRaw < 0 ? text.length : leRaw;
+    const line = text.slice(ls, le);
+    const p = parseListLine(line);
+    if (!p) return null;
+    const lines = text.split('\n');
+    const li = lineIndexAt(text, ls);
+    if (p.text.trim() === '') {
+      lines[li] = '';
+      relabelBlock(lines, Math.max(0, li - 1));
+      const res = lines.join('\n');
+      return { text: res, selStart: lineStartsOf(lines)[li], selEnd: lineStartsOf(lines)[li] };
+    }
+    const col = pos - ls;
+    if (col <= p.markLen) {
+      // cursore dentro il marcatore: nuova voce vuota SOPRA
+      const empty = p.type === 'num' ? fmtItem(p, p.label, '') : fmtItem(p, null, '');
+      lines.splice(li, 0, empty);
+      if (p.type === 'num') relabelBlock(lines, li);
+      const st = lineStartsOf(lines);
+      const np = parseListLine(lines[li + 1]);
+      const at = st[li + 1] + (np ? np.markLen : 0);
+      return { text: lines.join('\n'), selStart: at, selEnd: at };
+    }
+    const beforeTxt = line.slice(0, col), afterTxt = line.slice(col);
+    lines[li] = beforeTxt;
+    const nl = p.type === 'num' ? fmtItem(p, incLabel(p.label), afterTxt) : fmtItem(p, null, afterTxt);
+    lines.splice(li + 1, 0, nl);
+    if (p.type === 'num') relabelBlock(lines, li + 1);
+    const st = lineStartsOf(lines);
+    const np = parseListLine(lines[li + 1]);
+    const at = st[li + 1] + (np ? np.markLen : 0);
+    return { text: lines.join('\n'), selStart: at, selEnd: at };
+  }
+
+  // Intervallo minimo da sostituire per passare da a a b (per usare la cronologia nativa)
+  function diffRange(a, b) {
+    let s = 0;
+    const min = Math.min(a.length, b.length);
+    while (s < min && a.charCodeAt(s) === b.charCodeAt(s)) s++;
+    let ea = a.length, eb = b.length;
+    while (ea > s && eb > s && a.charCodeAt(ea - 1) === b.charCodeAt(eb - 1)) { ea--; eb--; }
+    return { from: s, to: ea, insert: b.slice(s, eb) };
+  }
+
+  // ──────────────────────────────────────────────────────────────
+  //  ALBERO: colori, fold, testo
+  // ──────────────────────────────────────────────────────────────
+  function assignColors(root) {
+    if (!root) return;
+    root.state = root.state || {}; root.state.ci = 0;
+    (root.children || []).forEach((c, i) => paint(c, (i + 1) % PALETTES.dark.length));
+    function paint(n, ci) { n.state = n.state || {}; n.state.ci = ci; (n.children || []).forEach(k => paint(k, ci)); }
+  }
+  function applyFold(node, map, path) {
+    if (map[path] !== undefined) { node.payload = node.payload || {}; node.payload.fold = map[path]; }
+    (node.children || []).forEach((c, i) => applyFold(c, map, path + '/' + i));
+  }
+  function snapFold(root) {
+    const s = {};
+    (function w(n, p) { s[p] = (n.payload && n.payload.fold) ? 1 : 0; (n.children || []).forEach((c, i) => w(c, p + '/' + i)); })(root, '0');
+    return s;
+  }
+  function countNodes(root) { let c = 0; (function w(n) { c++; (n.children || []).forEach(w); })(root); return c; }
+  function stripHtml(h) { return decodeEntities(String(h || '').replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim(); }
+
+  // ──────────────────────────────────────────────────────────────
+  //  CARICAMENTO DELLE LIBRERIE (con CDN alternativo)
+  // ──────────────────────────────────────────────────────────────
+  let libsPromise = null;
+  const libsReady = () => window.markmap && window.markmap.Markmap && window.markmap.Transformer;
+  function waitFor(fn, ms) {
+    return new Promise((res, rej) => {
+      const t0 = Date.now();
+      (function tick() { if (fn()) res(); else if (Date.now() - t0 > ms) rej(new Error('timeout')); else setTimeout(tick, 60); })();
+    });
+  }
+  function loadScript(url) {
+    return new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = url; s.async = true;
+      s.onload = res; s.onerror = () => rej(new Error('script'));
+      document.head.appendChild(s);
+    });
+  }
+  function loadLibs() {
+    if (libsPromise) return libsPromise;
+    window.markmap = Object.assign(window.markmap || {}, { autoLoader: Object.assign({ manual: true }, (window.markmap || {}).autoLoader) });
+    libsPromise = (async () => {
+      if (libsReady()) return window.markmap;
+      let err = null;
+      for (const url of LIB_URLS) {
+        try { await loadScript(url); await waitFor(libsReady, 20000); return window.markmap; } catch (e) { err = e; }
+      }
+      throw err || new Error('markmap non disponibile');
+    })();
+    libsPromise.catch(() => { libsPromise = null; });
+    return libsPromise;
+  }
+
+  // ──────────────────────────────────────────────────────────────
+  //  MAPVIEW: rendering della mappa (editor ed export)
+  // ──────────────────────────────────────────────────────────────
+  class MapView {
+    constructor(svg, opts) {
+      this.svg = svg;
+      this.opts = Object.assign({ maxWidth: 500, dark: true, onRender: null, onNodeClick: null }, opts);
+      this.seq = 0; this.root = null; this.inst = null; this.tr = null;
+      this.imgs = {}; this.lastMd = ''; this.katexLoaded = false;
+      this.q = ''; this.hits = []; this.cur = -1;
+      this.ctx = { img: src => this.imgInfo(src), maxWidth: () => this.opts.maxWidth };
+      svg.addEventListener('click', e => {
+        if (!this.opts.onNodeClick || e.target.closest('circle') || e.target.closest('a')) return;
+        const g = e.target.closest('.markmap-node');
+        const d = g && g.__data__;
+        const lines = d && d.data && d.data.payload && d.data.payload.lines;
+        if (lines) this.opts.onNodeClick(String(lines).split(',').map(Number), d.data);
       });
     }
-    fixC(svg);
-    const dl = Date.now() + 350;
-    (function raf(){ if(Date.now()<dl){ fixC(svg); requestAnimationFrame(raf); } })();
+    palette() { return PALETTES[this.opts.dark ? 'dark' : 'light']; }
+
+    imgInfo(src) {
+      const e = this.imgs[src];
+      if (e) return e.state === 'ok' ? { w: e.w, h: e.h } : (e.state === 'bad' ? { bad: true } : null);
+      this.imgs[src] = { state: 'pending' };
+      const im = new Image();
+      im.referrerPolicy = 'no-referrer';
+      im.onload = () => { this.imgs[src] = { state: 'ok', w: im.naturalWidth || 0, h: im.naturalHeight || 0 }; this.scheduleRerender(); };
+      im.onerror = () => { this.imgs[src] = { state: 'bad' }; this.scheduleRerender(); };
+      im.src = src;
+      return null;
+    }
+    resetImages() { this.imgs = {}; }
+    scheduleRerender() { clearTimeout(this._rt); this._rt = setTimeout(() => this.render(this.lastMd), 60); }
+
+    async render(md, o) {
+      o = o || {};
+      this.lastMd = md;
+      const seq = ++this.seq;
+      const mm = await loadLibs();
+      if (seq !== this.seq) return false;
+      if (!this.tr) {
+        this.tr = new mm.Transformer();
+        harden(this.tr, this.ctx);
+        this.tr.hooks.retransform.tap(() => this.scheduleRerender()); // KaTeX pronto → ridisegna
+      }
+      const { root, features } = this.tr.transform(preprocess(md));
+      if (features && features.katex && !this.katexLoaded) {
+        this.katexLoaded = true;
+        try {
+          const a = this.tr.getUsedAssets(features);
+          if (a.styles && a.styles.length && mm.loadCSS) Promise.resolve(mm.loadCSS(a.styles)).catch(() => {});
+          if (a.scripts && a.scripts.length && mm.loadJS) Promise.resolve(mm.loadJS(a.scripts, { getMarkmap: () => mm })).catch(() => {});
+        } catch (_) { /* offline: le formule restano come testo */ }
+      }
+      if (seq !== this.seq) return false;
+      const fold = ('fold' in o) ? o.fold : (this.root ? snapFold(this.root) : null);
+      assignColors(root);
+      if (fold) applyFold(root, fold, '0');
+      this.root = root;
+      if (!this.inst) {
+        this.inst = new mm.Markmap(this.svg, {
+          maxWidth: this.opts.maxWidth, paddingX: 22, duration: 250,
+          color: n => this.palette()[(n.state && n.state.ci) || 0]
+        });
+        const orig = this.inst.renderData.bind(this.inst);
+        this.inst.renderData = (...a) => { const r = orig(...a); this.afterRender(); return r; };
+        this.inst.setData(root);
+        await this.inst.fit();
+      } else {
+        this.inst.setData(root);
+        if (o.fit) await this.inst.fit();
+      }
+      return true;
+    }
+
+    afterRender() {
+      this.paintCircles();
+      this.collectHits(true);
+      if (this.opts.onRender) this.opts.onRender(this);
+    }
+    // Il cerchio del nodo prende il colore del suo ramo (stile inline: sopravvive alle transizioni d3)
+    paintCircles() {
+      this.svg.querySelectorAll('.markmap-node > circle').forEach(c => {
+        const d = c.__data__;
+        if (d && d.data) c.style.setProperty('fill', this.palette()[(d.data.state && d.data.state.ci) || 0]);
+      });
+    }
+    setMaxWidth(v) { this.opts.maxWidth = v; if (this.inst) { this.inst.setOptions({ maxWidth: v }); return this.render(this.lastMd, { fit: true }); } }
+    setDark(d) { this.opts.dark = d; if (this.inst) this.inst.setData(); }
+    fit() { return this.inst ? this.inst.fit() : null; }
+    zoomBy(f) { return this.inst ? this.inst.rescale(f) : null; }
+    getFold() { return this.root ? snapFold(this.root) : {}; }
+    isFolded() { return !!(this.root && this.root.payload && this.root.payload.fold); }
+    foldAll(collapsed) {
+      if (!this.root || !this.inst) return;
+      (function w(n) { if (n.children && n.children.length) { n.payload = Object.assign({}, n.payload, { fold: collapsed ? 1 : 0 }); } (n.children || []).forEach(w); })(this.root);
+      this.inst.setData();
+      return this.inst.fit();
+    }
+    nodeCount() { return this.root ? countNodes(this.root) : 0; }
+
+    // ── ricerca tra i nodi ──
+    search(q) { this.q = String(q || '').trim().toLowerCase(); this.cur = -1; this.collectHits(false); return { n: this.hits.length }; }
+    collectHits(keepCur) {
+      const prev = keepCur && this.cur >= 0 && this.hits[this.cur] ? this.hits[this.cur].node : null;
+      this.hits = [];
+      if (this.q && this.root) {
+        (function w(n, anc, self) {
+          if (stripHtml(n.content).toLowerCase().indexOf(self.q) >= 0) self.hits.push({ node: n, anc: anc.slice() });
+          anc.push(n); (n.children || []).forEach(c => w(c, anc, self)); anc.pop();
+        })(this.root, [], this);
+      }
+      if (prev) { const i = this.hits.findIndex(h => h.node === prev); this.cur = i; }
+      this.markHits();
+    }
+    markHits() {
+      const set = new Set(this.hits.map(h => h.node));
+      const cur = this.cur >= 0 && this.hits[this.cur] ? this.hits[this.cur].node : null;
+      this.svg.querySelectorAll('.markmap-node').forEach(g => {
+        const n = g.__data__ && g.__data__.data;
+        g.classList.toggle('nl-hit', !!n && set.has(n));
+        g.classList.toggle('nl-cur', !!n && n === cur);
+      });
+    }
+    async gotoHit(dir) {
+      if (!this.hits.length) return null;
+      this.cur = (this.cur + (dir || 1) + this.hits.length) % this.hits.length;
+      const h = this.hits[this.cur];
+      let opened = null;
+      h.anc.forEach(a => { if (a.payload && a.payload.fold) { a.payload = Object.assign({}, a.payload, { fold: 0 }); opened = a; } });
+      if (opened) this.inst.renderData(opened);
+      this.markHits();
+      await this.inst.ensureView(h.node, { left: 40, right: 40, top: 40, bottom: 40 });
+      return { i: this.cur + 1, n: this.hits.length };
+    }
   }
 
-  const raw = document.documentElement.innerHTML;
-  const mdm = raw.match(/NODELY_MD_START\n([\s\S]*?)\nNODELY_MD_END/);
-  if (!mdm) { console.error('Markdown non trovato'); return; }
-  const md = mdm[1].replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
-  const fm = raw.match(/NODELY_FOLD_START\n([\s\S]*?)\nNODELY_FOLD_END/);
-  const FOLD = fm ? JSON.parse(fm[1]) : {};
-  let proc = md.replace(/==([^=\n]+)==/g,'<span style="background:rgba(255,210,50,0.4);border-radius:3px;padding:0 3px;">$1</span>');
-  proc = proc.replace(/^(\s*)([\d]+(?:\.[\d]+)*)\.\s(.*)$/gm, (_,_i,num,text) => '  '.repeat(num.split('.').length-1)+'- <span style="font-weight:700;margin-right:4px;">'+num+'.</span> '+text);
-
-  await new Promise(r => { function c(){ (window.markmap&&window.markmap.Markmap&&window.markmap.Transformer)?r():setTimeout(c,50); } c(); });
-  const { Transformer, Markmap, loadCSS, loadJS } = window.markmap;
-  const tr = new Transformer();
-  const { features: fp } = tr.transform(proc);
-  const ap = tr.getUsedAssets(fp);
-  if (ap.styles&&ap.styles.length) loadCSS(ap.styles);
-  if (ap.scripts&&ap.scripts.length) await loadJS(ap.scripts, { getMarkmap: () => window.markmap });
-  if (ap.scripts&&ap.scripts.length&&!window.katex) {
-    await new Promise(r => { const dl=Date.now()+3000; function ck(){ (window.katex||Date.now()>dl)?r():setTimeout(ck,50); } ck(); });
+  // ──────────────────────────────────────────────────────────────
+  //  LETTURA DEI FILE SALVATI
+  // ──────────────────────────────────────────────────────────────
+  function block(text, name) {
+    const m = new RegExp(name + '_START\\r?\\n([\\s\\S]*?)\\r?\\n' + name + '_END').exec(text);
+    return m ? m[1] : null;
   }
-  const { root, features } = tr.transform(proc);
-  const assets = tr.getUsedAssets(features);
-  if (assets.styles&&assets.styles.length) loadCSS(assets.styles);
+  // Legge un file salvato da NodeLab (stringa HTML o Document).
+  // Riconosce anche i file di Nodely (marcatori NODELY_*), comprese le versioni più vecchie.
+  function readSaved(input) {
+    let doc = input, raw = null;
+    if (typeof input === 'string') {
+      raw = input.replace(/\r\n?/g, '\n');
+      doc = new DOMParser().parseFromString(raw, 'text/html');
+    }
+    const comments = [];
+    const tw = doc.createTreeWalker(doc, NodeFilter.SHOW_COMMENT);
+    while (tw.nextNode()) comments.push(tw.currentNode.nodeValue);
+    const all = comments.join('\n');
+    const get = name => block(all, name) !== null ? block(all, name) : (raw ? block(raw, name) : null);
+    let pre = 'NODELAB_', md = get('NODELAB_MD');
+    if (md === null) { pre = 'NODELY_'; md = get('NODELY_MD'); }
+    if (md === null) return null;
+    let fold = null, meta = null;
+    try { const f = get(pre + 'FOLD'); if (f) fold = JSON.parse(f); } catch (_) { fold = null; }
+    try { const mt = get(pre + 'META'); if (mt) meta = JSON.parse(mt); } catch (_) { meta = null; }
+    return { md: decodeMd(md), fold, meta, title: (doc.title || '').trim() };
+  }
 
-  if (root.children) root.children.forEach((c,i) => ct(c, COLORS[(i+1)%COLORS.length]));
-  function ct(n,col){ n.state=n.state||{}; n.state.color=col; (n.children||[]).forEach(c=>ct(c,col)); }
-  (function af(n,p){ if(FOLD[p]!==undefined){n.payload=n.payload||{};n.payload.fold=FOLD[p];} (n.children||[]).forEach((c,i)=>af(c,p+'/'+i)); })(root,'0');
+  // ──────────────────────────────────────────────────────────────
+  //  IMPORT DI FILE markmap.js
+  // ──────────────────────────────────────────────────────────────
+  function scanJsonObject(s, start) {
+    let depth = 0, inStr = false;
+    for (let i = start; i < s.length; i++) {
+      const ch = s[i];
+      if (inStr) { if (ch === '\\') i++; else if (ch === '"') inStr = false; continue; }
+      if (ch === '"') inStr = true;
+      else if (ch === '{') depth++;
+      else if (ch === '}') { depth--; if (depth === 0) return i; }
+    }
+    return -1;
+  }
+  function findMarkmapTree(html) {
+    const re = /[,(]\s*(\{\s*"content"\s*:)/g;
+    let m, tries = 0;
+    while ((m = re.exec(html)) && tries++ < 6) {
+      const start = m.index + m[0].length - m[1].length;
+      const end = scanJsonObject(html, start);
+      if (end < 0) continue;
+      const txt = html.slice(start, end + 1).replace(/\\x([0-9a-fA-F]{2})/g, (_, h) => '\\u00' + h);
+      try { const t = JSON.parse(txt); if (t && ('content' in t)) return t; } catch (_) { /* prossimo candidato */ }
+    }
+    return null;
+  }
+  // HTML di un nodo → markdown inline (formule, immagini, evidenziazioni, link, grassetto…)
+  function inlineHtmlToMd(html) {
+    const doc = new DOMParser().parseFromString('<div>' + html + '</div>', 'text/html');
+    function walk(n) {
+      if (n.nodeType === 3) return n.nodeValue;
+      if (n.nodeType !== 1) return '';
+      const tag = n.tagName.toLowerCase();
+      if (tag === 'annotation') return '';
+      if (n.classList && n.classList.contains('katex')) {
+        const a = n.querySelector('annotation[encoding="application/x-tex"]');
+        return a ? '$' + a.textContent.trim() + '$' : '';
+      }
+      if (n.classList && n.classList.contains('katex-display')) {
+        const a = n.querySelector('annotation[encoding="application/x-tex"]');
+        return a ? '$$' + a.textContent.trim() + '$$' : '';
+      }
+      const inner = () => Array.prototype.map.call(n.childNodes, walk).join('');
+      if (tag === 'strong' || tag === 'b') return '**' + inner() + '**';
+      if (tag === 'em' || tag === 'i') return '*' + inner() + '*';
+      if (tag === 'del' || tag === 's') return '~~' + inner() + '~~';
+      if (tag === 'mark') return '==' + inner() + '==';
+      if (tag === 'code') return '`' + n.textContent + '`';
+      if (tag === 'a') { const h = n.getAttribute('href') || ''; return h ? '[' + inner() + '](' + h + ')' : inner(); }
+      if (tag === 'br') return ' ';
+      if (tag === 'img') {
+        const at = ['src', 'alt', 'width', 'height'].filter(k => n.getAttribute(k)).map(k => k + '="' + escAttr(n.getAttribute(k)) + '"');
+        return '<img ' + at.join(' ') + '>';
+      }
+      if (tag === 'span' && /background/i.test(n.getAttribute('style') || '')) return '==' + inner() + '==';
+      return inner();
+    }
+    return walk(doc.body.firstChild).replace(/\s+/g, ' ').trim();
+  }
+  function treeToMd(tree, title) {
+    const lines = [];
+    function nodeMd(node, depth) {
+      const text = inlineHtmlToMd(node.content || '');
+      if (!text) { (node.children || []).forEach(c => nodeMd(c, depth)); return; } // wrapper vuoto: figli allo stesso livello
+      if (depth === 0) lines.push('# ' + text);
+      else if (depth === 1) lines.push('', '## ' + text);
+      else lines.push('  '.repeat(depth - 2) + '- ' + text);
+      (node.children || []).forEach(c => nodeMd(c, depth + 1));
+    }
+    if (!inlineHtmlToMd(tree.content || '') && (tree.children || []).length > 1) {
+      lines.push('# ' + (title || 'Mappa'));
+      tree.children.forEach(c => nodeMd(c, 1));
+    } else nodeMd(tree, 0);
+    return lines.join('\n').replace(/^\n+/, '') + '\n';
+  }
 
-  const svg = document.getElementById('mm');
-  let exMaxW=500;
-  const inst = Markmap.create(svg, { maxWidth:exMaxW, color:n=>(n.state&&n.state.color)||COLORS[0], paddingX:22, duration:250 }, root);
+  return {
+    VERSION, PALETTES, MAP_CSS, LIB_URLS,
+    escHtml, decodeEntities, encodeMd, decodeMd, safeFileName,
+    sanitizeChunk, harden, preprocess, transformLine,
+    parseListLine, relabelBlock, editTab, editEnter, diffRange, incLabel,
+    assignColors, applyFold, snapFold, countNodes, stripHtml,
+    loadLibs, MapView,
+    readSaved, findMarkmapTree, treeToMd, inlineHtmlToMd
+  };
+};
+(function () {
+  var core = NodeLabCore();
+  var $ = function (id) { return document.getElementById(id); };
+  var saved = core.readSaved(document) || { md: '', fold: null, meta: {} };
+  var meta = saved.meta || {};
+  var dark = !document.body.classList.contains('light');
+  var maxW = (meta.maxWidth >= 100 && meta.maxWidth <= 1200) ? meta.maxWidth : 500;
+  var view = new core.MapView($('mm'), { maxWidth: maxW, dark: dark, onRender: updateToggle });
+  var ICON = {"sun":"<circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41\"/>","moon":"<path d=\"M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401\"/>","shrink":"<path d=\"m15 15 6 6m-6-6v4.8m0-4.8h4.8\"/><path d=\"M9 19.8V15m0 0H4.2M9 15l-6 6\"/><path d=\"M15 4.2V9m0 0h4.8M15 9l6-6\"/><path d=\"M9 4.2V9m0 0H4.2M9 9 3 3\"/>","expand":"<path d=\"m15 15 6 6\"/><path d=\"m15 9 6-6\"/><path d=\"M21 16v5h-5\"/><path d=\"M21 8V3h-5\"/><path d=\"M3 16v5h5\"/><path d=\"m3 21 6-6\"/><path d=\"M3 8V3h5\"/><path d=\"M9 9 3 3\"/>"};
+  function ic(n) { return '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true">' + ICON[n] + '</svg>'; }
 
-  const obs = new MutationObserver(()=>{ clearTimeout(obs._t); obs._t=setTimeout(()=>injectFO(svg,dark),80); });
-  obs.observe(svg,{childList:true,subtree:true});
-  setTimeout(()=>injectFO(svg,dark),200);
-  setTimeout(()=>injectFO(svg,dark),800);
+  function updateToggle() {
+    var f = view.isFolded(), b = $('tb-toggle');
+    b.innerHTML = f ? ic('expand') + '<span class="lbl">Espandi</span>' : ic('shrink') + '<span class="lbl">Riduci</span>';
+    b.title = f ? 'Espandi: apri tutti i rami' : 'Riduci: chiudi tutti i rami';
+    b.setAttribute('aria-label', f ? 'Espandi tutti i rami' : 'Riduci tutti i rami');
+  }
+  function draw() {
+    return view.render(saved.md, { fold: saved.fold, fit: true }).then(function () { $('err').classList.remove('show'); })
+      .catch(function () { $('err').classList.add('show'); });
+  }
+  $('err-retry').addEventListener('click', function () { $('err').classList.remove('show'); draw(); });
+  $('tb-toggle').addEventListener('click', function () { view.foldAll(!view.isFolded()); });
 
   function applyTheme(dk) {
     dark = dk;
     document.body.classList.toggle('light', !dk);
-    const ti = document.getElementById('tb-ti');
-    if (ti) ti.innerHTML = dk
-      ? `<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`
-      : `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
-    injectFO(svg, dk);
+    $('tb-ti').innerHTML = dk ? ICON.sun : ICON.moon;
+    var t = dk ? 'Passa al tema chiaro' : 'Passa al tema scuro';
+    $('tb-theme').title = t; $('tb-theme').setAttribute('aria-label', t);
+    view.setDark(dk);
   }
-  document.getElementById('tb-theme').addEventListener('click',()=>applyTheme(!dark));
+  $('tb-theme').addEventListener('click', function () { applyTheme(!dark); });
+  $('tb-zi').addEventListener('click', function () { view.zoomBy(1.3); });
+  $('tb-zo').addEventListener('click', function () { view.zoomBy(1 / 1.3); });
+  $('tb-fit').addEventListener('click', function () { view.fit(); });
 
-  function zb(f){ const g=svg.querySelector('g'); if(!g)return; const t=g.getAttribute('transform')||''; const sm=t.match(/scale\(([^)]+)\)/),tm=t.match(/translate\(([^,]+),\s*([^)]+)\)/); let s=sm?parseFloat(sm[1]):1,tx=tm?parseFloat(tm[1]):0,ty=tm?parseFloat(tm[2]):0; const cx=window.innerWidth/2,cy=window.innerHeight/2; tx=cx-(cx-tx)*f; ty=cy-(cy-ty)*f; g.setAttribute('transform',`translate(${tx},${ty}) scale(${s*f})`); }
-  document.getElementById('tb-zi').addEventListener('click',()=>zb(1.3));
-  document.getElementById('tb-zo').addEventListener('click',()=>zb(1/1.3));
-  document.getElementById('tb-fit').addEventListener('click',()=>inst.fit());
+  var sbg = $('s-bg'), opener = null;
+  function openS() { opener = document.activeElement; sbg.classList.add('open'); $('s-maxw').focus(); }
+  function closeS() { sbg.classList.remove('open'); if (opener && opener.focus) opener.focus(); }
+  $('tb-settings').addEventListener('click', openS);
+  $('s-close-btn').addEventListener('click', closeS);
+  sbg.addEventListener('click', function (e) { if (e.target === sbg) closeS(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sbg.classList.contains('open')) closeS(); });
+  $('s-maxw').addEventListener('input', function () {
+    var v = parseInt(this.value, 10);
+    if (!v || v < 100 || v > 1200) return;
+    view.setMaxWidth(v);
+  });
 
-  document.getElementById('tb-settings').addEventListener('click',()=>document.getElementById('s-bg').classList.add('open'));
-  document.getElementById('s-close-btn').addEventListener('click',()=>document.getElementById('s-bg').classList.remove('open'));
-  document.getElementById('s-bg').addEventListener('click',e=>{ if(e.target===e.currentTarget) e.currentTarget.classList.remove('open'); });
-  document.getElementById('s-maxw').addEventListener('input',function(){ const v=parseInt(this.value); if(!v||v<50)return; exMaxW=v; inst.setOptions({maxWidth:exMaxW}); inst.setData(root); inst.fit(); });
+  var aiClose = $('ai-close');
+  if (aiClose) aiClose.addEventListener('click', function () { $('ai-banner').style.display = 'none'; });
 
-  const aiBannerEl = document.getElementById('ai-banner');
-  const aiClose = document.getElementById('ai-close');
-  if (aiClose) aiClose.addEventListener('click',()=>{ if(aiBannerEl) aiBannerEl.style.display='none'; });
-
+  updateToggle();
   applyTheme(dark);
+  draw();
 })();
 </script>
 </body>
